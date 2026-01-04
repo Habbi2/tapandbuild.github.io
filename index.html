@@ -116,13 +116,12 @@
         
         .screenshot {
             width: 200px;
-            height: 400px;
+            height: auto;
+            max-height: 400px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            display: block;
+            object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.1);
         }
         
@@ -200,9 +199,9 @@
         <section class="screenshot-section">
             <h2>📱 Screenshots</h2>
             <div class="screenshots">
-                <div class="screenshot">Screenshot 1</div>
-                <div class="screenshot">Screenshot 2</div>
-                <div class="screenshot">Screenshot 3</div>
+                <img src="screenshot1.jpg" alt="Tap & Build Screenshot 1" class="screenshot">
+                <img src="screenshot2.jpg" alt="Tap & Build Screenshot 2" class="screenshot">
+                <img src="screenshot3.jpg" alt="Tap & Build Screenshot 3" class="screenshot">
             </div>
         </section>
         
