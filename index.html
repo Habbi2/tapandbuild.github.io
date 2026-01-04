@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap & Build - Idle Factory Tycoon</title>
+    <meta name="description" content="Build your factory empire! Tap to earn, buy generators, prestige, and compete globally in this addictive idle tycoon game.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #e94560;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e94560, #b8304f);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: #aaaaaa;
+            line-height: 1.6;
+        }
+        
+        .screenshot-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .screenshot-section h2 {
+            color: #e94560;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .screenshots {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .screenshot {
+            width: 200px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+        
+        footer a {
+            color: #e94560;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🏭💰</div>
+            <h1>Tap & Build</h1>
+            <p class="tagline">Idle Factory Tycoon - Build Your Empire!</p>
+            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
+                📱 Download on Google Play
+            </a>
+        </header>
+        
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">👆</div>
+                <h3>Tap to Earn</h3>
+                <p>Start with simple taps and watch your fortune grow from coins to billions!</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚙️</div>
+                <h3>8 Generators</h3>
+                <p>Unlock automated production lines that earn money while you're away.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⭐</div>
+                <h3>Prestige System</h3>
+                <p>Reset for permanent multipliers and push your earnings even further!</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+                <h3>Global Leaderboard</h3>
+                <p>Compete with players worldwide and climb to the top!</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎁</div>
+                <h3>Daily Rewards</h3>
+                <p>Come back every day for increasing bonuses and streak rewards.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎡</div>
+                <h3>Lucky Wheel</h3>
+                <p>Spin for bonus cash, production boosts, and more free spins!</p>
+            </div>
+        </section>
+        
+        <section class="screenshot-section">
+            <h2>📱 Screenshots</h2>
+            <div class="screenshots">
+                <div class="screenshot">Screenshot 1</div>
+                <div class="screenshot">Screenshot 2</div>
+                <div class="screenshot">Screenshot 3</div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@tapandbuild.com">Contact Support</a>
+            </div>
+            <p class="copyright">© 2026 Tap & Build. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
