@@ -368,15 +368,21 @@
         /* Screenshots */
         .screenshots-section {
             padding: 80px 0;
+            overflow: hidden;
         }
 
         .screenshots-scroll {
             display: flex;
             gap: 20px;
             overflow-x: auto;
-            padding: 20px 0 40px;
+            padding: 20px 20px 40px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            cursor: grab;
+        }
+
+        .screenshots-scroll:active {
+            cursor: grabbing;
         }
 
         .screenshots-scroll::-webkit-scrollbar {
@@ -394,16 +400,18 @@
         }
 
         .screenshot-card {
-            flex: 0 0 auto;
+            flex: 0 0 220px;
             scroll-snap-align: center;
             position: relative;
         }
 
         .screenshot-card img {
             width: 220px;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 20px 50px -15px rgba(0,0,0,0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
         }
 
         .screenshot-card:hover img {
@@ -591,7 +599,7 @@
                 <h2>See it in action</h2>
             </div>
 
-            <div class="screenshots-scroll">
+            <div class="screenshots-scroll" id="screenshotsScroll">
                 <div class="screenshot-card"><img src="screenshot1.jpg" alt="Screenshot 1"></div>
                 <div class="screenshot-card"><img src="screenshot2.jpg" alt="Screenshot 2"></div>
                 <div class="screenshot-card"><img src="screenshot3.jpg" alt="Screenshot 3"></div>
@@ -620,5 +628,38 @@
             <p class="copyright">© 2026 Tap & Build. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Drag to scroll for screenshots
+        const slider = document.getElementById('screenshotsScroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
 </body>
 </html>
