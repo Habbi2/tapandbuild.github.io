@@ -11,16 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-1: #0f172a;
-            --bg-2: #111827;
-            --card: rgba(255, 255, 255, 0.06);
-            --card-stroke: rgba(255, 255, 255, 0.12);
+            --bg-1: #030712;
+            --bg-2: #0a0f1a;
+            --card: rgba(255, 255, 255, 0.03);
+            --card-hover: rgba(255, 255, 255, 0.07);
+            --card-stroke: rgba(255, 255, 255, 0.08);
             --accent: #f97316;
-            --accent-2: #f59e0b;
-            --text-1: #f8fafc;
-            --text-2: #cbd5e1;
-            --muted: #64748b;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            --accent-2: #fb923c;
+            --glow: rgba(249, 115, 22, 0.5);
+            --text-1: #ffffff;
+            --text-2: #94a3b8;
+            --muted: #475569;
         }
 
         * {
@@ -28,313 +29,593 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-            background: radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.08), transparent 30%),
-                        radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.1), transparent 35%),
-                        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: var(--bg-1);
             color: var(--text-1);
             min-height: 100vh;
+            overflow-x: hidden;
         }
-        
+
+        /* Animated background */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-glow::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow), transparent 70%);
+            top: -200px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.4;
+        }
+
+        .bg-glow::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.3), transparent 70%);
+            bottom: -150px;
+            right: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
         .container {
-            max-width: 1120px;
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 20px;
         }
-        
-        header {
-            text-align: center;
-            padding: 64px 20px 40px;
-        }
-        
-        .logo {
-            font-size: 3.5rem;
-            margin-bottom: 12px;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            color: var(--text-1);
-            letter-spacing: -0.03em;
-        }
-        
-        .tagline {
-            font-size: 1.25rem;
-            color: var(--text-2);
-            margin-bottom: 28px;
-        }
-        
-        .cta-row {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
         }
-        
-        .cta-button {
+
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: transparent;
-            color: #0b0f1a;
-            padding: 0;
-            font-size: 1.05rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            letter-spacing: 0.01em;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            gap: 8px;
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease;
         }
-        
+
+        .hero-badge::before {
+            content: '🔥';
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2), #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-2);
+            max-width: 500px;
+            line-height: 1.5;
+            margin-bottom: 36px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .cta-button img {
+            height: 60px;
+            filter: drop-shadow(0 4px 20px var(--glow));
+        }
+
         .cta-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px) scale(1.02);
             filter: brightness(1.1);
         }
 
-        .meta {
-            margin-top: 14px;
+        .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-        
-        .pill {
-            border: 1px solid var(--card-stroke);
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.04);
+            gap: 32px;
+            margin-top: 48px;
+            animation: fadeInUp 0.6s ease 0.4s both;
         }
 
-        .section-label {
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
+        }
+
+        /* Phone mockup */
+        .phone-showcase {
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .phone-frame {
+            position: relative;
+            display: inline-block;
+        }
+
+        .phone-frame img {
+            width: 280px;
+            border-radius: 32px;
+            box-shadow: 0 25px 80px -20px var(--glow),
+                        0 0 0 1px rgba(255,255,255,0.1);
+            animation: phoneFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
             color: var(--muted);
             font-size: 0.8rem;
-            margin-bottom: 10px;
-            text-align: center;
+            animation: bounce 2s ease infinite;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 28px;
-            letter-spacing: -0.02em;
-            color: var(--text-1);
+        .scroll-hint span {
+            width: 24px;
+            height: 38px;
+            border: 2px solid var(--muted);
+            border-radius: 12px;
+            position: relative;
         }
 
-        .features {
+        .scroll-hint span::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            width: 4px;
+            height: 8px;
+            background: var(--muted);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            animation: scrollDot 1.5s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        @keyframes scrollDot {
+            0% { opacity: 1; top: 6px; }
+            100% { opacity: 0; top: 18px; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding: 6px 14px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 4px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-            padding: 22px 0 10px;
+            gap: 20px;
         }
 
-        @media (max-width: 640px) {
-            .features {
+        @media (max-width: 700px) {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
         }
-        
-        .feature {
+
+        .feature-card {
             background: var(--card);
-            border-radius: 18px;
-            padding: 22px;
             border: 1px solid var(--card-stroke);
-            box-shadow: var(--shadow);
-            text-align: left;
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
         }
-        
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -20px var(--glow);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
         .feature-icon {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-        
-        .feature h3 {
-            color: var(--accent);
-            margin-bottom: 8px;
-            font-size: 1.15rem;
-        }
-        
-        .feature p {
-            color: var(--text-2);
-            line-height: 1.5;
-            font-size: 0.98rem;
-        }
-        
-        .screenshot-section {
-            text-align: center;
-            padding: 40px 0 20px;
-        }
-        
-        .screenshot-section h2 {
-            color: var(--accent);
-            margin-bottom: 18px;
-            font-size: 1.6rem;
-        }
-        
-        .screenshots {
+            width: 48px;
+            height: 48px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .screenshot {
-            width: 200px;
-            height: auto;
-            max-height: 400px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            display: block;
-            object-fit: cover;
-            border: 1px solid var(--card-stroke);
-            box-shadow: var(--shadow);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 36px 20px 28px;
-            border-top: 1px solid var(--card-stroke);
-            margin-top: 40px;
-        }
-        
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-            margin: 0 14px;
-            font-weight: 600;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .footer-links {
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 12px;
+            font-size: 1.5rem;
             margin-bottom: 16px;
         }
-        
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-1);
+        }
+
+        .feature-card p {
+            color: var(--text-2);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Screenshots */
+        .screenshots-section {
+            padding: 80px 0;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .screenshot-card {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            position: relative;
+        }
+
+        .screenshot-card img {
+            width: 220px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px -15px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .screenshot-card:hover img {
+            transform: scale(1.05) translateY(-8px);
+            box-shadow: 0 30px 60px -15px var(--glow);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(251, 146, 60, 0.05));
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 32px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1), transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-box p {
+            color: var(--text-2);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .cta-box .cta-button {
+            position: relative;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--card-stroke);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
         .copyright {
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
+    <div class="bg-glow"></div>
+
     <div class="container">
-        <header>
-            <div class="logo">🏭💰</div>
-            <h1>Tap & Build</h1>
-            <p class="tagline">Idle factory tycoon with deep systems: managers, ascension perks, Tetris layout, and global competition.</p>
-            <div class="cta-row">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">New: Ascension Perks & Tetris Grid</div>
+            <h1><span class="gradient">Tap & Build</span></h1>
+            <p class="hero-sub">The idle factory tycoon that respects your time. Tap, automate, prestige, and compete globally.</p>
+            
+            <div class="hero-cta">
                 <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 44px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
                 </a>
-                <span class="pill">Version 1.2.0 • SDK 54</span>
             </div>
-            <div class="meta">
-                <span class="pill">Offline earnings</span>
-                <span class="pill">No account required</span>
-                <span class="pill">Free to play</span>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Generators</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Numbers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Offline</div>
+                </div>
             </div>
-        </header>
-        
-        <div class="section-label">Core Loop</div>
-        <div class="section-title">Build faster, ascend smarter</div>
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">👆</div>
-                <h3>Tap and Automate</h3>
-                <p>Start tapping, then scale into 10 generators that mint coins while you’re offline.</p>
+
+            <div class="phone-showcase">
+                <div class="phone-frame">
+                    <img src="screenshot1.jpg" alt="Tap & Build Gameplay">
+                </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">📈</div>
-                <h3>Managers & Upgrades</h3>
-                <p>Assign managers, stack production upgrades, and push efficiency without micromanaging.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🧩</div>
-                <h3>Tetris Factory Grid</h3>
-                <p>Place generators on a Tetris-inspired grid to squeeze every bonus tile and adjacency boost.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔥</div>
-                <h3>Prestige & Ascension</h3>
-                <p>Prestige for permanent multipliers, then ascend for powerful perks that rewrite your build.</p>
+
+            <div class="scroll-hint">
+                <span></span>
+                Scroll
             </div>
         </section>
 
-        <div class="section-label">Events & Meta</div>
-        <div class="section-title">Daily momentum, lucky spikes</div>
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <h3>Daily Challenges</h3>
-                <p>Fresh objectives with escalating rewards to keep your run moving every day.</p>
+        <!-- Features -->
+        <section class="features-section">
+            <div class="section-header">
+                <div class="section-tag">Features</div>
+                <h2>Everything you need to build an empire</h2>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🎁</div>
-                <h3>Daily Rewards</h3>
-                <p>Claim streak-based rewards that scale with your dedication and progress.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🍀</div>
-                <h3>Lucky Drops & Wheel</h3>
-                <p>Random loot drops and a spin wheel for bursts of cash, boosts, and bonus spins.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🛫</div>
-                <h3>Offline Earnings</h3>
-                <p>Come back to a pile of income, boosted by your upgrades, managers, and perks.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👆</div>
+                    <h3>Tap & Automate</h3>
+                    <p>Start with taps, scale to 10 generators producing while you sleep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👔</div>
+                    <h3>Hire Managers</h3>
+                    <p>Delegate production, stack upgrades, and watch profits soar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Tetris Grid</h3>
+                    <p>Place generators strategically for adjacency bonuses and combos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Prestige & Ascend</h3>
+                    <p>Reset for multipliers, then ascend for game-changing perks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Daily Challenges</h3>
+                    <p>Fresh goals every day with escalating rewards.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎰</div>
+                    <h3>Lucky Wheel</h3>
+                    <p>Spin for cash bursts, boosts, and bonus spins.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Global Leaderboards</h3>
+                    <p>Compete worldwide and flex your peak runs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛫</div>
+                    <h3>Offline Earnings</h3>
+                    <p>Come back to piles of coins, even after days away.</p>
+                </div>
             </div>
         </section>
 
-        <div class="section-label">Competition</div>
-        <div class="section-title">Climb and collect</div>
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">🏆</div>
-                <h3>Global Leaderboards</h3>
-                <p>Compete worldwide with your best runs; pick a display name and flex your peak.</p>
+        <!-- Screenshots -->
+        <section class="screenshots-section">
+            <div class="section-header">
+                <div class="section-tag">Screenshots</div>
+                <h2>See it in action</h2>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🥇</div>
-                <h3>Achievements</h3>
-                <p>Hundreds of milestones to chase, fueling more currency and prestige gains.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🧠</div>
-                <h3>Deep Math, Simple Play</h3>
-                <p>Break Infinity numbers under the hood; smooth formatting on screen. No spreadsheets required.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔌</div>
-                <h3>Privacy Friendly</h3>
-                <p>No account needed. Progress stays on your device; leaderboard names are opt-in.</p>
+
+            <div class="screenshots-scroll">
+                <div class="screenshot-card"><img src="screenshot1.jpg" alt="Screenshot 1"></div>
+                <div class="screenshot-card"><img src="screenshot2.jpg" alt="Screenshot 2"></div>
+                <div class="screenshot-card"><img src="screenshot3.jpg" alt="Screenshot 3"></div>
+                <div class="screenshot-card"><img src="screenshot4.jpg" alt="Screenshot 4"></div>
             </div>
         </section>
-        
-        <section class="screenshot-section">
-            <h2>📱 Screenshots</h2>
-            <div class="screenshots">
-                <img src="screenshot1.jpg" alt="Tap & Build Screenshot 1" class="screenshot">
-                <img src="screenshot2.jpg" alt="Tap & Build Screenshot 2" class="screenshot">
-                <img src="screenshot3.jpg" alt="Tap & Build Screenshot 3" class="screenshot">
-                <img src="screenshot4.jpg" alt="Tap & Build Screenshot 4" class="screenshot">
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-box">
+                <h2>Ready to build your empire?</h2>
+                <p>Free to play. No account required. Your progress stays on your device.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 50px;">
+                </a>
             </div>
         </section>
-        
+
+        <!-- Footer -->
         <footer>
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
-                <a href="mailto:support@tapandbuild.com">Contact Support</a>
+                <a href="mailto:support@tapandbuild.com">Contact</a>
             </div>
             <p class="copyright">© 2026 Tap & Build. All rights reserved.</p>
         </footer>
