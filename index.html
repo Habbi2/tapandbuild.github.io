@@ -13,9 +13,9 @@
         :root {
             --bg-1: #030712;
             --bg-2: #0a0f1a;
-            --card: rgba(255, 255, 255, 0.03);
-            --card-hover: rgba(255, 255, 255, 0.07);
-            --card-stroke: rgba(255, 255, 255, 0.08);
+            --card: rgba(255, 255, 255, 0.02);
+            --card-hover: rgba(255, 255, 255, 0.06);
+            --card-stroke: rgba(255, 255, 255, 0.06);
             --accent: #f97316;
             --accent-2: #fb923c;
             --glow: rgba(249, 115, 22, 0.5);
@@ -23,6 +23,47 @@
             --text-2: #94a3b8;
             --muted: #475569;
         }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(2);
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .cursor { display: none; }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
         * {
             margin: 0;
@@ -81,6 +122,29 @@
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.15;
+            animation: particleFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.3; }
         }
 
         .container {
@@ -184,6 +248,21 @@
             font-size: 2rem;
             font-weight: 700;
             color: var(--accent);
+            display: inline-block;
+        }
+
+        .stat-value.infinity {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .stat-label {
@@ -204,12 +283,35 @@
             display: inline-block;
         }
 
+        .phone-frame {
+            perspective: 1000px;
+        }
+
         .phone-frame img {
             width: 280px;
             border-radius: 32px;
             box-shadow: 0 25px 80px -20px var(--glow),
                         0 0 0 1px rgba(255,255,255,0.1);
             animation: phoneFloat 4s ease-in-out infinite;
+            transition: transform 0.1s ease;
+            transform-style: preserve-3d;
+        }
+
+        .phone-frame .shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%, transparent 100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .phone-frame:hover .shine {
+            opacity: 1;
         }
 
         @keyframes phoneFloat {
@@ -308,36 +410,58 @@
         }
 
         .feature-card {
-            background: var(--card);
-            border: 1px solid var(--card-stroke);
+            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid transparent;
             border-radius: 20px;
             padding: 28px;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background-clip: padding-box;
         }
 
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0;
+            inset: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent, rgba(249, 115, 22, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.5;
             transition: opacity 0.4s ease;
         }
 
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
         .feature-card:hover {
-            background: var(--card-hover);
-            border-color: rgba(249, 115, 22, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -20px var(--glow);
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -20px var(--glow);
         }
 
         .feature-card:hover::before {
             opacity: 1;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.5), transparent, rgba(251, 146, 60, 0.3));
+        }
+
+        .feature-card:hover::after {
+            left: 100%;
         }
 
         .feature-icon {
@@ -405,18 +529,42 @@
             position: relative;
         }
 
+        .screenshot-card {
+            perspective: 800px;
+        }
+
         .screenshot-card img {
             width: 220px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 20px 50px -15px rgba(0,0,0,0.5);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.2s ease, box-shadow 0.4s ease;
             display: block;
+            transform-style: preserve-3d;
+        }
+
+        .screenshot-card .card-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.2) 55%, transparent 60%);
+            background-size: 200% 200%;
+            background-position: 100% 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease, background-position 0.4s ease;
         }
 
         .screenshot-card:hover img {
-            transform: scale(1.05) translateY(-8px);
-            box-shadow: 0 30px 60px -15px var(--glow);
+            box-shadow: 0 35px 70px -20px var(--glow);
+        }
+
+        .screenshot-card:hover .card-shine {
+            opacity: 1;
+            background-position: 0% 0;
         }
 
         /* CTA Section */
@@ -501,37 +649,44 @@
 <body>
     <div class="bg-glow"></div>
 
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
     <div class="container">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">New: Ascension Perks & Tetris Grid</div>
-            <h1><span class="gradient">Tap & Build</span></h1>
-            <p class="hero-sub">The idle factory tycoon that respects your time. Tap, automate, prestige, and compete globally.</p>
+            <!-- Floating Particles -->
+            <div class="particles" id="particles"></div>
             
-            <div class="hero-cta">
-                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
+            <div class="hero-badge reveal">New: Ascension Perks & Tetris Grid</div>
+            <h1 class="reveal reveal-delay-1"><span class="gradient">Tap & Build</span></h1>
+            <p class="hero-sub reveal reveal-delay-2">The idle factory tycoon that respects your time. Tap, automate, prestige, and compete globally.</p>
+            
+            <div class="hero-cta reveal reveal-delay-3">
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button" data-hover>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
                 </a>
             </div>
 
-            <div class="hero-stats">
+            <div class="hero-stats reveal reveal-delay-4">
                 <div class="stat">
-                    <div class="stat-value">10</div>
+                    <div class="stat-value" data-count="10">0</div>
                     <div class="stat-label">Generators</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">∞</div>
+                    <div class="stat-value infinity">∞</div>
                     <div class="stat-label">Numbers</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">100%</div>
+                    <div class="stat-value" data-count="100" data-suffix="%">0%</div>
                     <div class="stat-label">Offline</div>
                 </div>
             </div>
 
-            <div class="phone-showcase">
-                <div class="phone-frame">
+            <div class="phone-showcase reveal">
+                <div class="phone-frame" id="phoneFrame">
                     <img src="screenshot1.jpg" alt="Tap & Build Gameplay">
+                    <div class="shine"></div>
                 </div>
             </div>
 
@@ -543,48 +698,48 @@
 
         <!-- Features -->
         <section class="features-section">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <div class="section-tag">Features</div>
                 <h2>Everything you need to build an empire</h2>
             </div>
 
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal" data-hover>
                     <div class="feature-icon">👆</div>
                     <h3>Tap & Automate</h3>
                     <p>Start with taps, scale to 10 generators producing while you sleep.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-1" data-hover>
                     <div class="feature-icon">👔</div>
                     <h3>Hire Managers</h3>
                     <p>Delegate production, stack upgrades, and watch profits soar.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-2" data-hover>
                     <div class="feature-icon">🧩</div>
                     <h3>Tetris Grid</h3>
                     <p>Place generators strategically for adjacency bonuses and combos.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-3" data-hover>
                     <div class="feature-icon">⚡</div>
                     <h3>Prestige & Ascend</h3>
                     <p>Reset for multipliers, then ascend for game-changing perks.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal" data-hover>
                     <div class="feature-icon">🎯</div>
                     <h3>Daily Challenges</h3>
                     <p>Fresh goals every day with escalating rewards.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-1" data-hover>
                     <div class="feature-icon">🎰</div>
                     <h3>Lucky Wheel</h3>
                     <p>Spin for cash bursts, boosts, and bonus spins.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-2" data-hover>
                     <div class="feature-icon">🏆</div>
                     <h3>Global Leaderboards</h3>
                     <p>Compete worldwide and flex your peak runs.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-3" data-hover>
                     <div class="feature-icon">🛫</div>
                     <h3>Offline Earnings</h3>
                     <p>Come back to piles of coins, even after days away.</p>
@@ -594,32 +749,32 @@
 
         <!-- Screenshots -->
         <section class="screenshots-section">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <div class="section-tag">Screenshots</div>
                 <h2>See it in action</h2>
             </div>
 
-            <div class="screenshots-scroll" id="screenshotsScroll">
-                <div class="screenshot-card"><img src="screenshot1.jpg" alt="Screenshot 1"></div>
-                <div class="screenshot-card"><img src="screenshot2.jpg" alt="Screenshot 2"></div>
-                <div class="screenshot-card"><img src="screenshot3.jpg" alt="Screenshot 3"></div>
-                <div class="screenshot-card"><img src="screenshot4.jpg" alt="Screenshot 4"></div>
+            <div class="screenshots-scroll reveal" id="screenshotsScroll">
+                <div class="screenshot-card" data-tilt><img src="screenshot1.jpg" alt="Screenshot 1"><div class="card-shine"></div></div>
+                <div class="screenshot-card" data-tilt><img src="screenshot2.jpg" alt="Screenshot 2"><div class="card-shine"></div></div>
+                <div class="screenshot-card" data-tilt><img src="screenshot3.jpg" alt="Screenshot 3"><div class="card-shine"></div></div>
+                <div class="screenshot-card" data-tilt><img src="screenshot4.jpg" alt="Screenshot 4"><div class="card-shine"></div></div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="cta-section">
-            <div class="cta-box">
+        <section class="cta-section reveal">
+            <div class="cta-box" data-hover>
                 <h2>Ready to build your empire?</h2>
                 <p>Free to play. No account required. Your progress stays on your device.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button" data-hover>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 50px;">
                 </a>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer>
+        <footer class="reveal">
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
@@ -630,6 +785,128 @@
     </div>
 
     <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        let cursorVisible = false;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!cursorVisible) {
+                cursor.style.opacity = '1';
+                cursorVisible = true;
+            }
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            cursorVisible = false;
+        });
+
+        // Cursor hover effect
+        document.querySelectorAll('[data-hover], a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Scroll Reveal with Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Animated Counter
+        const counters = document.querySelectorAll('[data-count]');
+        let counterAnimated = false;
+
+        const animateCounters = () => {
+            if (counterAnimated) return;
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.count);
+                const suffix = counter.dataset.suffix || '';
+                const duration = 1500;
+                const start = performance.now();
+
+                const updateCounter = (currentTime) => {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(easeOut * target);
+                    counter.textContent = current + suffix;
+                    if (progress < 1) requestAnimationFrame(updateCounter);
+                };
+                requestAnimationFrame(updateCounter);
+            });
+            counterAnimated = true;
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) animateCounters();
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.hero-stats');
+        if (statsSection) statsObserver.observe(statsSection);
+
+        // 3D Tilt Effect for Phone
+        const phoneFrame = document.getElementById('phoneFrame');
+        if (phoneFrame) {
+            phoneFrame.addEventListener('mousemove', (e) => {
+                const rect = phoneFrame.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                phoneFrame.querySelector('img').style.transform = 
+                    `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            phoneFrame.addEventListener('mouseleave', () => {
+                phoneFrame.querySelector('img').style.transform = 'rotateX(0) rotateY(0)';
+            });
+        }
+
+        // 3D Tilt for Screenshots
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.querySelector('img').style.transform = 
+                    `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('img').style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // Floating Particles
+        const particlesContainer = document.getElementById('particles');
+        const particleEmojis = ['💰', '⚙️', '✨', '🔥', '💎', '⭐'];
+
+        for (let i = 0; i < 15; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.textContent = particleEmojis[Math.floor(Math.random() * particleEmojis.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
         // Drag to scroll for screenshots
         const slider = document.getElementById('screenshotsScroll');
         let isDown = false;
