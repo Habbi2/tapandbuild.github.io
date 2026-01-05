@@ -331,6 +331,12 @@
             color: var(--muted);
             font-size: 0.8rem;
             animation: bounce 2s ease infinite;
+            transition: opacity 0.4s ease;
+        }
+
+        .scroll-hint.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .scroll-hint span {
@@ -777,6 +783,16 @@
     </div>
 
     <script>
+        // Hide scroll hint on scroll
+        const scrollHint = document.querySelector('.scroll-hint');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                scrollHint.classList.add('hidden');
+            } else {
+                scrollHint.classList.remove('hidden');
+            }
+        }, { passive: true });
+
         // Custom Cursor
         const cursor = document.getElementById('cursor');
         let cursorVisible = false;
