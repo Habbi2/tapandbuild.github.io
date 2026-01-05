@@ -79,22 +79,20 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            background: transparent;
             color: #0b0f1a;
-            padding: 14px 28px;
+            padding: 0;
             font-size: 1.05rem;
             text-decoration: none;
-            border-radius: 999px;
+            border-radius: 8px;
             font-weight: 700;
             letter-spacing: 0.01em;
-            box-shadow: var(--shadow);
             transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            filter: brightness(1.05);
-            box-shadow: 0 14px 50px rgba(249, 115, 22, 0.35);
+            filter: brightness(1.1);
         }
 
         .meta {
@@ -230,7 +228,7 @@
             <p class="tagline">Idle factory tycoon with deep systems: managers, ascension perks, Tetris layout, and global competition.</p>
             <div class="cta-row">
                 <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
-                    📱 Download on Google Play
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 44px;">
                 </a>
                 <span class="pill">Version 1.2.0 • SDK 54</span>
             </div>
