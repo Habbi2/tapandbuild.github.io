@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap & Build - Idle Factory Tycoon</title>
-    <meta name="description" content="Build your factory empire! Tap to earn, buy generators, prestige, and compete globally in this addictive idle tycoon game.">
+    <meta name="description" content="Tap & Build is a feature-rich idle factory tycoon: generators, managers, Tetris-style grid, ascension perks, daily challenges, lucky drops, leaderboards, and offline earnings.">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-1: #0f172a;
+            --bg-2: #111827;
+            --card: rgba(255, 255, 255, 0.06);
+            --card-stroke: rgba(255, 255, 255, 0.12);
+            --accent: #f97316;
+            --accent-2: #f59e0b;
+            --text-1: #f8fafc;
+            --text-2: #cbd5e1;
+            --muted: #64748b;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,103 +30,155 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
-            color: #ffffff;
+            font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.08), transparent 30%),
+                        radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.1), transparent 35%),
+                        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            color: var(--text-1);
             min-height: 100vh;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px;
         }
         
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 64px 20px 40px;
         }
         
         .logo {
-            font-size: 4rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 12px;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #e94560;
+            font-size: 3rem;
+            margin-bottom: 12px;
+            color: var(--text-1);
+            letter-spacing: -0.03em;
         }
         
         .tagline {
-            font-size: 1.2rem;
-            color: #cccccc;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            color: var(--text-2);
+            margin-bottom: 28px;
+        }
+        
+        .cta-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
         }
         
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #e94560, #b8304f);
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0b0f1a;
+            padding: 14px 28px;
+            font-size: 1.05rem;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+            filter: brightness(1.05);
+            box-shadow: 0 14px 50px rgba(249, 115, 22, 0.35);
+        }
+
+        .meta {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.95rem;
         }
         
+        .pill {
+            border: 1px solid var(--card-stroke);
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+            color: var(--text-1);
+        }
+
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            padding: 22px 0 10px;
         }
         
         .feature {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card);
+            border-radius: 18px;
+            padding: 22px;
+            border: 1px solid var(--card-stroke);
+            box-shadow: var(--shadow);
+            text-align: left;
         }
         
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
         }
         
         .feature h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
         }
         
         .feature p {
-            color: #aaaaaa;
-            line-height: 1.6;
+            color: var(--text-2);
+            line-height: 1.5;
+            font-size: 0.98rem;
         }
         
         .screenshot-section {
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 0 20px;
         }
         
         .screenshot-section h2 {
-            color: #e94560;
-            margin-bottom: 30px;
-            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+            font-size: 1.6rem;
         }
         
         .screenshots {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
         
@@ -118,24 +186,26 @@
             width: 200px;
             height: auto;
             max-height: 400px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
             display: block;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-stroke);
+            box-shadow: var(--shadow);
         }
         
         footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 36px 20px 28px;
+            border-top: 1px solid var(--card-stroke);
             margin-top: 40px;
         }
         
         footer a {
-            color: #e94560;
+            color: var(--accent);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 14px;
+            font-weight: 600;
         }
         
         footer a:hover {
@@ -143,11 +213,11 @@
         }
         
         .footer-links {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         
         .copyright {
-            color: #666;
+            color: var(--muted);
             font-size: 0.9rem;
         }
     </style>
@@ -157,42 +227,92 @@
         <header>
             <div class="logo">🏭💰</div>
             <h1>Tap & Build</h1>
-            <p class="tagline">Idle Factory Tycoon - Build Your Empire!</p>
-            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
-                📱 Download on Google Play
-            </a>
+            <p class="tagline">Idle factory tycoon with deep systems: managers, ascension perks, Tetris layout, and global competition.</p>
+            <div class="cta-row">
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button">
+                    📱 Download for Android
+                </a>
+                <span class="pill">Version 1.2.0 • SDK 54</span>
+            </div>
+            <div class="meta">
+                <span class="pill">Offline earnings</span>
+                <span class="pill">No account required</span>
+                <span class="pill">Free to play</span>
+            </div>
         </header>
         
+        <div class="section-label">Core Loop</div>
+        <div class="section-title">Build faster, ascend smarter</div>
         <section class="features">
             <div class="feature">
                 <div class="feature-icon">👆</div>
-                <h3>Tap to Earn</h3>
-                <p>Start with simple taps and watch your fortune grow from coins to billions!</p>
+                <h3>Tap and Automate</h3>
+                <p>Start tapping, then scale into 10 generators that mint coins while you’re offline.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">⚙️</div>
-                <h3>8 Generators</h3>
-                <p>Unlock automated production lines that earn money while you're away.</p>
+                <div class="feature-icon">📈</div>
+                <h3>Managers & Upgrades</h3>
+                <p>Assign managers, stack production upgrades, and push efficiency without micromanaging.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">⭐</div>
-                <h3>Prestige System</h3>
-                <p>Reset for permanent multipliers and push your earnings even further!</p>
+                <div class="feature-icon">🧩</div>
+                <h3>Tetris Factory Grid</h3>
+                <p>Place generators on a Tetris-inspired grid to squeeze every bonus tile and adjacency boost.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🏆</div>
-                <h3>Global Leaderboard</h3>
-                <p>Compete with players worldwide and climb to the top!</p>
+                <div class="feature-icon">🔥</div>
+                <h3>Prestige & Ascension</h3>
+                <p>Prestige for permanent multipliers, then ascend for powerful perks that rewrite your build.</p>
+            </div>
+        </section>
+
+        <div class="section-label">Events & Meta</div>
+        <div class="section-title">Daily momentum, lucky spikes</div>
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Daily Challenges</h3>
+                <p>Fresh objectives with escalating rewards to keep your run moving every day.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🎁</div>
                 <h3>Daily Rewards</h3>
-                <p>Come back every day for increasing bonuses and streak rewards.</p>
+                <p>Claim streak-based rewards that scale with your dedication and progress.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🎡</div>
-                <h3>Lucky Wheel</h3>
-                <p>Spin for bonus cash, production boosts, and more free spins!</p>
+                <div class="feature-icon">🍀</div>
+                <h3>Lucky Drops & Wheel</h3>
+                <p>Random loot drops and a spin wheel for bursts of cash, boosts, and bonus spins.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛫</div>
+                <h3>Offline Earnings</h3>
+                <p>Come back to a pile of income, boosted by your upgrades, managers, and perks.</p>
+            </div>
+        </section>
+
+        <div class="section-label">Competition</div>
+        <div class="section-title">Climb and collect</div>
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+                <h3>Global Leaderboards</h3>
+                <p>Compete worldwide with your best runs; pick a display name and flex your peak.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🥇</div>
+                <h3>Achievements</h3>
+                <p>Hundreds of milestones to chase, fueling more currency and prestige gains.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Deep Math, Simple Play</h3>
+                <p>Break Infinity numbers under the hood; smooth formatting on screen. No spreadsheets required.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔌</div>
+                <h3>Privacy Friendly</h3>
+                <p>No account needed. Progress stays on your device; leaderboard names are opt-in.</p>
             </div>
         </section>
         
