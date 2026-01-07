@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Feature Graphic - 1024x500</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 20px;
+        }
+        
+        .feature-graphic {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #030712 0%, #0a0f1a 40%, #0f172a 100%);
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        /* Background effects */
+        .glow-orange {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, transparent 60%);
+            top: -100px;
+            left: -100px;
+        }
+        
+        .glow-blue {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+            bottom: -100px;
+            right: 200px;
+        }
+        
+        /* Grid pattern */
+        .grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Left content */
+        .left-content {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 40px 50px 60px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249, 115, 22, 0.15);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            color: #f97316;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+        
+        .title {
+            font-size: 56px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+        
+        .title span {
+            background: linear-gradient(135deg, #f97316, #fb923c, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            color: #94a3b8;
+            margin-bottom: 28px;
+            font-weight: 500;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+        }
+        
+        .feature-text {
+            color: #e2e8f0;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        /* Right content - Phone */
+        .right-content {
+            flex: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .phone {
+            width: 220px;
+            height: 420px;
+            background: linear-gradient(145deg, #1f2937, #111827);
+            border-radius: 32px;
+            padding: 10px;
+            box-shadow: 
+                0 0 0 2px rgba(255,255,255,0.1),
+                0 25px 60px -10px rgba(0, 0, 0, 0.6),
+                0 0 80px rgba(249, 115, 22, 0.15);
+            transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
+            position: relative;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #030712;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Floating coins */
+        .coin {
+            position: absolute;
+            font-size: 36px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+        
+        .coin-1 { top: 60px; right: 80px; transform: rotate(-15deg); }
+        .coin-2 { top: 140px; right: 30px; transform: rotate(20deg); font-size: 28px; }
+        .coin-3 { bottom: 120px; right: 60px; transform: rotate(-10deg); font-size: 32px; }
+        .coin-4 { bottom: 60px; right: 120px; transform: rotate(15deg); font-size: 24px; }
+        
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            color: #fbbf24;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+        
+        .sparkle-1 { top: 100px; left: 400px; }
+        .sparkle-2 { top: 180px; right: 180px; }
+        .sparkle-3 { bottom: 100px; left: 350px; }
+    </style>
+</head>
+<body>
+    <div class="feature-graphic">
+        <div class="glow-orange"></div>
+        <div class="glow-blue"></div>
+        <div class="grid"></div>
+        
+        <div class="sparkle sparkle-1">✦</div>
+        <div class="sparkle sparkle-2">✦</div>
+        <div class="sparkle sparkle-3">✦</div>
+        
+        <div class="coin coin-1">🪙</div>
+        <div class="coin coin-2">💰</div>
+        <div class="coin coin-3">🪙</div>
+        <div class="coin coin-4">💰</div>
+        
+        <div class="left-content">
+            <div class="badge">🎮 Free to Play</div>
+            <h1 class="title">Tap & <span>Build</span></h1>
+            <p class="subtitle">Idle Factory Tycoon</p>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🏭</span>
+                    <span class="feature-text">14 Generators</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🧩</span>
+                    <span class="feature-text">Tetris Grid</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⭐</span>
+                    <span class="feature-text">Prestige</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📴</span>
+                    <span class="feature-text">Offline</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-content">
+            <div class="phone">
+                <div class="phone-screen">
+                    <img src="1_main_factory.png" alt="Game Screenshot">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
