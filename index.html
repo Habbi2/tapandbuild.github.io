@@ -650,6 +650,92 @@
             color: var(--muted);
             font-size: 0.85rem;
         }
+
+        /* Beta Section */
+        .beta-section {
+            padding: 80px 0;
+        }
+
+        .beta-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .beta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .beta-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #22c55e;
+        }
+
+        .beta-content p {
+            color: var(--text-2);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .beta-content strong {
+            color: var(--text-1);
+        }
+
+        .beta-perks {
+            list-style: none;
+            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .beta-perks {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .beta-perks li {
+            color: var(--text-2);
+            font-size: 1rem;
+        }
+
+        .beta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .beta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -664,7 +750,7 @@
             <!-- Floating Particles -->
             <div class="particles" id="particles"></div>
             
-            <div class="hero-badge reveal">New: Ascension Perks & Tetris Grid</div>
+            <div class="hero-badge reveal">🧪 Now in Closed Beta - Join the Test!</div>
             <h1 class="reveal reveal-delay-1"><span class="gradient">Tap & Build</span></h1>
             <p class="hero-sub reveal reveal-delay-2">The idle factory tycoon that respects your time. Tap, automate, prestige, and compete globally.</p>
             
@@ -676,7 +762,7 @@
 
             <div class="hero-stats reveal reveal-delay-4">
                 <div class="stat">
-                    <div class="stat-value" data-count="10">0</div>
+                    <div class="stat-value" data-count="14">0</div>
                     <div class="stat-label">Generators</div>
                 </div>
                 <div class="stat">
@@ -742,6 +828,16 @@
                     <h3>Offline Earnings</h3>
                     <p>Come back to piles of coins, even after days away.</p>
                 </div>
+                <div class="feature-card reveal" data-hover>
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Notifications</h3>
+                    <p>Get reminded when your factory is full or daily rewards are ready.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1" data-hover>
+                    <div class="feature-icon">🎵</div>
+                    <h3>Background Music</h3>
+                    <p>Chill beats while you build. Adjustable volume, auto-pause when you leave.</p>
+                </div>
             </div>
         </section>
 
@@ -761,6 +857,27 @@
                 <div class="screenshot-card" data-tilt><img src="6_tetris_grid.png" alt="Factory Grid"><div class="card-shine"></div></div>
                 <div class="screenshot-card" data-tilt><img src="7_ascension_perks.png" alt="Ascension Perks"><div class="card-shine"></div></div>
                 <div class="screenshot-card" data-tilt><img src="8_leaderboard.png" alt="Leaderboard"><div class="card-shine"></div></div>
+            </div>
+        </section>
+
+        <!-- Join Beta Section -->
+        <section class="beta-section reveal">
+            <div class="section-header">
+                <div class="section-tag">🧪 Beta Program</div>
+                <h2>Help Shape the Game</h2>
+            </div>
+            <div class="beta-box" data-hover>
+                <div class="beta-content">
+                    <h3>Join Our Closed Beta</h3>
+                    <p>We need <strong>testers like you</strong> to help improve Tap & Build before the official launch. Get early access, exclusive badges, and direct input on new features.</p>
+                    <ul class="beta-perks">
+                        <li>✅ Early access to new features</li>
+                        <li>✅ Direct feedback channel</li>
+                        <li>✅ Help shape game balance</li>
+                        <li>✅ Beta tester recognition</li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="beta-button" data-hover>Join Beta on Google Play →</a>
+                </div>
             </div>
         </section>
 
