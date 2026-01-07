@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OG Image Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 20px;
+        }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #030712 0%, #0a0f1a 50%, #1a1a2e 100%);
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+        
+        /* Background glow effects */
+        .glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        .glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        /* Grid pattern */
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 60px;
+        }
+        
+        .left-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            color: #f97316;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+        
+        .title {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        
+        .title span {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: #94a3b8;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+        
+        .features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            font-size: 18px;
+        }
+        
+        .feature-icon {
+            font-size: 24px;
+        }
+        
+        .right-side {
+            flex: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .phone-mockup {
+            width: 280px;
+            height: 500px;
+            background: #1f2937;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 
+                0 0 0 2px rgba(255,255,255,0.1),
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(249, 115, 22, 0.2);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #030712;
+            border-radius: 26px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-badge {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0,0,0,0.6);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .play-icon {
+            font-size: 32px;
+        }
+        
+        .play-text {
+            color: white;
+            font-size: 16px;
+        }
+        
+        .play-text span {
+            display: block;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        /* Floating elements */
+        .float-emoji {
+            position: absolute;
+            font-size: 48px;
+            opacity: 0.8;
+        }
+        
+        .float-1 { top: 80px; right: 120px; }
+        .float-2 { top: 200px; right: 60px; }
+        .float-3 { bottom: 150px; right: 100px; }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+        <div class="grid-pattern"></div>
+        
+        <div class="float-emoji float-1">🏭</div>
+        <div class="float-emoji float-2">⚡</div>
+        <div class="float-emoji float-3">💰</div>
+        
+        <div class="content">
+            <div class="left-side">
+                <div class="badge">🎮 Free on Google Play</div>
+                <h1 class="title">Tap & <span>Build</span></h1>
+                <p class="subtitle">Idle Factory Tycoon</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">🏭</span>
+                        <span>14 Generators</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🧩</span>
+                        <span>Tetris Grid</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⭐</span>
+                        <span>Prestige System</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📴</span>
+                        <span>Offline Earnings</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-side">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <img src="1_main_factory.png" alt="Game Screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="play-badge">
+            <span class="play-icon">▶️</span>
+            <div class="play-text">
+                <span>GET IT ON</span>
+                Google Play
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Instructions
+        console.log('To save as image:');
+        console.log('1. Press F12 to open DevTools');
+        console.log('2. Press Ctrl+Shift+P');
+        console.log('3. Type "screenshot" and select "Capture node screenshot"');
+        console.log('4. Click on the og-container element');
+    </script>
+</body>
+</html>
