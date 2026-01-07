@@ -718,6 +718,35 @@
             font-size: 1rem;
         }
 
+        .beta-steps {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 28px;
+        }
+
+        .beta-steps .steps-title {
+            color: var(--text-1);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .beta-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .beta-steps li {
+            color: var(--text-2);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .beta-steps li:last-child {
+            margin-bottom: 0;
+        }
+
         .beta-button {
             display: inline-block;
             background: linear-gradient(135deg, #22c55e, #16a34a);
@@ -750,7 +779,7 @@
             <!-- Floating Particles -->
             <div class="particles" id="particles"></div>
             
-            <div class="hero-badge reveal">🧪 Now in Closed Beta - Join the Test!</div>
+            <div class="hero-badge reveal">🧪 Now in Alpha - Request Early Access!</div>
             <h1 class="reveal reveal-delay-1"><span class="gradient">Tap & Build</span></h1>
             <p class="hero-sub reveal reveal-delay-2">The idle factory tycoon that respects your time. Tap, automate, prestige, and compete globally.</p>
             
@@ -863,20 +892,28 @@
         <!-- Join Beta Section -->
         <section class="beta-section reveal">
             <div class="section-header">
-                <div class="section-tag">🧪 Beta Program</div>
+                <div class="section-tag">🧪 Alpha Program</div>
                 <h2>Help Shape the Game</h2>
             </div>
             <div class="beta-box" data-hover>
                 <div class="beta-content">
-                    <h3>Join Our Closed Beta</h3>
+                    <h3>Join Our Alpha Test</h3>
                     <p>We need <strong>testers like you</strong> to help improve Tap & Build before the official launch. Get early access, exclusive badges, and direct input on new features.</p>
                     <ul class="beta-perks">
                         <li>✅ Early access to new features</li>
                         <li>✅ Direct feedback channel</li>
                         <li>✅ Help shape game balance</li>
-                        <li>✅ Beta tester recognition</li>
+                        <li>✅ Alpha tester recognition</li>
                     </ul>
-                    <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="beta-button" data-hover>Join Beta on Google Play →</a>
+                    <div class="beta-steps">
+                        <p class="steps-title">How to join:</p>
+                        <ol>
+                            <li>Send your <strong>Gmail address</strong> to the email below</li>
+                            <li>We'll add you to the testers list (within 24h)</li>
+                            <li>You'll receive access to download from Google Play</li>
+                        </ol>
+                    </div>
+                    <a href="mailto:support@tapandbuild.com?subject=Alpha%20Tester%20Request&body=Hi!%20I%27d%20like%20to%20join%20the%20Tap%20%26%20Build%20alpha%20test.%0A%0AMy%20Gmail%3A%20" class="beta-button" data-hover>📧 Request Alpha Access</a>
                 </div>
             </div>
         </section>
