@@ -1,7 +1,7 @@
 {
-  "name": "Tap & Build",
+  "name": "Tap & Build: Idle Factory Tycoon",
   "short_name": "Tap & Build",
-  "description": "Build your factory empire! Free idle clicker game.",
+  "description": "Idle Factory Tycoon! Tap to build, prestige & earn offline. Free clicker game!",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a2e",

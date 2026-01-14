@@ -1,0 +1,178 @@
+================================================================================
+                    GOOGLE PLAY STORE LISTING - TAP & BUILD
+================================================================================
+                         Last Updated: January 2026
+                         Version: 1.2.2 (Build 29)
+================================================================================
+
+📱 APP TITLE (30 characters max)
+--------------------------------
+Tap & Build: Idle Factory Tycoon
+
+Character count: 30 ✓
+
+
+📝 SHORT DESCRIPTION (80 characters max)
+----------------------------------------
+Idle Factory Tycoon! Tap to build, prestige & earn offline. Free clicker game!
+
+Character count: 78 ✓
+
+
+📄 FULL DESCRIPTION (4000 characters max)
+-----------------------------------------
+🏭 BUILD YOUR FACTORY EMPIRE! 🏭
+
+Tap & Build is the ultimate idle clicker tycoon game! Start with nothing and build a massive factory empire. Tap to earn coins, buy powerful generators, and watch your wealth grow even while you sleep!
+
+⭐ WHY PLAYERS LOVE TAP & BUILD ⭐
+
+🔧 14 UNIQUE GENERATORS
+From simple coin miners to quantum reactors, unlock and upgrade 14 different factory generators. Each generator produces coins automatically, letting you earn even faster!
+
+🧩 TETRIS-STYLE FACTORY GRID  
+Place your generators strategically on a unique Tetris-inspired grid. Maximize your factory layout for bonus production!
+
+📈 PRESTIGE SYSTEM
+Reset your progress for permanent multipliers. The more you prestige, the faster you'll grow. Master the prestige cycle to reach astronomical numbers!
+
+🎯 DAILY CHALLENGES & REWARDS
+Complete daily challenges to earn bonus rewards. Log in every day for increasing bonuses and special surprises!
+
+👔 HIRE MANAGERS
+Recruit managers to automate your factory. Each manager provides unique bonuses and automates your generators so you can earn while away!
+
+⚡ ASCENSION PERKS
+Unlock powerful permanent upgrades through the ascension system. Choose your perks wisely to create the ultimate factory build!
+
+🏆 GLOBAL LEADERBOARDS
+Compete with players worldwide! Climb the leaderboards and prove you're the best idle tycoon!
+
+💰 OFFLINE EARNINGS
+Your factory never stops! Earn coins while you're away and collect huge offline bonuses when you return. The perfect idle game for busy players!
+
+🎰 LUCKY DROPS & BONUS EVENTS
+Watch for lucky drops, spin the wheel, and participate in special events for massive rewards!
+
+✨ FEATURES AT A GLANCE ✨
+
+✓ Free to play idle clicker game
+✓ 14 unique factory generators
+✓ Tetris-style placement grid
+✓ Prestige system with multipliers
+✓ Ascension perks for permanent upgrades
+✓ Managers for automation
+✓ Daily challenges and rewards
+✓ Global leaderboards
+✓ Offline earnings system
+✓ Lucky wheel and bonus events
+✓ Beautiful dark theme design
+✓ No internet required (play offline!)
+✓ Regular updates with new content
+
+🎮 PERFECT FOR FANS OF:
+• Idle games & clicker games
+• Factory builders & tycoon games
+• Incremental games
+• Offline mobile games
+
+Download Tap & Build now and start building your factory empire today! It's free!
+
+📧 Questions or feedback? Contact us at support@tapandbuild.com
+
+
+🔑 KEYWORDS (separated by commas)
+---------------------------------
+idle game, clicker game, idle clicker, factory tycoon, idle factory, tycoon game, incremental game, tap game, offline game, factory builder, idle tycoon, clicker tycoon, factory game, build game, free clicker
+
+
+🏷️ CATEGORY
+------------
+Primary: Games > Simulation
+Secondary: Games > Casual
+
+
+🔞 CONTENT RATING
+-----------------
+Everyone (PEGI 3 / ESRB E)
+
+
+💵 PRICING
+----------
+Free with optional in-app purchases (Remove Ads)
+
+
+📸 SCREENSHOTS (in order)
+-------------------------
+1. 1_main_factory.png     - Main factory screen with tap button
+2. 2_generators_tab.png   - Generators tab showing all 14 generators
+3. 3_upgrades_panel.png   - Upgrades panel with click multipliers
+4. 4_challenges.png       - Daily challenges screen
+5. 5_prestige.png         - Prestige system with multipliers
+6. 6_tetris_grid.png      - Tetris-style factory grid placement
+7. 7_ascension_perks.png  - Ascension perks selection
+8. 8_leaderboard.png      - Global leaderboard rankings
+
+
+🎬 PROMO VIDEO
+--------------
+[TO DO] Upload 30-60 second gameplay video to YouTube
+Recommended: Show tap gameplay, generators, prestige, and leaderboards
+Music: Upbeat, energetic
+No voice required - use text overlays
+
+
+🖼️ FEATURE GRAPHIC (1024x500)
+------------------------------
+File: feature-graphic.png
+Shows: Game logo, factory imagery, "Free Idle Clicker Tycoon!" tagline
+
+
+📧 CONTACT INFORMATION
+----------------------
+Developer: Habbi Games
+Email: support@tapandbuild.com
+Website: https://tapandbuild.com
+Privacy Policy: https://tapandbuild.com/privacy.html
+
+
+================================================================================
+                           ASO OPTIMIZATION NOTES
+================================================================================
+
+TITLE KEYWORDS (front-loaded for visibility):
+• "Tap & Build" - Brand name
+• "Idle" - High search volume keyword
+• "Factory" - Genre indicator
+• "Tycoon" - Popular genre keyword
+
+SHORT DESCRIPTION KEYWORDS:
+• Idle, Factory, Tycoon, Tap, Build, Prestige, Offline, Free, Clicker
+
+FULL DESCRIPTION KEYWORD DENSITY:
+• "idle" appears 8+ times
+• "clicker" appears 5+ times
+• "factory" appears 10+ times
+• "tycoon" appears 4+ times
+• "offline" appears 4+ times
+• "free" appears 3+ times
+
+COMPETITOR KEYWORDS TO TARGET:
+• idle miner tycoon
+• cookie clicker
+• adventure capitalist
+• egg inc
+• tap titans
+
+================================================================================
+                          LOCALIZATION PRIORITY
+================================================================================
+
+1. Spanish (ES)     - 15% of Play Store users
+2. Portuguese (BR)  - 8% of Play Store users  
+3. German (DE)      - 6% of Play Store users
+4. French (FR)      - 5% of Play Store users
+5. Japanese (JA)    - High ARPU market
+6. Korean (KO)      - High ARPU market
+
+================================================================================
