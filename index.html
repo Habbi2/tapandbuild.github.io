@@ -49,10 +49,12 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Preload LCP image -->
-    <link rel="preload" as="image" href="1_main_factory.webp" type="image/webp" fetchpriority="high">
+    <!-- Preload LCP image - mobile first -->
+    <link rel="preload" as="image" href="1_main_factory-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="1_main_factory.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
     
     <!-- JSON-LD Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -170,19 +172,27 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
+        /* Font fallback - prevent FOIT */
+        @font-face {
+            font-family: 'Orbitron';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--bg-void);
             color: var(--text-white);
             overflow-x: hidden;
-            cursor: none;
         }
 
         /* Custom Cursor - DISABLED for performance */
         .cursor-dot, .cursor-ring {
             display: none !important;
         }
-        body { cursor: auto; }
 
         /* Loading Screen - DISABLED for LCP */
         .loader {
@@ -195,6 +205,18 @@
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Disable heavy animations on mobile for performance */
+        @media (max-width: 768px) {
+            .gradient-orb, .particle, .phone-glow {
+                display: none !important;
+            }
+            .hero-badge, .hero-title .line, .hero-subtitle, .hero-buttons, .hero-stats {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
@@ -1252,7 +1274,7 @@
                     <div class="phone-glow"></div>
                     <div class="phone-device">
                         <div class="phone-screen">
-                            <img src="1_main_factory.webp" alt="Main Factory" class="active" fetchpriority="high" width="316" height="676">
+                            <img srcset="1_main_factory-mobile.webp 400w, 1_main_factory.webp 800w" sizes="(max-width: 768px) 200px, 316px" src="1_main_factory.webp" alt="Main Factory" class="active" fetchpriority="high" width="316" height="676">
                             <img src="2_generators_tab.webp" alt="Generators" loading="lazy" width="316" height="676">
                             <img src="5_prestige.webp" alt="Prestige" loading="lazy" width="316" height="676">
                             <img src="6_tetris_grid.webp" alt="Tetris Grid" loading="lazy" width="316" height="676">
