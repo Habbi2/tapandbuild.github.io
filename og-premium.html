@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tap & Build - Premium OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 20px;
+        }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: #000;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated background */
+        .animated-background {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #030712 0%, #0a0f1a 30%, #1a1a2e 70%, #0f1419 100%);
+        }
+        
+        /* Multiple glowing orbs */
+        .glow-system {
+            position: absolute;
+            inset: 0;
+        }
+        
+        .mega-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: megaPulse 4s ease-in-out infinite;
+        }
+        
+        .glow-orange {
+            background: radial-gradient(circle, #f97316, #fb923c);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .glow-gold {
+            background: radial-gradient(circle, #fbbf24, #fcd34d);
+            top: 20%;
+            right: 10%;
+            animation-delay: 1s;
+            width: 500px;
+            height: 500px;
+        }
+        
+        @keyframes megaPulse {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+        }
+        
+        /* Advanced grid with glow */
+        .grid-advanced {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(249, 115, 22, 0.1) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.1) 2px, transparent 2px),
+                linear-gradient(rgba(251, 191, 36, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(251, 191, 36, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+        }
+        
+        /* Particle system */
+        .particle {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0;
+            animation: particleFloat 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        @keyframes particleFloat {
+            0% { opacity: 0; transform: translateY(100px) scale(0.5); }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-600px) scale(1.2) rotate(360deg); }
+        }
+        
+        .p1 { left: 15%; animation-delay: 0s; color: #fbbf24; }
+        .p2 { left: 30%; animation-delay: 2s; color: #f97316; font-size: 50px; }
+        .p3 { left: 45%; animation-delay: 4s; color: #fcd34d; }
+        .p4 { left: 60%; animation-delay: 1s; color: #fb923c; font-size: 45px; }
+        .p5 { left: 75%; animation-delay: 3s; color: #fbbf24; }
+        .p6 { left: 85%; animation-delay: 5s; color: #f97316; }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 60px 80px;
+        }
+        
+        /* Left side */
+        .left-side {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .premium-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(251, 191, 36, 0.25));
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #f97316, #fbbf24) 1;
+            color: #fbbf24;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            width: fit-content;
+            box-shadow: 
+                0 0 30px rgba(249, 115, 22, 0.4),
+                inset 0 0 20px rgba(249, 115, 22, 0.1);
+            animation: badgePulse 2s ease-in-out infinite;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(249, 115, 22, 0.4); }
+            50% { box-shadow: 0 0 50px rgba(249, 115, 22, 0.6); }
+        }
+        
+        .mega-title {
+            font-size: 96px;
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        
+        .mega-title-line1 {
+            color: #fff;
+            display: block;
+            text-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.3),
+                0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mega-title-line2 {
+            background: linear-gradient(135deg, #f97316 0%, #fbbf24 50%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            position: relative;
+            text-shadow: 0 5px 20px rgba(249, 115, 22, 0.5);
+        }
+        
+        .mega-title-line2::after {
+            content: 'BUILD';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #f97316 0%, #fbbf24 50%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+        
+        .epic-subtitle {
+            font-size: 36px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .power-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .power-feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .power-icon {
+            font-size: 36px;
+            filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.6));
+        }
+        
+        .power-text {
+            color: #e2e8f0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        /* Right side */
+        .right-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .phone-showcase {
+            position: relative;
+            transform: perspective(1200px) rotateY(-12deg) rotateX(5deg);
+            transform-style: preserve-3d;
+        }
+        
+        .phone-device {
+            width: 300px;
+            height: 540px;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border-radius: 40px;
+            padding: 14px;
+            box-shadow: 
+                0 0 0 4px rgba(249, 115, 22, 0.5),
+                0 50px 100px -20px rgba(0, 0, 0, 0.9),
+                0 0 150px rgba(249, 115, 22, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .phone-device::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #f97316, #fbbf24, #f97316);
+            border-radius: 42px;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(10px);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .phone-display {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        
+        .phone-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Floating stats */
+        .stat-bubble {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(249, 115, 22, 0.4);
+            padding: 14px 22px;
+            border-radius: 20px;
+            font-weight: 800;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            animation: statFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes statFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .stat-1 {
+            top: 30px;
+            right: -40px;
+            color: #4ade80;
+            font-size: 18px;
+            animation-delay: 0s;
+        }
+        
+        .stat-2 {
+            bottom: 100px;
+            left: -60px;
+            color: #fbbf24;
+            font-size: 20px;
+            animation-delay: 1s;
+        }
+        
+        .stat-3 {
+            top: 50%;
+            right: -70px;
+            color: #a78bfa;
+            font-size: 16px;
+            animation-delay: 0.5s;
+        }
+        
+        /* Epic CTA */
+        .epic-cta {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            right: 80px;
+            background: linear-gradient(90deg, #f97316 0%, #fb923c 50%, #fbbf24 100%);
+            color: white;
+            font-size: 32px;
+            font-weight: 900;
+            padding: 24px 48px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            box-shadow: 
+                0 20px 60px rgba(249, 115, 22, 0.6),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3);
+            z-index: 20;
+            letter-spacing: 2px;
+            animation: ctaPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cta-icon {
+            font-size: 40px;
+            animation: iconBounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="animated-background"></div>
+        
+        <div class="glow-system">
+            <div class="mega-glow glow-orange"></div>
+            <div class="mega-glow glow-gold"></div>
+        </div>
+        
+        <div class="grid-advanced"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle p1">🪙</div>
+        <div class="particle p2">💰</div>
+        <div class="particle p3">⚡</div>
+        <div class="particle p4">💎</div>
+        <div class="particle p5">🪙</div>
+        <div class="particle p6">🏭</div>
+        
+        <div class="content">
+            <div class="left-side">
+                <div class="premium-badge">
+                    <span>⚡</span>
+                    <span>FREE IDLE TYCOON</span>
+                </div>
+                
+                <h1 class="mega-title">
+                    <span class="mega-title-line1">TAP &</span>
+                    <span class="mega-title-line2">BUILD</span>
+                </h1>
+                
+                <p class="epic-subtitle">Factory Empire</p>
+                
+                <div class="power-features">
+                    <div class="power-feature">
+                        <span class="power-icon">🏭</span>
+                        <span class="power-text">14 Generators</span>
+                    </div>
+                    <div class="power-feature">
+                        <span class="power-icon">🧩</span>
+                        <span class="power-text">Tetris Grid</span>
+                    </div>
+                    <div class="power-feature">
+                        <span class="power-icon">⭐</span>
+                        <span class="power-text">Prestige</span>
+                    </div>
+                    <div class="power-feature">
+                        <span class="power-icon">📴</span>
+                        <span class="power-text">Offline Mode</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-side">
+                <div class="phone-showcase">
+                    <div class="stat-bubble stat-1">✅ 100% FREE</div>
+                    <div class="stat-bubble stat-2">💰 EARN OFFLINE</div>
+                    <div class="stat-bubble stat-3">⭐ 4.8/5</div>
+                    
+                    <div class="phone-device">
+                        <div class="phone-display">
+                            <img src="1_main_factory.avif" alt="Tap & Build">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="epic-cta">
+            <span class="cta-icon">▶️</span>
+            <span>PLAY FREE NOW</span>
+        </div>
+    </div>
+    
+    <script>
+        console.log('✨ Premium OG Image Generator (1200×630)');
+        console.log('📸 Capture instructions:');
+        console.log('1. Right-click on the colored container');
+        console.log('2. Click "Inspect" or "Inspect Element"');
+        console.log('3. Press Ctrl+Shift+P (Cmd+Shift+P on Mac)');
+        console.log('4. Type "screenshot"');
+        console.log('5. Select "Capture node screenshot"');
+        console.log('6. Click on the .og-container element in DevTools');
+        console.log('');
+        console.log('💡 Tip: Wait 2-3 seconds for animations to settle before capturing!');
+    </script>
+</body>
+</html>

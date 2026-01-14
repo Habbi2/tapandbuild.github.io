@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tap & Build - WhatsApp OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 20px;
+        }
+        
+        /* Square format for WhatsApp mobile preview */
+        .og-container {
+            width: 1200px;
+            height: 1200px;
+            background: linear-gradient(135deg, #030712 0%, #0a0f1a 40%, #1a1a2e 100%);
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated gradient background */
+        .animated-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(251, 146, 60, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(252, 211, 77, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Floating coins animation */
+        .coin {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        
+        .coin-1 { top: 100px; left: 100px; animation-delay: 0s; }
+        .coin-2 { top: 200px; right: 150px; animation-delay: 1s; font-size: 100px; }
+        .coin-3 { bottom: 250px; left: 150px; animation-delay: 2s; font-size: 90px; }
+        .coin-4 { bottom: 150px; right: 120px; animation-delay: 1.5s; }
+        .coin-5 { top: 400px; right: 250px; animation-delay: 0.5s; font-size: 70px; }
+        
+        /* Factory icons */
+        .factory-icon {
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.2;
+        }
+        
+        .factory-1 { top: 120px; right: 100px; }
+        .factory-2 { bottom: 200px; left: 80px; }
+        
+        /* Grid pattern */
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 2px, transparent 2px);
+            background-size: 80px 80px;
+            opacity: 0.5;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 80px;
+            text-align: center;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(251, 146, 60, 0.2));
+            border: 2px solid rgba(249, 115, 22, 0.6);
+            color: #fbbf24;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.4);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.4); }
+            50% { box-shadow: 0 0 60px rgba(249, 115, 22, 0.6); }
+        }
+        
+        /* Title */
+        .title {
+            font-size: 140px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 32px;
+            text-shadow: 0 0 60px rgba(249, 115, 22, 0.5);
+        }
+        
+        .title-line-1 {
+            color: white;
+            display: block;
+        }
+        
+        .title-line-2 {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fcd34d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        
+        /* Subtitle */
+        .subtitle {
+            font-size: 48px;
+            color: #94a3b8;
+            margin-bottom: 64px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        /* Features grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+            width: 100%;
+            max-width: 900px;
+        }
+        
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 32px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .feature-icon {
+            font-size: 72px;
+            filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.4));
+        }
+        
+        .feature-text {
+            color: #e2e8f0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        /* CTA */
+        .cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            padding: 28px 56px;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            font-size: 36px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.4);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .cta-icon {
+            font-size: 48px;
+        }
+        
+        /* Stats bar */
+        .stats {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 20px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="animated-bg"></div>
+        <div class="grid-pattern"></div>
+        
+        <!-- Floating coins -->
+        <div class="coin coin-1">🪙</div>
+        <div class="coin coin-2">💰</div>
+        <div class="coin coin-3">🪙</div>
+        <div class="coin coin-4">💎</div>
+        <div class="coin coin-5">🪙</div>
+        
+        <!-- Factory icons -->
+        <div class="factory-icon factory-1">🏭</div>
+        <div class="factory-icon factory-2">⚙️</div>
+        
+        <div class="content">
+            <div class="badge">
+                <span>🎮</span>
+                <span>FREE TO PLAY</span>
+            </div>
+            
+            <h1 class="title">
+                <span class="title-line-1">TAP &</span>
+                <span class="title-line-2">BUILD</span>
+            </h1>
+            
+            <p class="subtitle">IDLE FACTORY TYCOON</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🏭</span>
+                    <span class="feature-text">14 Generators</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🧩</span>
+                    <span class="feature-text">Tetris Grid</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⭐</span>
+                    <span class="feature-text">Prestige System</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📴</span>
+                    <span class="feature-text">Play Offline</span>
+                </div>
+            </div>
+            
+            <button class="cta">
+                <span class="cta-icon">▶️</span>
+                <span>PLAY NOW</span>
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-value">FREE</span>
+                <span class="stat-label">No Ads</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">OFFLINE</span>
+                <span class="stat-label">Play Anywhere</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">14+</span>
+                <span class="stat-label">Generators</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('📱 WhatsApp OG Image Generator (1200×1200)');
+        console.log('To save as image:');
+        console.log('1. Right-click the og-container');
+        console.log('2. Inspect element');
+        console.log('3. Press Ctrl+Shift+P');
+        console.log('4. Type "screenshot" → "Capture node screenshot"');
+        console.log('5. Click the og-container element');
+    </script>
+</body>
+</html>

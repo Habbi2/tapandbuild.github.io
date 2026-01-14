@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tap & Build - Twitter OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            padding: 20px;
+        }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1a2e 50%, #0f1419 100%);
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Dynamic gradient overlay */
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(249, 115, 22, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 85% 50%, rgba(251, 146, 60, 0.25) 0%, transparent 40%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* Geometric shapes */
+        .shape {
+            position: absolute;
+            border: 2px solid rgba(249, 115, 22, 0.2);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -50px;
+            border-radius: 50%;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -30px;
+            transform: rotate(45deg);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Grid */
+        .grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            padding: 60px 80px;
+            gap: 60px;
+        }
+        
+        /* Left side */
+        .left-side {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249, 115, 22, 0.15);
+            border: 2px solid rgba(249, 115, 22, 0.5);
+            color: #fbbf24;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            width: fit-content;
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.3);
+        }
+        
+        .main-title {
+            font-size: 86px;
+            font-weight: 800;
+            line-height: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .main-title .word-1 {
+            color: white;
+            display: block;
+        }
+        
+        .main-title .word-2 {
+            background: linear-gradient(120deg, #f97316 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            text-shadow: 0 0 40px rgba(249, 115, 22, 0.5);
+        }
+        
+        .tagline {
+            font-size: 32px;
+            color: #94a3b8;
+            margin-bottom: 36px;
+            font-weight: 600;
+        }
+        
+        .description {
+            font-size: 20px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .highlight-icon {
+            font-size: 28px;
+        }
+        
+        .highlight-text {
+            color: #e2e8f0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        /* Right side with phone */
+        .right-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .phone-container {
+            position: relative;
+            z-index: 5;
+        }
+        
+        .phone-mockup {
+            width: 260px;
+            height: 480px;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border-radius: 32px;
+            padding: 10px;
+            box-shadow: 
+                0 0 0 3px rgba(249, 115, 22, 0.3),
+                0 30px 60px -15px rgba(0, 0, 0, 0.7),
+                0 0 80px rgba(249, 115, 22, 0.4);
+            transform: perspective(800px) rotateY(-8deg) rotateX(3deg);
+            transition: transform 0.3s;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #030712;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Floating elements around phone */
+        .float-icon {
+            position: absolute;
+            font-size: 56px;
+            animation: floatAround 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.6));
+        }
+        
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+        
+        .float-1 { top: 20px; right: -20px; animation-delay: 0s; }
+        .float-2 { bottom: 60px; right: -30px; animation-delay: 1s; }
+        .float-3 { top: 50%; left: -40px; animation-delay: 0.5s; }
+        
+        /* Bottom CTA bar */
+        .cta-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, rgba(249, 115, 22, 0.95), rgba(251, 146, 60, 0.95));
+            padding: 20px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 20;
+        }
+        
+        .cta-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .cta-badge {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="gradient-overlay"></div>
+        <div class="grid"></div>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        
+        <div class="content">
+            <div class="left-side">
+                <div class="tag">
+                    <span>🎮</span>
+                    <span>FREE IDLE GAME</span>
+                </div>
+                
+                <h1 class="main-title">
+                    <span class="word-1">TAP &</span>
+                    <span class="word-2">BUILD</span>
+                </h1>
+                
+                <p class="tagline">Build Your Factory Empire</p>
+                
+                <p class="description">
+                    The ultimate idle clicker experience! Build, automate, and expand your factory while earning offline.
+                </p>
+                
+                <div class="highlights">
+                    <div class="highlight">
+                        <span class="highlight-icon">🏭</span>
+                        <span class="highlight-text">14 Generators</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">🧩</span>
+                        <span class="highlight-text">Tetris Grid</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">⭐</span>
+                        <span class="highlight-text">Prestige</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">📴</span>
+                        <span class="highlight-text">Offline Mode</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-side">
+                <div class="phone-container">
+                    <div class="float-icon float-1">💰</div>
+                    <div class="float-icon float-2">⚡</div>
+                    <div class="float-icon float-3">🪙</div>
+                    
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="1_main_factory.avif" alt="Tap & Build Screenshot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-bar">
+            <div class="cta-text">
+                <span>▶️</span>
+                <span>Download FREE on Google Play</span>
+            </div>
+            <div class="cta-badge">tapandbuild.com</div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('🐦 Twitter OG Image Generator (1200×630)');
+        console.log('To save: Inspect > Ctrl+Shift+P > Capture node screenshot');
+    </script>
+</body>
+</html>
