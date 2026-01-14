@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Tap & Build - Referral Invite</title>
+    <meta name="description" content="You've been invited to play Tap & Build! Download now and get bonus rewards.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Join Tap & Build - Get Free Rewards!">
+    <meta property="og:description" content="Your friend invited you to play Tap & Build! Download now and get 3 free lucky wheel spins.">
+    <meta property="og:image" content="https://tapandbuild.com/og-image.png">
+    <meta property="og:url" content="https://tapandbuild.com/invite/">
+    
+    <!-- App Links for Deep Linking -->
+    <meta property="al:android:package" content="com.tapandbuild.game">
+    <meta property="al:android:app_name" content="Tap & Build">
+    <meta property="al:ios:app_store_id" content="0000000000">
+    <meta property="al:ios:app_name" content="Tap & Build">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #FF9F1C;
+        }
+        
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+        }
+        
+        .invite-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 159, 28, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .invite-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .referral-code {
+            background: rgba(255, 159, 28, 0.15);
+            border: 2px dashed #FF9F1C;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .code-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        .code {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 6px;
+            color: #fff;
+        }
+        
+        .rewards {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .rewards-title {
+            font-size: 14px;
+            color: #FF9F1C;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .reward-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .reward-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .download-btn {
+            display: block;
+            background: #FF9F1C;
+            color: #1a1a2e;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 159, 28, 0.3);
+        }
+        
+        .store-badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .store-badge {
+            height: 45px;
+            border-radius: 8px;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🏭</div>
+        <h1>Tap & Build</h1>
+        <p class="subtitle">Idle Factory Tycoon</p>
+        
+        <div class="invite-card">
+            <p class="invite-text">🎉 You've been invited!</p>
+            
+            <div class="referral-code">
+                <p class="code-label">Your referral code</p>
+                <p class="code" id="referralCode">------</p>
+            </div>
+            
+            <div class="rewards">
+                <p class="rewards-title">🎁 Your Welcome Bonus:</p>
+                <div class="reward-item">🎰 <span>3 Free Lucky Wheel Spins</span></div>
+                <div class="reward-item">⚡ <span>10 min 2x Boost on first prestige</span></div>
+                <div class="reward-item">🎰 <span>5 More Spins when you prestige!</span></div>
+            </div>
+        </div>
+        
+        <a href="#" id="downloadBtn" class="download-btn">
+            📲 Download Now
+        </a>
+        
+        <div class="store-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" target="_blank">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
+                     alt="Get it on Google Play" class="store-badge" style="height: 50px;">
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p><a href="/">tapandbuild.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Get referral code from URL
+        const path = window.location.pathname;
+        const codeMatch = path.match(/\/invite\/([A-Z0-9]{6})/i);
+        const referralCode = codeMatch ? codeMatch[1].toUpperCase() : null;
+        
+        // Display code
+        if (referralCode) {
+            document.getElementById('referralCode').textContent = referralCode;
+        }
+        
+        // Detect platform
+        const isAndroid = /android/i.test(navigator.userAgent);
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        
+        // Store URLs
+        const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.tapandbuild.game';
+        const appStoreUrl = 'https://apps.apple.com/app/tap-and-build/id0000000000'; // Update when available
+        
+        // Deep link URL
+        const deepLinkUrl = referralCode 
+            ? `tapandbuild://invite/${referralCode}` 
+            : 'tapandbuild://';
+        
+        // Set download button behavior
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Try to open app first (deep link)
+            if (referralCode) {
+                // Try deep link
+                window.location.href = deepLinkUrl;
+                
+                // Fallback to store after delay
+                setTimeout(function() {
+                    window.location.href = isIOS ? appStoreUrl : playStoreUrl;
+                }, 1500);
+            } else {
+                // Go directly to store
+                window.location.href = isIOS ? appStoreUrl : playStoreUrl;
+            }
+        });
+        
+        // Store referral code in localStorage for web fallback
+        if (referralCode) {
+            localStorage.setItem('tap_and_build_referral', referralCode);
+        }
+    </script>
+</body>
+</html>
