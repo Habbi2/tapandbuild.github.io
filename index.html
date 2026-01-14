@@ -49,12 +49,12 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap&text=TAP%26BUILD0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%20%21%3F.%2C%27%E2%88%9E" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Preload LCP image - mobile first -->
-    <link rel="preload" as="image" href="1_main_factory-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
-    <link rel="preload" as="image" href="1_main_factory.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
+    <!-- Preload LCP image - AVIF first, WebP fallback -->
+    <link rel="preload" as="image" href="1_main_factory-mobile.avif" type="image/avif" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="1_main_factory.avif" type="image/avif" fetchpriority="high" media="(min-width: 769px)">
     
     <!-- JSON-LD Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -1274,7 +1274,13 @@
                     <div class="phone-glow"></div>
                     <div class="phone-device">
                         <div class="phone-screen">
-                            <img srcset="1_main_factory-mobile.webp 400w, 1_main_factory.webp 800w" sizes="(max-width: 768px) 200px, 316px" src="1_main_factory.webp" alt="Main Factory" class="active" fetchpriority="high" width="316" height="676">
+                            <picture class="active">
+                                <source media="(max-width: 768px)" srcset="1_main_factory-mobile.avif" type="image/avif">
+                                <source media="(max-width: 768px)" srcset="1_main_factory-mobile.webp" type="image/webp">
+                                <source srcset="1_main_factory.avif" type="image/avif">
+                                <source srcset="1_main_factory.webp" type="image/webp">
+                                <img src="1_main_factory.webp" alt="Main Factory" class="active" fetchpriority="high" width="316" height="676">
+                            </picture>
                             <img src="2_generators_tab.webp" alt="Generators" loading="lazy" width="316" height="676">
                             <img src="5_prestige.webp" alt="Prestige" loading="lazy" width="316" height="676">
                             <img src="6_tetris_grid.webp" alt="Tetris Grid" loading="lazy" width="316" height="676">
@@ -1295,7 +1301,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features" id="features" style="content-visibility:auto;contain-intrinsic-size:auto 800px">
         <div class="section-header reveal">
             <div class="section-tag">✦ Features</div>
             <h2 class="section-title">Built for Domination</h2>
@@ -1346,7 +1352,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" style="content-visibility:auto;contain-intrinsic-size:auto 600px">
         <div class="section-header">
             <div class="section-tag">📱 Gallery</div>
             <h2 class="section-title">See It In Action</h2>
@@ -1364,7 +1370,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section reveal">
+    <section class="cta-section reveal" style="content-visibility:auto;contain-intrinsic-size:auto 400px">
         <div class="cta-box">
             <h2 class="cta-title">Ready to Build?</h2>
             <p class="cta-subtitle">Free to play. No account required. Start your empire today.</p>
@@ -1376,7 +1382,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq" id="faq">
+    <section class="faq" id="faq" style="content-visibility:auto;contain-intrinsic-size:auto 500px">
         <div class="section-header reveal">
             <div class="section-tag">❓ FAQ</div>
             <h2 class="section-title">Questions?</h2>
@@ -1431,11 +1437,7 @@
     </footer>
 
     <script>
-        // Loader - DISABLED for LCP
-
-        // Custom Cursor - DISABLED for performance
-
-        // Mobile menu toggle
+        // Critical: Mobile menu (must be immediate)
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.querySelector('.nav-links');
         menuToggle.addEventListener('click', () => {
@@ -1449,81 +1451,82 @@
             });
         });
 
-        // Nav scroll (throttled)
-        let scrollTicking = false;
-        window.addEventListener('scroll', () => {
-            if (!scrollTicking) {
-                requestAnimationFrame(() => {
-                    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-                    scrollTicking = false;
-                });
-                scrollTicking = true;
-            }
-        }, { passive: true });
-
-        // Particles - DISABLED for performance
-
-        // Screenshot carousel
-        const screens = document.querySelectorAll('.phone-screen img');
-        const dots = document.querySelectorAll('.screenshot-dot');
-        let currentScreen = 0;
-
-        function showScreen(i) {
-            screens.forEach((s, idx) => s.classList.toggle('active', idx === i));
-            dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-        }
-
-        setInterval(() => {
-            currentScreen = (currentScreen + 1) % screens.length;
-            showScreen(currentScreen);
-        }, 4000);
-
-        dots.forEach((d, i) => d.addEventListener('click', () => {
-            currentScreen = i;
-            showScreen(i);
-        }));
-
-        // Count up
-        document.querySelectorAll('[data-count]').forEach(el => {
-            const observer = new IntersectionObserver(entries => {
-                if (entries[0].isIntersecting) {
-                    const target = +el.dataset.count;
-                    let current = 0;
-                    const step = target / 30;
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            el.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            el.textContent = Math.floor(current);
-                        }
-                    }, 40);
-                    observer.disconnect();
+        // Defer all non-critical JS until after page load
+        window.addEventListener('load', () => {
+            // Nav scroll (throttled)
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    requestAnimationFrame(() => {
+                        document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+                        scrollTicking = false;
+                    });
+                    scrollTicking = true;
                 }
-            }, { threshold: 0.5 });
-            observer.observe(el);
-        });
+            }, { passive: true });
 
-        // Reveal on scroll
-        const reveals = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('visible');
+            // Screenshot carousel - delay start
+            setTimeout(() => {
+                const screens = document.querySelectorAll('.phone-screen img:not(picture img), .phone-screen picture');
+                const dots = document.querySelectorAll('.screenshot-dot');
+                let currentScreen = 0;
+
+                function showScreen(i) {
+                    screens.forEach((s, idx) => s.classList.toggle('active', idx === i));
+                    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+                }
+
+                setInterval(() => {
+                    currentScreen = (currentScreen + 1) % screens.length;
+                    showScreen(currentScreen);
+                }, 4000);
+
+                dots.forEach((d, i) => d.addEventListener('click', () => {
+                    currentScreen = i;
+                    showScreen(i);
+                }));
+            }, 2000);
+
+            // Count up animation
+            document.querySelectorAll('[data-count]').forEach(el => {
+                const observer = new IntersectionObserver(entries => {
+                    if (entries[0].isIntersecting) {
+                        const target = +el.dataset.count;
+                        let current = 0;
+                        const step = target / 30;
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                el.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = Math.floor(current);
+                            }
+                        }, 40);
+                        observer.disconnect();
+                    }
+                }, { threshold: 0.5 });
+                observer.observe(el);
             });
-        }, { threshold: 0.1, rootMargin: '-50px' });
-        reveals.forEach(el => revealObserver.observe(el));
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Reveal on scroll
+            const reveals = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) e.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '-50px' });
+            reveals.forEach(el => revealObserver.observe(el));
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    const target = document.querySelector(a.getAttribute('href'));
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
             });
         });
-
-        // Tilt effect removed for better INP - using CSS-only hover instead
     </script>
 </body>
 </html>
