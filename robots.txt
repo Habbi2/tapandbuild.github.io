@@ -2,6 +2,12 @@
 User-agent: *
 Allow: /
 
+# Allow favicon access for all bots
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /favicon-*.png
+Allow: /apple-touch-icon.png
+
 # Sitemap location
 Sitemap: https://tapandbuild.com/sitemap.xml
 
