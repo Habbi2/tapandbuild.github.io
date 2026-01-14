@@ -196,10 +196,12 @@
     </div>
     
     <script>
-        // Get referral code from URL
+        // Get referral code from URL path or query param (404 redirect fallback)
         const path = window.location.pathname;
-        const codeMatch = path.match(/\/invite\/([A-Z0-9]{6})/i);
-        const referralCode = codeMatch ? codeMatch[1].toUpperCase() : null;
+        const params = new URLSearchParams(window.location.search);
+        const codeFromPath = path.match(/\/invite\/([A-Z0-9]{6,8})/i);
+        const codeFromQuery = params.get('code');
+        const referralCode = (codeFromPath ? codeFromPath[1] : codeFromQuery)?.toUpperCase() || null;
         
         // Display code
         if (referralCode) {
