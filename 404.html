@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Tap & Build</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #050510 0%, #0a0a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF9F1C, #FF6B35);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #FF9F1C, #FF6B35);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 40px rgba(255,159,28,0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255,159,28,0.4);
+        }
+        .links {
+            margin-top: 40px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .links a:hover {
+            color: #FF9F1C;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🏭</div>
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>Oops! This factory floor doesn't exist. The page you're looking for may have been moved or deleted.</p>
+        <a href="/" class="btn">
+            <span>←</span>
+            Back to Home
+        </a>
+        <div class="links">
+            <a href="/#features">Features</a>
+            <a href="/#gallery">Gallery</a>
+            <a href="/#faq">FAQ</a>
+            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game">Google Play</a>
+        </div>
+    </div>
+</body>
+</html>

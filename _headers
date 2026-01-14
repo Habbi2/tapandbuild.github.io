@@ -3,12 +3,48 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-XSS-Protection: 1; mode=block
 
+# Favicons - cache 1 week
 /favicon.ico
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=604800, immutable
 
 /favicon*.png
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=604800, immutable
 
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800, immutable
+
+# Screenshots/Images - cache 1 month
 /*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# Static assets - cache 1 year (immutable)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages - cache briefly, revalidate
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Manifest and config - cache 1 day
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
   Cache-Control: public, max-age=86400
