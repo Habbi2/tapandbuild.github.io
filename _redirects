@@ -1,0 +1,6 @@
+# Handle referral invite links with dynamic codes
+# /invite/ABC123 -> /invite/index.html (SPA-style routing)
+/invite/*  /invite/index.html  200
+
+# Fallback for any other 404s
+/*  /404.html  404
