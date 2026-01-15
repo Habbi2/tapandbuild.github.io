@@ -11,9 +11,11 @@
         // Handle /invite/CODE routes - redirect to invite page with code
         (function() {
             const path = window.location.pathname;
-            if (path.startsWith('/invite/')) {
-                // Redirect to invite page, preserving the path
-                window.location.replace('/invite/' + '?code=' + path.split('/invite/')[1]);
+            if (path.startsWith('/invite/') && path.length > 8) {
+                const code = path.split('/invite/')[1].replace(/\/$/, '');
+                if (code) {
+                    window.location.replace('/invite/?code=' + encodeURIComponent(code));
+                }
             }
         })();
     </script>

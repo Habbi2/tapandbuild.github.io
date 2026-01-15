@@ -54,10 +54,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap&text=TAP%26BUILD0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%20%21%3F.%2C%27%E2%88%9E" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Preload LCP image - AVIF first, WebP fallback -->
-    <link rel="preload" as="image" href="1_main_factory-mobile.avif" type="image/avif" fetchpriority="high" media="(max-width: 480px)">
-    <link rel="preload" as="image" href="1_main_factory-mobile.avif" type="image/avif" fetchpriority="high" media="(min-width: 481px) and (max-width: 768px)">
-    <link rel="preload" as="image" href="1_main_factory.avif" type="image/avif" fetchpriority="high" media="(min-width: 769px)">
+    <!-- Preload LCP image - WebP format (matches actual carousel first image) -->
+    <link rel="preload" as="image" href="6_market.webp" type="image/webp" fetchpriority="high">
     
     <!-- JSON-LD Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
@@ -74,7 +72,13 @@
             "priceCurrency": "USD"
         },
         "description": "Build your factory empire in Tap & Build! Free idle clicker game with 14 generators, prestige system, daily challenges & global leaderboards.",
-        "screenshot": "https://tapandbuild.com/1_main_factory.png",
+        "screenshot": [
+            "https://tapandbuild.com/6_market.png",
+            "https://tapandbuild.com/1_main_factory.png",
+            "https://tapandbuild.com/2_generators_tab.png",
+            "https://tapandbuild.com/5_prestige.png",
+            "https://tapandbuild.com/8_leaderboard.png"
+        ],
         "featureList": [
             "14 unique generators",
             "Prestige system with multipliers",
@@ -165,8 +169,8 @@
             --neon-cyan: #00f5ff;
             --neon-purple: #bf00ff;
             --text-white: #ffffff;
-            --text-gray: rgba(255,255,255,0.7);
-            --text-muted: rgba(255,255,255,0.4);
+            --text-gray: rgba(255,255,255,0.75);
+            --text-muted: rgba(255,255,255,0.6);
             --glass: rgba(255,255,255,0.03);
             --glass-border: rgba(255,255,255,0.08);
             --glow: rgba(255,159,28,0.5);
@@ -180,6 +184,43 @@
             background: var(--bg-void);
             color: var(--text-white);
             overflow-x: hidden;
+        }
+
+        /* Skip Link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--bg-void);
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            font-weight: 700;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        /* Focus styles for accessibility */
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--neon-cyan);
+            outline-offset: 3px;
+        }
+        .nav-cta:focus-visible {
+            outline-offset: 4px;
+        }
+        .btn-hero:focus-visible {
+            outline-offset: 4px;
+        }
+        .faq-item summary:focus-visible {
+            outline: 3px solid var(--neon-cyan);
+            outline-offset: 2px;
         }
 
         /* Custom Cursor - DISABLED for performance */
@@ -953,23 +994,25 @@
         @media (max-width: 600px) {
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
         }
-        .footer-brand h3 {
+        .footer-brand .footer-brand-title {
             font-family: 'Orbitron', monospace;
             font-size: 1.5rem;
             color: var(--accent);
             margin-bottom: 15px;
+            font-weight: 700;
         }
         .footer-brand p {
             color: var(--text-muted);
             line-height: 1.7;
         }
-        .footer-column h4 {
+        .footer-heading {
             font-family: 'Orbitron', monospace;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 20px;
             color: var(--text-white);
+            font-weight: 700;
         }
         .footer-column a {
             display: block;
@@ -1130,12 +1173,15 @@
     </style>
 </head>
 <body>
+    <!-- Skip Link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Loading Screen - DISABLED for LCP -->
 
     <!-- Custom Cursor - DISABLED for performance -->
 
     <!-- Background -->
-    <div class="bg-canvas">
+    <div class="bg-canvas" aria-hidden="true">
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
@@ -1144,9 +1190,9 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="nav">
+    <nav id="nav" aria-label="Main navigation">
         <a href="#" class="nav-logo" data-hover>
-            <div class="nav-logo-icon">🏭</div>
+            <div class="nav-logo-icon" aria-hidden="true">🏭</div>
             <span class="nav-logo-text">TAP & BUILD</span>
         </a>
         <div class="nav-links">
@@ -1154,17 +1200,18 @@
             <a href="#faq" data-hover>FAQ</a>
             <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="nav-cta" data-hover>Download Free</a>
         </div>
-        <div class="menu-toggle" id="menuToggle" data-hover>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span><span></span>
-        </div>
+        </button>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-grid">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span>🚀</span>
+                    <span aria-hidden="true">🚀</span>
                     <span>EARLY ACCESS ON GOOGLE PLAY</span>
                 </div>
                 <h1 class="hero-title">
@@ -1177,7 +1224,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="btn-hero btn-primary" data-hover>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
                         FREE DOWNLOAD
                     </a>
                     <a href="#features" class="btn-hero btn-outline" data-hover>
@@ -1279,7 +1326,7 @@
             <h2 class="cta-title">Ready to Build?</h2>
             <p class="cta-subtitle">Free to play. No account required. Start your empire today.</p>
             <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="btn-hero btn-primary" data-hover>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
                 Download on Google Play
             </a>
         </div>
@@ -1288,7 +1335,7 @@
     <!-- FAQ Section -->
     <section class="faq" id="faq" style="content-visibility:auto;contain-intrinsic-size:auto 500px">
         <div class="section-header reveal">
-            <div class="section-tag">❓ FAQ</div>
+            <div class="section-tag"><span aria-hidden="true">❓</span> FAQ</div>
             <h2 class="section-title">Questions?</h2>
         </div>
         <div class="faq-grid">
@@ -1310,26 +1357,27 @@
             </details>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <h3>🏭 Tap & Build</h3>
+                <p class="footer-brand-title"><span aria-hidden="true">🏭</span> Tap & Build</p>
                 <p>The ultimate idle factory tycoon. Build, automate, prestige, dominate.</p>
             </div>
             <div class="footer-column">
-                <h4>Game</h4>
+                <p class="footer-heading">Game</p>
                 <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game">Google Play</a>
                 <a href="#features">Features</a>
             </div>
             <div class="footer-column">
-                <h4>Legal</h4>
+                <p class="footer-heading">Legal</p>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
             </div>
             <div class="footer-column">
-                <h4>Support</h4>
+                <p class="footer-heading">Support</p>
                 <a href="mailto:support@tapandbuild.com">Contact</a>
                 <a href="#faq">FAQ</a>
             </div>
@@ -1344,11 +1392,14 @@
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.querySelector('.nav-links');
         menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             });
