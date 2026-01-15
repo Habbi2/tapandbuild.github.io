@@ -30,10 +30,10 @@ Tap & Build is the ultimate idle clicker tycoon game! Start with nothing and bui
 🔧 14 UNIQUE GENERATORS
 From simple coin miners to quantum reactors, unlock and upgrade 14 different factory generators. Each generator produces coins automatically, letting you earn even faster!
 
-🧩 TETRIS-STYLE FACTORY GRID  
-Place your generators strategically on a unique Tetris-inspired grid. Maximize your factory layout for bonus production!
+📈 LIVE MARKET INVESTMENTS
+Invest your coins in 3 different market indexes! Watch prices change in real-time - your money grows and shrinks with the market. Choose safe or risky investments!
 
-📈 PRESTIGE SYSTEM
+🔄 PRESTIGE SYSTEM
 Reset your progress for permanent multipliers. The more you prestige, the faster you'll grow. Master the prestige cycle to reach astronomical numbers!
 
 🎯 DAILY CHALLENGES & REWARDS
@@ -58,7 +58,7 @@ Watch for lucky drops, spin the wheel, and participate in special events for mas
 
 ✓ Free to play idle clicker game
 ✓ 14 unique factory generators
-✓ Tetris-style placement grid
+✓ Live market with 3 investment indexes
 ✓ Prestige system with multipliers
 ✓ Ascension perks for permanent upgrades
 ✓ Managers for automation
@@ -66,7 +66,7 @@ Watch for lucky drops, spin the wheel, and participate in special events for mas
 ✓ Global leaderboards
 ✓ Offline earnings system
 ✓ Lucky wheel and bonus events
-✓ Beautiful dark theme design
+✓ 7 beautiful theme styles
 ✓ No internet required (play offline!)
 ✓ Regular updates with new content
 
@@ -104,12 +104,12 @@ Free with optional in-app purchases (Remove Ads)
 
 📸 SCREENSHOTS (in order)
 -------------------------
-1. 1_main_factory.png     - Main factory screen with tap button
+1. 1_main_factory.png     - Main factory screen with theme-colored tap button
 2. 2_generators_tab.png   - Generators tab showing all 14 generators
 3. 3_upgrades_panel.png   - Upgrades panel with click multipliers
 4. 4_challenges.png       - Daily challenges screen
 5. 5_prestige.png         - Prestige system with multipliers
-6. 6_tetris_grid.png      - Tetris-style factory grid placement
+6. 6_market.png           - Live market with 3 investment indexes
 7. 7_ascension_perks.png  - Ascension perks selection
 8. 8_leaderboard.png      - Global leaderboard rankings
 
