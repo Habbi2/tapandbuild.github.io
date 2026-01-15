@@ -15,6 +15,7 @@ const CONFIG = {
     width: 1920,
     height: 1080,
     duration: 20000,  // 20 seconds (18s trailer + 2s buffer)
+    musicPath: path.resolve(__dirname, '../assets/sounds/wav para habbi.wav'),
 };
 
 async function recordTrailer() {
@@ -78,9 +79,31 @@ async function recordTrailer() {
         const recordedPath = await video.path();
         
         if (recordedPath && fs.existsSync(recordedPath)) {
-            console.log('🎬 Converting to high-quality MP4...');
+            console.log('🎬 Converting to high-quality MP4 with music...');
             
-            const ffmpegCmd = [
+            // Check if music file exists
+            const hasMusic = fs.existsSync(CONFIG.musicPath);
+            if (hasMusic) {
+                console.log('🎵 Adding music: wav para habbi.wav');
+            }
+            
+            const ffmpegArgs = hasMusic ? [
+                'ffmpeg',
+                '-y',
+                '-i', `"${recordedPath}"`,
+                '-stream_loop', '-1',            // Loop audio infinitely
+                '-i', `"${CONFIG.musicPath}"`,
+                '-c:v', 'libx264',
+                '-preset', 'slow',
+                '-crf', '18',
+                '-pix_fmt', 'yuv420p',
+                '-r', '30',
+                '-c:a', 'aac',
+                '-b:a', '192k',
+                '-shortest',                     // End when video ends
+                '-movflags', '+faststart',
+                `"${outputPath}"`
+            ] : [
                 'ffmpeg',
                 '-y',
                 '-i', `"${recordedPath}"`,
@@ -88,10 +111,12 @@ async function recordTrailer() {
                 '-preset', 'slow',
                 '-crf', '18',
                 '-pix_fmt', 'yuv420p',
-                '-r', '30',                      // Force 30fps output
+                '-r', '30',
                 '-movflags', '+faststart',
                 `"${outputPath}"`
-            ].join(' ');
+            ];
+            
+            const ffmpegCmd = ffmpegArgs.join(' ');
 
             try {
                 execSync(ffmpegCmd, { stdio: 'pipe', shell: true });
