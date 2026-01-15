@@ -1,0 +1,175 @@
+// ===========================================
+// Tap & Build - Manual Animation Control
+// ===========================================
+// Pauses CSS animations and manually seeks them
+//
+// USAGE: node record-video-manual.js
+// OUTPUT: trailer-output.mp4 (1920x1080)
+// ===========================================
+
+const puppeteer = require('puppeteer');
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+
+const CONFIG = {
+    width: 1920,
+    height: 1080,
+    fps: 30,
+    outputFile: 'trailer-output.mp4',
+    trailerUrl: `file:///${path.join(__dirname, 'trailer.html').replace(/\\/g, '/')}`,
+    // Scene timings (in ms) - ~18 SECONDS TOTAL
+    sceneDurations: [1200, 1000, 1500, 1200, 1200, 1200, 1000, 1000, 1000, 1200, 1000, 1200, 1800, 1000, 2000],
+};
+
+const totalScenes = CONFIG.sceneDurations.length;
+const totalDuration = CONFIG.sceneDurations.reduce((a, b) => a + b, 0);
+const frameDurationMs = 1000 / CONFIG.fps;
+
+console.log(`Total video duration: ${(totalDuration / 1000).toFixed(1)} seconds`);
+console.log(`Total frames: ${Math.ceil(totalDuration / frameDurationMs)}`);
+
+async function recordTrailer() {
+    console.log('\n🎬 TAP & BUILD - Manual Animation Recorder\n');
+    console.log('Starting browser...');
+
+    const browser = await puppeteer.launch({
+        headless: 'new',
+        args: [
+            `--window-size=${CONFIG.width},${CONFIG.height}`,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-web-security',
+            '--allow-file-access-from-files'
+        ]
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: CONFIG.width, height: CONFIG.height });
+
+    console.log('Loading trailer...');
+    await page.goto(CONFIG.trailerUrl, { waitUntil: 'networkidle0' });
+
+    // Inject animation control - pause ALL animations globally
+    await page.evaluate(() => {
+        // Pause all CSS animations
+        const style = document.createElement('style');
+        style.id = 'animation-control';
+        style.textContent = `*, *::before, *::after { animation-play-state: paused !important; }`;
+        document.head.appendChild(style);
+        
+        // Store global time for manual animation seeking
+        window.__videoTime = 0;
+        window.__sceneStartTime = 0;
+        
+        // Function to seek all animations to a specific time
+        window.__seekAnimations = (globalTime, sceneLocalTime) => {
+            document.getAnimations().forEach(anim => {
+                if (anim.effect && anim.effect.getTiming) {
+                    // Set animation currentTime based on scene-local time
+                    // This makes animations restart each scene
+                    anim.currentTime = sceneLocalTime;
+                }
+            });
+        };
+    });
+
+    // Create frames directory
+    const framesDir = path.join(__dirname, 'trailer-frames');
+    if (fs.existsSync(framesDir)) {
+        fs.rmSync(framesDir, { recursive: true });
+    }
+    fs.mkdirSync(framesDir);
+
+    console.log('Recording frames...\n');
+    
+    let frameIndex = 0;
+    let globalTime = 0;
+    let currentScene = 1;
+    let sceneLocalTime = 0;
+
+    const totalFrames = Math.ceil(totalDuration / frameDurationMs);
+    
+    for (let i = 0; i < totalFrames; i++) {
+        // Check if we need to advance to next scene
+        if (sceneLocalTime >= CONFIG.sceneDurations[currentScene - 1] && currentScene < totalScenes) {
+            currentScene++;
+            sceneLocalTime = 0;
+            await page.evaluate(() => nextScene());
+            // Small delay for DOM to update
+            await new Promise(r => setTimeout(r, 50));
+        }
+
+        // Seek animations to current time
+        await page.evaluate((globalT, localT) => {
+            window.__seekAnimations(globalT, localT);
+        }, globalTime, sceneLocalTime);
+
+        // Capture frame
+        const framePath = path.join(framesDir, `frame-${String(frameIndex).padStart(6, '0')}.png`);
+        await page.screenshot({ path: framePath, type: 'png' });
+        frameIndex++;
+
+        // Advance time
+        globalTime += frameDurationMs;
+        sceneLocalTime += frameDurationMs;
+
+        // Progress indicator
+        if (frameIndex % CONFIG.fps === 0) {
+            const seconds = frameIndex / CONFIG.fps;
+            process.stdout.write(`\r  Progress: ${seconds.toFixed(0)}s / ${(totalDuration / 1000).toFixed(0)}s (Scene ${currentScene}/${totalScenes})`);
+        }
+    }
+
+    console.log(`\n\nTotal frames captured: ${frameIndex}`);
+    await browser.close();
+
+    console.log('Encoding video with FFmpeg...\n');
+    
+    await new Promise((resolve, reject) => {
+        const ffmpeg = spawn('ffmpeg', [
+            '-y',
+            '-framerate', String(CONFIG.fps),
+            '-i', path.join(framesDir, 'frame-%06d.png'),
+            '-c:v', 'libx264',
+            '-preset', 'slow',
+            '-crf', '18',
+            '-pix_fmt', 'yuv420p',
+            '-movflags', '+faststart',
+            CONFIG.outputFile
+        ], { stdio: 'inherit' });
+
+        ffmpeg.on('close', (code) => {
+            if (code === 0) resolve();
+            else reject(new Error(`FFmpeg exited with code ${code}`));
+        });
+        ffmpeg.on('error', reject);
+    });
+
+    console.log('\nCleaning up frames...');
+    fs.rmSync(framesDir, { recursive: true });
+
+    console.log(`\n✅ Video saved: ${CONFIG.outputFile}`);
+}
+
+// Check for FFmpeg
+async function checkFFmpeg() {
+    return new Promise((resolve) => {
+        const ffmpeg = spawn('ffmpeg', ['-version']);
+        ffmpeg.on('close', (code) => resolve(code === 0));
+        ffmpeg.on('error', () => resolve(false));
+    });
+}
+
+(async () => {
+    if (!(await checkFFmpeg())) {
+        console.error('❌ FFmpeg not found!');
+        process.exit(1);
+    }
+    try {
+        await recordTrailer();
+    } catch (err) {
+        console.error('❌ Error:', err.message);
+        process.exit(1);
+    }
+})();

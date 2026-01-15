@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Tap & Build - Cinematic Trailer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-void: #050510;
+            --bg-deep: #0a0a1a;
+            --accent: #FF9F1C;
+            --accent-light: #FFD700;
+            --accent-dark: #FF6B35;
+            --neon-cyan: #00f5ff;
+            --neon-purple: #bf00ff;
+            --text-white: #ffffff;
+            --glow: rgba(255,159,28,0.5);
+        }
+
+        body {
+            background: var(--bg-void);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            width: 1920px;
+            height: 1080px;
+        }
+
+        .trailer-container {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-void);
+        }
+
+        /* Scene base styles */
+        .scene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            pointer-events: none;
+        }
+
+        .scene.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .scene.exit {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        /* Background effects */
+        .bg-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Typography */
+        .title-massive {
+            font-family: 'Orbitron', monospace;
+            font-size: 140px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 100px var(--glow);
+            letter-spacing: 0.05em;
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 30px var(--glow)); }
+            50% { filter: drop-shadow(0 0 60px var(--accent)); }
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 36px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 20px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        .scene-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-align: center;
+            margin-bottom: 60px;
+            text-shadow: 0 0 40px var(--glow);
+        }
+
+        .scene-title .highlight {
+            color: var(--accent);
+        }
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 40px;
+            max-width: 1600px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,159,28,0.1), rgba(255,159,28,0.05));
+            border: 2px solid rgba(255,159,28,0.3);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            animation: cardFloat 3s ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card .emoji {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card .name {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        /* Generator showcase */
+        .generator-row {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1700px;
+        }
+
+        .generator-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: generatorPop 0.5s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .scene.active .generator-item {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes generatorPop {
+            0% { opacity: 0; transform: scale(0) rotate(-180deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        .generator-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--bg-deep), rgba(255,159,28,0.2));
+            border: 3px solid var(--accent);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            box-shadow: 0 0 30px var(--glow);
+            margin-bottom: 15px;
+        }
+
+        .generator-name {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            text-align: center;
+            max-width: 120px;
+        }
+
+        /* Prestige visualization */
+        .prestige-display {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .prestige-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent) 0deg, var(--accent-dark) 120deg, var(--accent-light) 240deg, var(--accent) 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: prestigeSpin 8s linear infinite;
+            box-shadow: 0 0 80px var(--glow);
+        }
+
+        @keyframes prestigeSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .prestige-inner {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: var(--bg-void);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: prestigeSpin 8s linear infinite reverse;
+        }
+
+        .prestige-icon {
+            font-size: 80px;
+        }
+
+        .prestige-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        .prestige-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 32px;
+            color: var(--text-white);
+            animation: slideInRight 0.5s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .scene.active .benefit-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .benefit-item .emoji {
+            font-size: 48px;
+        }
+
+        /* Ascension branches */
+        .ascension-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1500px;
+        }
+
+        .branch-card {
+            background: linear-gradient(180deg, var(--color, var(--accent)) 0%, transparent 100%);
+            background-size: 100% 200%;
+            background-position: 0 100%;
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            border: 3px solid var(--color, var(--accent));
+            animation: branchReveal 1s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+        }
+
+        .scene.active .branch-card {
+            opacity: 1;
+            background-position: 0 80%;
+        }
+
+        .branch-card .icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        .branch-card .title {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+
+        .branch-card .perks {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        /* Artifact showcase */
+        .artifact-display {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .artifact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: artifactFloat 3s ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes artifactFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .artifact-gem {
+            width: 140px;
+            height: 140px;
+            background: var(--color, var(--accent));
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            box-shadow: 0 0 50px var(--color, var(--glow));
+            margin-bottom: 15px;
+        }
+
+        .artifact-rarity {
+            font-family: 'Orbitron', monospace;
+            font-size: 20px;
+            color: var(--color, var(--accent));
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Territory map */
+        .territory-row {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+        }
+
+        .territory-card {
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(180deg, var(--color, #333) 0%, var(--bg-deep) 100%);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--color, #333);
+            animation: territorySlide 0.6s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .scene.active .territory-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .territory-card .icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        .territory-card .name {
+            font-family: 'Orbitron', monospace;
+            font-size: 20px;
+            color: var(--text-white);
+            text-align: center;
+        }
+
+        /* Market display */
+        .market-display {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .market-chart {
+            width: 500px;
+            height: 300px;
+            background: var(--bg-deep);
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 200px;
+        }
+
+        .chart-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-line path {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-out forwards;
+        }
+
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .chart-fill {
+            fill: url(#chartGradient);
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 0.3; }
+        }
+
+        .market-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .market-stat {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-deep);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .stat-info .label {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .stat-info .value {
+            font-family: 'Orbitron', monospace;
+            font-size: 32px;
+            color: #4ade80;
+        }
+
+        /* Leaderboard */
+        .leaderboard-display {
+            display: flex;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .podium {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .podium-place {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .podium-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 15px;
+            border: 4px solid var(--medal, gold);
+        }
+
+        .podium-bar {
+            width: 120px;
+            background: linear-gradient(180deg, var(--medal, gold), transparent);
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .podium-rank {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            color: var(--bg-void);
+            font-weight: 900;
+        }
+
+        .leaderboard-categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .category-badge {
+            background: var(--bg-deep);
+            border: 2px solid rgba(255,159,28,0.3);
+            border-radius: 16px;
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-badge .emoji {
+            font-size: 36px;
+        }
+
+        .category-badge .text {
+            font-size: 20px;
+            color: var(--text-white);
+        }
+
+        /* Daily rewards */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            max-width: 900px;
+        }
+
+        .day-cell {
+            width: 110px;
+            height: 110px;
+            background: var(--bg-deep);
+            border: 2px solid rgba(255,159,28,0.2);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: dayPop 0.3s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .scene.active .day-cell {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .day-cell.claimed {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-color: var(--accent);
+        }
+
+        .day-cell .day-num {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 5px;
+        }
+
+        .day-cell .reward {
+            font-size: 36px;
+        }
+
+        /* Lucky wheel */
+        .wheel-container {
+            position: relative;
+            width: 450px;
+            height: 450px;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #FF6B35 0deg 45deg,
+                #FFD700 45deg 90deg,
+                #FF9F1C 90deg 135deg,
+                #FF6B35 135deg 180deg,
+                #FFD700 180deg 225deg,
+                #FF9F1C 225deg 270deg,
+                #FF6B35 270deg 315deg,
+                #FFD700 315deg 360deg
+            );
+            border: 8px solid var(--accent);
+            box-shadow: 0 0 60px var(--glow);
+            animation: wheelSpin 10s ease-in-out infinite;
+        }
+
+        @keyframes wheelSpin {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(720deg); }
+            100% { transform: rotate(720deg); }
+        }
+
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--bg-void);
+            border-radius: 50%;
+            border: 6px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            filter: drop-shadow(0 0 10px var(--accent));
+        }
+
+        /* Number counter */
+        .big-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--accent);
+            text-shadow: 0 0 50px var(--glow);
+        }
+
+        .number-label {
+            font-size: 36px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* Final CTA */
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border: none;
+            padding: 30px 80px;
+            border-radius: 60px;
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            color: var(--bg-void);
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 50px var(--glow);
+            animation: ctaPulse 2s ease-in-out infinite;
+            margin-top: 50px;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px var(--glow); }
+            50% { transform: scale(1.05); box-shadow: 0 0 80px var(--accent); }
+        }
+
+        .play-store-badge {
+            width: 300px;
+            margin-top: 30px;
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+        }
+
+        /* Scene-specific backgrounds */
+        .scene-intro .bg-glow {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Scene counter */
+        .scene-counter {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            color: rgba(255,255,255,0.4);
+            z-index: 1000;
+        }
+
+        /* Friend rooms */
+        .room-cards {
+            display: flex;
+            gap: 40px;
+        }
+
+        .room-card {
+            width: 350px;
+            background: var(--bg-deep);
+            border: 3px solid var(--accent);
+            border-radius: 24px;
+            padding: 35px;
+            animation: roomSlide 0.5s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .scene.active .room-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .room-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .room-header .icon {
+            font-size: 48px;
+        }
+
+        .room-header .title {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            color: var(--text-white);
+        }
+
+        .room-members {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .member-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .room-code {
+            background: var(--bg-void);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+        }
+
+        /* Themes showcase */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .theme-preview {
+            width: 200px;
+            height: 360px;
+            border-radius: 30px;
+            border: 4px solid var(--color, var(--accent));
+            overflow: hidden;
+            position: relative;
+            animation: themeFloat 4s ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes themeFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .theme-preview .phone-bg {
+            width: 100%;
+            height: 100%;
+            background: var(--bg, #000);
+        }
+
+        .theme-preview .theme-name {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            color: var(--text-white);
+            background: rgba(0,0,0,0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* Offline earnings */
+        .offline-display {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .moon-container {
+            position: relative;
+        }
+
+        .moon {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 30%, #fef3c7, #fbbf24, #d97706);
+            border-radius: 50%;
+            box-shadow: 0 0 100px rgba(251,191,36,0.5);
+            position: relative;
+        }
+
+        .moon::before {
+            content: '😴';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+        }
+
+        .zzz {
+            position: absolute;
+            font-size: 48px;
+            animation: zzzFloat 2s ease-in-out infinite;
+        }
+
+        .zzz:nth-child(1) { top: -20px; right: -20px; animation-delay: 0s; }
+        .zzz:nth-child(2) { top: -60px; right: 20px; animation-delay: 0.3s; font-size: 36px; }
+        .zzz:nth-child(3) { top: -90px; right: 60px; animation-delay: 0.6s; font-size: 28px; }
+
+        @keyframes zzzFloat {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-20px); opacity: 0.5; }
+        }
+
+        .offline-text {
+            text-align: left;
+        }
+
+        .offline-text h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 56px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+        }
+
+        .offline-text p {
+            font-size: 28px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .offline-amount {
+            font-family: 'Orbitron', monospace;
+            font-size: 72px;
+            color: #4ade80;
+            margin-top: 30px;
+        }
+
+        /* Controls hint - hidden in autoplay mode */
+        .controls-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+
+        .autoplay-mode .controls-hint {
+            display: none !important;
+        }
+
+        .controls-hint kbd {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin: 0 5px;
+        }
+
+        /* Respect items */
+        .respect-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            border-radius: 16px;
+            padding: 20px 35px;
+            animation: respectSlide 0.6s ease-out forwards;
+            animation-delay: var(--delay, 0s);
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .scene.active .respect-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .respect-icon {
+            font-size: 42px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .respect-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 26px;
+            color: #4ade80;
+            margin-bottom: 4px;
+        }
+
+        .respect-desc {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="trailer-container">
+        <!-- Particles background -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- Scene counter -->
+        <div class="scene-counter" id="sceneCounter">1 / 14</div>
+
+        <!-- Controls hint -->
+        <div class="controls-hint">
+            Press <kbd>SPACE</kbd> or <kbd>→</kbd> to advance | <kbd>←</kbd> to go back | <kbd>R</kbd> to restart | <span id="autoPlayHint">Press <kbd>A</kbd> to start auto-play</span>
+        </div>
+
+        <!-- SCENE 1: Intro -->
+        <div class="scene scene-intro active" data-scene="1">
+            <div class="bg-glow"></div>
+            <div class="title-massive">TAP & BUILD</div>
+            <div class="subtitle">Idle Factory Tycoon</div>
+        </div>
+
+        <!-- SCENE 2: Tagline -->
+        <div class="scene" data-scene="2">
+            <div class="bg-glow" style="background: radial-gradient(circle, var(--neon-cyan) 0%, transparent 70%); left: 30%; top: 30%;"></div>
+            <div class="scene-title">Tap. <span class="highlight">Build.</span> Dominate.</div>
+            <div style="font-size: 36px; color: rgba(255,255,255,0.7); max-width: 900px; text-align: center; line-height: 1.6;">
+                The ultimate idle factory tycoon. Start with a single tap, build an empire that spans dimensions.
+            </div>
+        </div>
+
+        <!-- SCENE 3: Generators -->
+        <div class="scene" data-scene="3">
+            <div class="scene-title">🏭 <span class="highlight">21</span> Unique Generators</div>
+            <div class="generator-row">
+                <div class="generator-item" style="--delay: 0s;">
+                    <div class="generator-icon">📦</div>
+                    <div class="generator-name">Conveyor Belt</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.1s;">
+                    <div class="generator-icon">🔧</div>
+                    <div class="generator-name">Assembly Line</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.2s;">
+                    <div class="generator-icon">🦾</div>
+                    <div class="generator-name">Robotic Arm</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.3s;">
+                    <div class="generator-icon">🏭</div>
+                    <div class="generator-name">Factory Floor</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.4s;">
+                    <div class="generator-icon">⚡</div>
+                    <div class="generator-name">Industrial Zone</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.5s;">
+                    <div class="generator-icon">🌐</div>
+                    <div class="generator-name">Global Network</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.6s;">
+                    <div class="generator-icon">⚛️</div>
+                    <div class="generator-name">Quantum Fabricator</div>
+                </div>
+            </div>
+            <div class="generator-row" style="margin-top: 40px;">
+                <div class="generator-item" style="--delay: 0.7s;">
+                    <div class="generator-icon">☀️</div>
+                    <div class="generator-name">Fusion Reactor</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.8s;">
+                    <div class="generator-icon">💫</div>
+                    <div class="generator-name">Antimatter Engine</div>
+                </div>
+                <div class="generator-item" style="--delay: 0.9s;">
+                    <div class="generator-icon">🔆</div>
+                    <div class="generator-name">Dyson Sphere</div>
+                </div>
+                <div class="generator-item" style="--delay: 1s;">
+                    <div class="generator-icon">🕳️</div>
+                    <div class="generator-name">Black Hole</div>
+                </div>
+                <div class="generator-item" style="--delay: 1.1s;">
+                    <div class="generator-icon">🌌</div>
+                    <div class="generator-name">Multiverse Gateway</div>
+                </div>
+                <div class="generator-item" style="--delay: 1.2s;">
+                    <div class="generator-icon">⏱️</div>
+                    <div class="generator-name">Temporal Accelerator</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 4: Prestige -->
+        <div class="scene" data-scene="4">
+            <div class="scene-title">⭐ <span class="highlight">Prestige</span> System</div>
+            <div class="prestige-display">
+                <div class="prestige-circle">
+                    <div class="prestige-inner">
+                        <div class="prestige-icon">⭐</div>
+                        <div class="prestige-text">PRESTIGE</div>
+                    </div>
+                </div>
+                <div class="prestige-benefits">
+                    <div class="benefit-item" style="--delay: 0.2s;">
+                        <span class="emoji">📈</span>
+                        <span>Permanent production multipliers</span>
+                    </div>
+                    <div class="benefit-item" style="--delay: 0.4s;">
+                        <span class="emoji">🔓</span>
+                        <span>Unlock ascension perks</span>
+                    </div>
+                    <div class="benefit-item" style="--delay: 0.6s;">
+                        <span class="emoji">🚀</span>
+                        <span>Compound growth: 1.08× per level</span>
+                    </div>
+                    <div class="benefit-item" style="--delay: 0.8s;">
+                        <span class="emoji">🌟</span>
+                        <span>Path to Transcendence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 5: Ascension -->
+        <div class="scene" data-scene="5">
+            <div class="scene-title">🔱 <span class="highlight">Ascension</span> Perks</div>
+            <div class="ascension-grid">
+                <div class="branch-card" style="--color: #4CAF50; --delay: 0s;">
+                    <div class="icon">🏭</div>
+                    <div class="title">Production</div>
+                    <div class="perks">Efficient Factories<br>Bulk Discount<br>Industrial Revolution<br>Singularity</div>
+                </div>
+                <div class="branch-card" style="--color: #2196F3; --delay: 0.2s;">
+                    <div class="icon">👆</div>
+                    <div class="title">Tap Power</div>
+                    <div class="perks">Strong Fingers<br>Precision Taps<br>Devastating Crits<br>Godlike Taps</div>
+                </div>
+                <div class="branch-card" style="--color: #9C27B0; --delay: 0.4s;">
+                    <div class="icon">😴</div>
+                    <div class="title">Offline</div>
+                    <div class="perks">Passive Income<br>Head Start<br>Prestige Mastery<br>Time Warp</div>
+                </div>
+                <div class="branch-card" style="--color: #FF9800; --delay: 0.6s;">
+                    <div class="icon">🍀</div>
+                    <div class="title">Luck</div>
+                    <div class="perks">Lucky Charm<br>Treasure Hunter<br>Golden Touch<br>Fortune's Favor</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 6: Artifacts -->
+        <div class="scene" data-scene="6">
+            <div class="scene-title">💎 Collect <span class="highlight">Artifacts</span></div>
+            <div class="artifact-display">
+                <div class="artifact-item" style="--delay: 0s; --color: #9ca3af;">
+                    <div class="artifact-gem">⚙️</div>
+                    <div class="artifact-rarity" style="color: #9ca3af;">Common</div>
+                </div>
+                <div class="artifact-item" style="--delay: 0.3s; --color: #3b82f6;">
+                    <div class="artifact-gem" style="background: #3b82f6;">🔧</div>
+                    <div class="artifact-rarity" style="color: #3b82f6;">Rare</div>
+                </div>
+                <div class="artifact-item" style="--delay: 0.6s; --color: #a855f7;">
+                    <div class="artifact-gem" style="background: #a855f7;">⚡</div>
+                    <div class="artifact-rarity" style="color: #a855f7;">Epic</div>
+                </div>
+                <div class="artifact-item" style="--delay: 0.9s; --color: #f59e0b;">
+                    <div class="artifact-gem" style="background: #f59e0b;">💎</div>
+                    <div class="artifact-rarity" style="color: #f59e0b;">Legendary</div>
+                </div>
+                <div class="artifact-item" style="--delay: 1.2s; --color: #ef4444;">
+                    <div class="artifact-gem" style="background: linear-gradient(135deg, #ef4444, #dc2626);">🔮</div>
+                    <div class="artifact-rarity" style="color: #ef4444;">Mythic</div>
+                </div>
+            </div>
+            <div style="margin-top: 60px; font-size: 28px; color: rgba(255,255,255,0.7);">
+                ⚗️ Fuse 3 artifacts → 1 higher rarity
+            </div>
+        </div>
+
+        <!-- SCENE 7: Challenges -->
+        <div class="scene" data-scene="7">
+            <div class="scene-title">🎯 Daily <span class="highlight">Challenges</span></div>
+            <div style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; max-width: 1400px;">
+                <div class="feature-card" style="--delay: 0s; width: 280px;">
+                    <span class="emoji">👆</span>
+                    <div class="name">Tap 10,000 times</div>
+                </div>
+                <div class="feature-card" style="--delay: 0.15s; width: 280px;">
+                    <span class="emoji">💰</span>
+                    <div class="name">Earn 1 Trillion</div>
+                </div>
+                <div class="feature-card" style="--delay: 0.3s; width: 280px;">
+                    <span class="emoji">🔥</span>
+                    <div class="name">Reach 500 Combo</div>
+                </div>
+                <div class="feature-card" style="--delay: 0.45s; width: 280px;">
+                    <span class="emoji">🏭</span>
+                    <div class="name">Buy 50 Generators</div>
+                </div>
+                <div class="feature-card" style="--delay: 0.6s; width: 280px;">
+                    <span class="emoji">⭐</span>
+                    <div class="name">Prestige 3 Times</div>
+                </div>
+                <div class="feature-card" style="--delay: 0.75s; width: 280px;">
+                    <span class="emoji">🎁</span>
+                    <div class="name">Weekly Bonus</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 8: Market -->
+        <div class="scene" data-scene="8">
+            <div class="scene-title">📈 Live <span class="highlight">Market</span></div>
+            <div class="market-display">
+                <div class="market-chart">
+                    <div class="chart-line">
+                        <svg viewBox="0 0 460 200">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF9F1C;stop-opacity:0.5" />
+                                    <stop offset="100%" style="stop-color:#FF9F1C;stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                            <path class="chart-fill" d="M0,180 L30,160 L60,170 L90,140 L120,150 L150,100 L180,120 L210,80 L240,90 L270,50 L300,70 L330,40 L360,60 L390,30 L420,45 L460,20 L460,200 L0,200 Z" />
+                            <path d="M0,180 L30,160 L60,170 L90,140 L120,150 L150,100 L180,120 L210,80 L240,90 L270,50 L300,70 L330,40 L360,60 L390,30 L420,45 L460,20" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="market-stats">
+                    <div class="market-stat">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <div class="label">TECH INDEX</div>
+                            <div class="value">+127.4%</div>
+                        </div>
+                    </div>
+                    <div class="market-stat">
+                        <div class="stat-icon">🏦</div>
+                        <div class="stat-info">
+                            <div class="label">INDUSTRY ETF</div>
+                            <div class="value">+84.2%</div>
+                        </div>
+                    </div>
+                    <div class="market-stat">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <div class="label">COMMODITY</div>
+                            <div class="value">+56.8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 9: Leaderboards -->
+        <div class="scene" data-scene="9">
+            <div class="scene-title">🏆 Global <span class="highlight">Leaderboards</span></div>
+            <div class="leaderboard-display">
+                <div class="podium">
+                    <div class="podium-place">
+                        <div class="podium-avatar" style="--medal: silver;">🥈</div>
+                        <div class="podium-bar" style="height: 150px; --medal: silver; background: linear-gradient(180deg, silver, transparent);">
+                            <div class="podium-rank">2</div>
+                        </div>
+                    </div>
+                    <div class="podium-place">
+                        <div class="podium-avatar" style="--medal: gold;">👑</div>
+                        <div class="podium-bar" style="height: 200px; --medal: gold;">
+                            <div class="podium-rank">1</div>
+                        </div>
+                    </div>
+                    <div class="podium-place">
+                        <div class="podium-avatar" style="--medal: #cd7f32;">🥉</div>
+                        <div class="podium-bar" style="height: 100px; --medal: #cd7f32; background: linear-gradient(180deg, #cd7f32, transparent);">
+                            <div class="podium-rank">3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leaderboard-categories">
+                    <div class="category-badge"><span class="emoji">💰</span><span class="text">Lifetime Earnings</span></div>
+                    <div class="category-badge"><span class="emoji">⚡</span><span class="text">Highest CPS</span></div>
+                    <div class="category-badge"><span class="emoji">👆</span><span class="text">Total Taps</span></div>
+                    <div class="category-badge"><span class="emoji">⭐</span><span class="text">Prestige Count</span></div>
+                    <div class="category-badge"><span class="emoji">🔥</span><span class="text">Best Combo</span></div>
+                    <div class="category-badge"><span class="emoji">🌟</span><span class="text">Transcendence</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 10: Friend Rooms -->
+        <div class="scene" data-scene="10">
+            <div class="scene-title">👥 Compete in <span class="highlight">Friend Rooms</span></div>
+            <div class="room-cards">
+                <div class="room-card" style="--delay: 0s;">
+                    <div class="room-header">
+                        <span class="icon">🏠</span>
+                        <span class="title">Factory Kings</span>
+                    </div>
+                    <div class="room-members">
+                        <div class="member-avatar">👑</div>
+                        <div class="member-avatar">🎮</div>
+                        <div class="member-avatar">🚀</div>
+                        <div class="member-avatar">⚡</div>
+                        <div class="member-avatar">+3</div>
+                    </div>
+                    <div class="room-code">XK7P2M</div>
+                </div>
+                <div class="room-card" style="--delay: 0.2s;">
+                    <div class="room-header">
+                        <span class="icon">🏆</span>
+                        <span class="title">Weekly Season</span>
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 64px;">🥇🥈🥉</div>
+                        <div style="color: rgba(255,255,255,0.7); margin-top: 10px;">Trophy rewards!</div>
+                    </div>
+                    <div style="color: var(--accent); font-family: 'Orbitron', monospace; text-align: center;">5 DAYS LEFT</div>
+                </div>
+                <div class="room-card" style="--delay: 0.4s;">
+                    <div class="room-header">
+                        <span class="icon">📜</span>
+                        <span class="title">Hall of Fame</span>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">⭐</div>
+                        <div style="color: var(--accent); font-size: 20px;">Season Champions</div>
+                        <div style="color: rgba(255,255,255,0.6); margin-top: 10px;">Eternal glory awaits</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 11: Daily Rewards -->
+        <div class="scene" data-scene="11">
+            <div class="scene-title">🎁 <span class="highlight">Daily</span> Rewards</div>
+            <div class="calendar-grid">
+                <div class="day-cell claimed" style="--delay: 0s;"><div class="day-num">Day 1</div><div class="reward">💰</div></div>
+                <div class="day-cell claimed" style="--delay: 0.05s;"><div class="day-num">Day 2</div><div class="reward">🎰</div></div>
+                <div class="day-cell claimed" style="--delay: 0.1s;"><div class="day-num">Day 3</div><div class="reward">⚡</div></div>
+                <div class="day-cell claimed" style="--delay: 0.15s;"><div class="day-num">Day 4</div><div class="reward">💎</div></div>
+                <div class="day-cell claimed" style="--delay: 0.2s;"><div class="day-num">Day 5</div><div class="reward">🎁</div></div>
+                <div class="day-cell claimed" style="--delay: 0.25s;"><div class="day-num">Day 6</div><div class="reward">🪙</div></div>
+                <div class="day-cell" style="--delay: 0.3s; border-color: var(--accent);"><div class="day-num">Day 7</div><div class="reward">👑</div></div>
+                <div class="day-cell" style="--delay: 0.35s;"><div class="day-num">Day 8</div><div class="reward">💰</div></div>
+                <div class="day-cell" style="--delay: 0.4s;"><div class="day-num">Day 9</div><div class="reward">🎰</div></div>
+                <div class="day-cell" style="--delay: 0.45s;"><div class="day-num">Day 10</div><div class="reward">⭐</div></div>
+                <div class="day-cell" style="--delay: 0.5s;"><div class="day-num">Day 11</div><div class="reward">💎</div></div>
+                <div class="day-cell" style="--delay: 0.55s;"><div class="day-num">Day 12</div><div class="reward">🎁</div></div>
+                <div class="day-cell" style="--delay: 0.6s;"><div class="day-num">Day 13</div><div class="reward">🪙</div></div>
+                <div class="day-cell" style="--delay: 0.65s;"><div class="day-num">Day 14</div><div class="reward">🏆</div></div>
+            </div>
+            <div style="margin-top: 50px; font-size: 32px; color: rgba(255,255,255,0.7);">
+                30 days of escalating rewards • Never miss a day!
+            </div>
+        </div>
+
+        <!-- SCENE 12: Lucky Wheel -->
+        <div class="scene" data-scene="12">
+            <div class="scene-title">🎰 <span class="highlight">Lucky</span> Wheel</div>
+            <div style="display: flex; align-items: center; gap: 100px;">
+                <div class="wheel-container">
+                    <div class="wheel-pointer">📍</div>
+                    <div class="wheel"></div>
+                    <div class="wheel-center">🎯</div>
+                </div>
+                <div style="text-align: left;">
+                    <div style="font-size: 28px; color: rgba(255,255,255,0.8); line-height: 2;">
+                        <div>🪙 Bonus Coins</div>
+                        <div>⏱️ Time Boosts</div>
+                        <div>💎 Rare Artifacts</div>
+                        <div>⭐ Prestige Points</div>
+                        <div>🎰 Extra Spins</div>
+                        <div style="color: var(--accent); font-weight: 700;">🏆 JACKPOT!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 13: We Respect You -->
+        <div class="scene" data-scene="13">
+            <div class="scene-title">A Game That <span class="highlight">Respects You</span></div>
+            <div style="display: flex; flex-direction: column; gap: 20px; max-width: 900px;">
+                <div class="respect-item" style="--delay: 0s;">
+                    <span class="respect-icon">🚫</span>
+                    <div class="respect-text">
+                        <div class="respect-title">No Forced Ads</div>
+                        <div class="respect-desc">Ads are 100% optional. Watch for bonuses, never required.</div>
+                    </div>
+                </div>
+                <div class="respect-item" style="--delay: 0.2s;">
+                    <span class="respect-icon">🔓</span>
+                    <div class="respect-text">
+                        <div class="respect-title">No Paywalls</div>
+                        <div class="respect-desc">All 21 generators, all features accessible completely FREE.</div>
+                    </div>
+                </div>
+                <div class="respect-item" style="--delay: 0.4s;">
+                    <span class="respect-icon">⚖️</span>
+                    <div class="respect-text">
+                        <div class="respect-title">No Pay-to-Win</div>
+                        <div class="respect-desc">Leaderboards are fair. Skill & dedication, not wallet size.</div>
+                    </div>
+                </div>
+                <div class="respect-item" style="--delay: 0.6s;">
+                    <span class="respect-icon">🔋</span>
+                    <div class="respect-text">
+                        <div class="respect-title">No Energy System</div>
+                        <div class="respect-desc">Play as much as you want, whenever you want.</div>
+                    </div>
+                </div>
+                <div class="respect-item" style="--delay: 0.8s;">
+                    <span class="respect-icon">💚</span>
+                    <div class="respect-text">
+                        <div class="respect-title">One Fair Price</div>
+                        <div class="respect-desc">$2.99 removes ads forever + bonuses. No subscriptions.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 14: Offline -->
+        <div class="scene" data-scene="14">
+            <div class="offline-display">
+                <div class="moon-container">
+                    <div class="moon"></div>
+                    <span class="zzz">💤</span>
+                    <span class="zzz">💤</span>
+                    <span class="zzz">💤</span>
+                </div>
+                <div class="offline-text">
+                    <h2>Earn While You Sleep</h2>
+                    <p>Your factories never stop producing.<br>Come back to massive rewards!</p>
+                    <div class="offline-amount">+$847.3 TRILLION</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCENE 15: CTA -->
+        <div class="scene" data-scene="15">
+            <div class="bg-glow" style="background: radial-gradient(circle, var(--accent) 0%, transparent 70%); width: 1000px; height: 1000px;"></div>
+            <div class="title-massive" style="font-size: 100px;">TAP & BUILD</div>
+            <div style="font-size: 42px; color: rgba(255,255,255,0.9); margin-top: 30px; margin-bottom: 20px;">
+                Your factory empire awaits
+            </div>
+            <div style="display: flex; gap: 40px; margin-top: 30px; font-size: 24px; color: rgba(255,255,255,0.6);">
+                <span>🏭 21 Generators</span>
+                <span>⭐ Prestige System</span>
+                <span>🌍 Global Leaderboards</span>
+                <span>💯 100% FREE</span>
+            </div>
+            <button class="cta-button">DOWNLOAD FREE</button>
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="play-store-badge">
+        </div>
+    </div>
+
+    <script>
+        // Scene management
+        let currentScene = 1;
+        const totalScenes = 15;
+        const scenes = document.querySelectorAll('.scene');
+        const progressBar = document.getElementById('progressBar');
+        const sceneCounter = document.getElementById('sceneCounter');
+
+        function showScene(sceneNum) {
+            scenes.forEach(scene => {
+                const num = parseInt(scene.dataset.scene);
+                scene.classList.remove('active', 'exit');
+                
+                if (num === sceneNum) {
+                    scene.classList.add('active');
+                } else if (num < sceneNum) {
+                    scene.classList.add('exit');
+                }
+            });
+
+            progressBar.style.width = `${(sceneNum / totalScenes) * 100}%`;
+            sceneCounter.textContent = `${sceneNum} / ${totalScenes}`;
+        }
+
+        function nextScene() {
+            if (currentScene < totalScenes) {
+                currentScene++;
+                showScene(currentScene);
+            }
+        }
+
+        function prevScene() {
+            if (currentScene > 1) {
+                currentScene--;
+                showScene(currentScene);
+            }
+        }
+
+        function restart() {
+            currentScene = 1;
+            showScene(currentScene);
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' || e.code === 'ArrowRight') {
+                e.preventDefault();
+                nextScene();
+            } else if (e.code === 'ArrowLeft') {
+                prevScene();
+            } else if (e.code === 'KeyR') {
+                restart();
+                stopAutoPlay();
+            } else if (e.code === 'KeyA') {
+                if (autoPlayEnabled) {
+                    stopAutoPlay();
+                } else {
+                    startAutoPlay();
+                }
+            }
+        });
+
+        // Click to advance
+        document.querySelector('.trailer-container').addEventListener('click', nextScene);
+
+        // Scene timings (in milliseconds) - Total ~18 seconds - FAST & ENGAGING
+        const sceneTimings = {
+            1: 1200,   // Intro - TAP & BUILD
+            2: 1000,   // Tagline
+            3: 1500,   // Generators
+            4: 1200,   // Prestige
+            5: 1200,   // Ascension
+            6: 1200,   // Artifacts
+            7: 1000,   // Challenges
+            8: 1000,   // Market
+            9: 1000,   // Leaderboards
+            10: 1200,  // Friend Rooms
+            11: 1000,  // Daily Rewards
+            12: 1200,  // Lucky Wheel
+            13: 1800,  // Respects You (important - let it land)
+            14: 1000,  // Offline
+            15: 2000   // CTA (final)
+        };
+
+        // Auto-play functionality
+        let autoPlayEnabled = false;
+        let autoPlayTimeout = null;
+
+        function startAutoPlay() {
+            autoPlayEnabled = true;
+            document.getElementById('autoPlayHint').textContent = 'AUTO-PLAY ON - Press A to stop';
+            scheduleNextScene();
+        }
+
+        function stopAutoPlay() {
+            autoPlayEnabled = false;
+            if (autoPlayTimeout) {
+                clearTimeout(autoPlayTimeout);
+                autoPlayTimeout = null;
+            }
+            document.getElementById('autoPlayHint').textContent = 'Press A to start auto-play';
+        }
+
+        function scheduleNextScene() {
+            if (!autoPlayEnabled || currentScene >= totalScenes) return;
+            
+            const timing = sceneTimings[currentScene] || 2000;
+            autoPlayTimeout = setTimeout(() => {
+                nextScene();
+                scheduleNextScene();
+            }, timing);
+        }
+
+        // Auto-start only with URL parameter (for manual recording)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('autoplay') === 'true') {
+            document.body.classList.add('autoplay-mode');
+            setTimeout(() => {
+                startAutoPlay();
+            }, 1000);
+        }
+
+        // Create particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 10}s`;
+            particle.style.width = `${5 + Math.random() * 10}px`;
+            particle.style.height = particle.style.width;
+            particle.style.opacity = Math.random() * 0.5;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Auto-play option (uncomment for automatic playback)
+        // setInterval(nextScene, 4000);
+    </script>
+</body>
+</html>
