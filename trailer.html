@@ -1361,35 +1361,43 @@
             }
 
             /* ========== SCENE 9: Leaderboards ========== */
+            .scene[data-scene="9"] .scene-title {
+                font-size: clamp(16px, 4.5vw, 48px);
+                margin-bottom: 10px;
+            }
+
             .leaderboard-display {
                 flex-direction: column;
-                gap: 25px;
+                gap: 15px;
                 align-items: center;
-            }
-
-            .podium {
-                transform: scale(0.6);
-            }
-
-            .leaderboard-categories {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
                 width: 100%;
                 padding: 0 10px;
             }
 
+            .podium {
+                transform: scale(0.45);
+                margin: -30px 0;
+            }
+
+            .leaderboard-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+                width: 100%;
+                padding: 0;
+            }
+
             .category-badge {
-                padding: 10px 12px;
-                gap: 8px;
-                border-radius: 10px;
+                padding: 8px 10px;
+                gap: 6px;
+                border-radius: 8px;
             }
 
             .category-badge .emoji {
-                font-size: 18px;
+                font-size: 14px;
             }
 
             .category-badge .text {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             /* ========== SCENE 10: Friend Rooms (3 cards) ========== */
