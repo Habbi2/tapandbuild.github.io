@@ -1004,6 +1004,7 @@
             font-size: 18px;
             color: rgba(255,255,255,0.3);
             z-index: 1000;
+            display: none; /* Hidden by default */
         }
 
         .autoplay-mode .controls-hint {
@@ -1315,37 +1316,48 @@
             /* ========== SCENE 8: Market ========== */
             .market-display {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
                 transform: none !important;
+                width: 100%;
+                padding: 0 15px;
             }
 
             .market-chart {
-                width: calc(100vw - 40px);
-                max-width: 340px;
-                height: 150px;
+                width: 100%;
+                max-width: 320px;
+                height: 120px;
+                border-radius: 12px;
+            }
+
+            .chart-line {
+                bottom: 20px;
+                left: 10px;
+                width: calc(100% - 20px);
+                height: 80px;
             }
 
             .market-stats {
-                gap: 12px;
+                gap: 10px;
+                width: 100%;
             }
 
             .market-stat {
-                gap: 12px;
+                gap: 10px;
             }
 
             .stat-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-                border-radius: 10px;
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+                border-radius: 8px;
             }
 
             .stat-info .label {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             .stat-info .value {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             /* ========== SCENE 9: Leaderboards ========== */
@@ -1723,11 +1735,11 @@
         <div class="progress-bar" id="progressBar"></div>
 
         <!-- Scene counter -->
-        <div class="scene-counter" id="sceneCounter">1 / 14</div>
+        <div class="scene-counter" id="sceneCounter">1 / 15</div>
 
-        <!-- Controls hint -->
-        <div class="controls-hint">
-            Press <kbd>SPACE</kbd> or <kbd>→</kbd> to advance | <kbd>←</kbd> to go back | <kbd>R</kbd> to restart | <span id="autoPlayHint">Press <kbd>A</kbd> to start auto-play</span>
+        <!-- Controls hint (hidden by default) -->
+        <div class="controls-hint" id="controlsHint">
+            Swipe or tap to navigate
         </div>
 
         <!-- SCENE 1: Intro -->
@@ -2199,6 +2211,10 @@
             if (currentScene < totalScenes) {
                 currentScene++;
                 showScene(currentScene);
+            } else {
+                // Loop back to start
+                currentScene = 1;
+                showScene(currentScene);
             }
         }
 
@@ -2214,45 +2230,91 @@
             showScene(currentScene);
         }
 
-        // Keyboard controls
+        // Keyboard controls (for desktop)
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' || e.code === 'ArrowRight') {
                 e.preventDefault();
+                stopAutoPlay();
                 nextScene();
+                startAutoPlay();
             } else if (e.code === 'ArrowLeft') {
+                stopAutoPlay();
                 prevScene();
+                startAutoPlay();
             } else if (e.code === 'KeyR') {
                 restart();
                 stopAutoPlay();
-            } else if (e.code === 'KeyA') {
-                if (autoPlayEnabled) {
-                    stopAutoPlay();
-                } else {
-                    startAutoPlay();
-                }
+                startAutoPlay();
             }
         });
 
-        // Click to advance
-        document.querySelector('.trailer-container').addEventListener('click', nextScene);
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50;
 
-        // Scene timings (in milliseconds) - Total ~30 seconds - PLAY STORE STANDARD
+        const container = document.querySelector('.trailer-container');
+
+        container.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+
+            // Only handle horizontal swipes (ignore vertical scrolling)
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+                stopAutoPlay();
+                if (diffX < 0) {
+                    // Swipe left - next scene
+                    nextScene();
+                } else {
+                    // Swipe right - previous scene
+                    prevScene();
+                }
+                // Resume autoplay after manual navigation
+                startAutoPlay();
+            }
+        }
+
+        // Tap to advance (for mobile) - only if not swiping
+        let tapTimeout = null;
+        container.addEventListener('click', (e) => {
+            // Don't advance on tap if user is swiping
+            if (Math.abs(touchEndX - touchStartX) < 10) {
+                stopAutoPlay();
+                nextScene();
+                startAutoPlay();
+            }
+        });
+
+        // Scene timings (in milliseconds) - Total ~30 seconds
         const sceneTimings = {
-            1: 2000,   // Intro - TAP & BUILD
-            2: 1500,   // Tagline
-            3: 2500,   // Generators (showcase cards)
-            4: 2000,   // Prestige
-            5: 2000,   // Ascension
-            6: 2000,   // Artifacts
-            7: 1800,   // Challenges
-            8: 1800,   // Market
-            9: 1800,   // Leaderboards
-            10: 2000,  // Friend Rooms
-            11: 1800,  // Daily Rewards
-            12: 2000,  // Lucky Wheel
-            13: 2800,  // Respects You (important - let it land)
-            14: 1500,  // Offline
-            15: 2500   // CTA (final)
+            1: 2500,   // Intro - TAP & BUILD
+            2: 2000,   // Tagline
+            3: 3000,   // Generators (showcase cards)
+            4: 2500,   // Prestige
+            5: 2500,   // Ascension
+            6: 2500,   // Artifacts
+            7: 2000,   // Challenges
+            8: 2000,   // Market
+            9: 2000,   // Leaderboards
+            10: 2500,  // Friend Rooms
+            11: 2000,  // Daily Rewards
+            12: 2500,  // Lucky Wheel
+            13: 3000,  // Respects You (important - let it land)
+            14: 2000,  // Offline
+            15: 3000   // CTA (final)
         };
 
         // Auto-play functionality
@@ -2261,7 +2323,6 @@
 
         function startAutoPlay() {
             autoPlayEnabled = true;
-            document.getElementById('autoPlayHint').textContent = 'AUTO-PLAY ON - Press A to stop';
             scheduleNextScene();
         }
 
@@ -2271,26 +2332,24 @@
                 clearTimeout(autoPlayTimeout);
                 autoPlayTimeout = null;
             }
-            document.getElementById('autoPlayHint').textContent = 'Press A to start auto-play';
         }
 
         function scheduleNextScene() {
-            if (!autoPlayEnabled || currentScene >= totalScenes) return;
+            if (!autoPlayEnabled) return;
             
-            const timing = sceneTimings[currentScene] || 2000;
+            const timing = sceneTimings[currentScene] || 2500;
             autoPlayTimeout = setTimeout(() => {
                 nextScene();
-                scheduleNextScene();
+                if (currentScene < totalScenes) {
+                    scheduleNextScene();
+                } else {
+                    // Loop: restart after last scene
+                    setTimeout(() => {
+                        restart();
+                        scheduleNextScene();
+                    }, timing);
+                }
             }, timing);
-        }
-
-        // Auto-start only with URL parameter (for manual recording)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('autoplay') === 'true') {
-            document.body.classList.add('autoplay-mode');
-            setTimeout(() => {
-                startAutoPlay();
-            }, 1000);
         }
 
         // Create particles
@@ -2306,8 +2365,19 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Auto-play option (uncomment for automatic playback)
-        // setInterval(nextScene, 4000);
+        // AUTO-START: Begin autoplay after page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                startAutoPlay();
+            }, 500);
+        });
+
+        // Also start if script runs after DOM is ready
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(() => {
+                startAutoPlay();
+            }, 500);
+        }
     </script>
     </div>
 </body>
