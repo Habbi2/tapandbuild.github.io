@@ -1124,6 +1124,296 @@
             font-size: 18px;
             color: rgba(255,255,255,0.7);
         }
+
+        /* ==================== MOBILE RESPONSIVE STYLES ==================== */
+        @media screen and (max-width: 768px) {
+            /* Reset container to use viewport units directly on mobile */
+            .trailer-container {
+                width: 100vw;
+                height: 100vh;
+                transform: none !important;
+            }
+
+            /* Scene padding for mobile */
+            .scene {
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            /* Main title scene */
+            .title-massive {
+                font-size: clamp(32px, 12vw, 140px);
+            }
+
+            .subtitle {
+                font-size: clamp(12px, 4vw, 36px);
+                letter-spacing: 0.15em;
+            }
+
+            /* Scene titles */
+            .scene-title {
+                font-size: clamp(24px, 7vw, 72px);
+                margin-bottom: 30px;
+            }
+
+            /* Feature grid - stack on mobile */
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            .feature-card {
+                padding: 15px;
+                border-radius: 16px;
+            }
+
+            .feature-card .emoji {
+                font-size: clamp(32px, 10vw, 64px);
+            }
+
+            .feature-card .name {
+                font-size: clamp(14px, 4vw, 24px);
+            }
+
+            /* Generator showcase */
+            .generator-showcase {
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .generator-display {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .gen-emoji {
+                font-size: clamp(48px, 15vw, 80px);
+            }
+
+            .gen-name {
+                font-size: clamp(18px, 5vw, 28px);
+            }
+
+            .gen-stat {
+                font-size: clamp(14px, 4vw, 20px);
+            }
+
+            /* Stats display */
+            .stats-orbital {
+                transform: scale(0.5);
+            }
+
+            .stat-planet .value {
+                font-size: clamp(24px, 8vw, 56px);
+            }
+
+            .stat-planet .label {
+                font-size: clamp(12px, 3vw, 20px);
+            }
+
+            /* Prestige path */
+            .prestige-path {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .prestige-node {
+                width: 80px;
+                height: 80px;
+            }
+
+            .prestige-icon {
+                font-size: 36px;
+            }
+
+            .prestige-label {
+                font-size: 10px;
+            }
+
+            /* Time display */
+            .time-display {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .time-block {
+                padding: 15px;
+            }
+
+            .time-value {
+                font-size: clamp(36px, 12vw, 72px);
+            }
+
+            .time-label {
+                font-size: clamp(16px, 4vw, 28px);
+            }
+
+            /* Progress items */
+            .progress-item {
+                padding: 10px 15px;
+            }
+
+            .progress-label {
+                font-size: clamp(12px, 3.5vw, 18px);
+            }
+
+            .progress-value {
+                font-size: clamp(14px, 4vw, 20px);
+            }
+
+            /* Offline scene */
+            .offline-demo {
+                transform: scale(0.6);
+            }
+
+            .offline-earnings {
+                font-size: clamp(24px, 8vw, 56px);
+            }
+
+            .offline-time {
+                font-size: clamp(14px, 4vw, 28px);
+            }
+
+            /* Market scene */
+            .market-display {
+                transform: scale(0.6);
+            }
+
+            /* CTA scene */
+            .cta-title {
+                font-size: clamp(36px, 10vw, 100px);
+            }
+
+            .cta-subtitle {
+                font-size: clamp(18px, 5vw, 48px);
+            }
+
+            .cta-tagline {
+                font-size: clamp(14px, 4vw, 36px);
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: clamp(16px, 5vw, 36px);
+            }
+
+            /* Navigation */
+            .trailer-nav {
+                padding: 10px 15px;
+            }
+
+            .nav-back, .nav-logo, .nav-download {
+                font-size: clamp(10px, 3vw, 16px);
+            }
+
+            .nav-logo-icon {
+                font-size: clamp(16px, 5vw, 24px);
+            }
+
+            /* Controls */
+            .scene-controls {
+                bottom: 10px;
+                gap: 10px;
+            }
+
+            .scene-indicator {
+                width: 8px;
+                height: 8px;
+            }
+
+            .scene-counter {
+                font-size: 12px;
+            }
+
+            .keyboard-hint {
+                display: none;
+            }
+
+            /* Respect items */
+            .respect-list {
+                gap: 15px;
+                padding: 0 15px;
+            }
+
+            .respect-item {
+                padding: 10px 15px;
+            }
+
+            .respect-icon {
+                font-size: 28px;
+                min-width: 40px;
+            }
+
+            .respect-title {
+                font-size: 16px;
+            }
+
+            .respect-desc {
+                font-size: 12px;
+            }
+
+            /* Challenge grid */
+            .challenge-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .challenge-card {
+                padding: 15px;
+            }
+
+            /* Achievement display */
+            .achievement-showcase {
+                transform: scale(0.7);
+            }
+
+            /* Manager grid */
+            .manager-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .manager-card {
+                padding: 10px;
+            }
+
+            /* Generic scaling for complex animated elements */
+            .upgrade-tree,
+            .transcend-visual,
+            .expansion-map,
+            .artifact-display {
+                transform: scale(0.5);
+            }
+        }
+
+        /* Extra small screens */
+        @media screen and (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .manager-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .prestige-node {
+                width: 60px;
+                height: 60px;
+            }
+
+            .prestige-icon {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
