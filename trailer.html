@@ -1393,44 +1393,88 @@
             }
 
             /* ========== SCENE 10: Friend Rooms (3 cards) ========== */
+            .scene[data-scene="10"] .scene-title {
+                font-size: clamp(16px, 4.5vw, 48px);
+                margin-bottom: 10px;
+            }
+
             .room-cards {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
                 width: 100%;
-                padding: 0 15px;
+                padding: 0 10px;
+                justify-content: center;
             }
 
             .room-card {
-                width: 100%;
-                padding: 15px;
-                border-radius: 16px;
+                width: calc(50% - 8px);
+                max-width: 170px;
+                padding: 10px;
+                border-radius: 12px;
+                border-width: 2px;
+            }
+
+            /* Third card takes full width centered */
+            .room-card:nth-child(3) {
+                width: calc(50% - 8px);
+                max-width: 170px;
+            }
+
+            .room-header {
+                margin-bottom: 10px;
+                gap: 8px;
             }
 
             .room-header .icon {
-                font-size: 24px;
+                font-size: 18px;
             }
 
             .room-header .title {
-                font-size: 14px;
+                font-size: 11px;
+            }
+
+            .room-members {
+                margin-bottom: 8px;
+                gap: 4px;
             }
 
             .member-avatar {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
+                width: 24px;
+                height: 24px;
+                font-size: 10px;
             }
 
             .room-code {
-                font-size: 16px;
-                padding: 10px;
+                font-size: 12px;
+                padding: 6px;
+                letter-spacing: 0.15em;
             }
 
-            .room-card > div[style*="font-size: 64px"] {
-                font-size: 32px !important;
+            /* Inline styles in room cards */
+            .room-card div[style*="font-size: 64px"] {
+                font-size: 24px !important;
             }
 
-            .room-card > div[style*="font-size: 48px"] {
-                font-size: 28px !important;
+            .room-card div[style*="font-size: 48px"] {
+                font-size: 20px !important;
+            }
+
+            .room-card div[style*="font-size: 20px"] {
+                font-size: 11px !important;
+            }
+
+            .room-card div[style*="margin: 20px"] {
+                margin: 8px 0 !important;
+            }
+
+            .room-card div[style*="padding: 20px"] {
+                padding: 8px !important;
+            }
+
+            .room-card div[style*="margin-top: 10px"] {
+                margin-top: 5px !important;
+                font-size: 9px !important;
             }
 
             /* ========== SCENE 11: Daily Rewards (14 cells → 7x2) ========== */
