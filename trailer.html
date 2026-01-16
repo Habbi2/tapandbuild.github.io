@@ -1126,292 +1126,572 @@
         }
 
         /* ==================== MOBILE RESPONSIVE STYLES ==================== */
+        /* 
+         * Mobile viewport calculations:
+         * - Target: 375px width (iPhone SE), 390px (iPhone 14), 412px (Pixel)
+         * - Nav height: ~50px, Controls height: ~60px
+         * - Available content height: ~calc(100vh - 110px)
+         * - Safe content width: calc(100vw - 30px) = ~345-382px
+         */
         @media screen and (max-width: 768px) {
             /* Reset container to use viewport units directly on mobile */
             .trailer-container {
                 width: 100vw;
                 height: 100vh;
                 transform: none !important;
+                overflow: hidden;
             }
 
-            /* Scene padding for mobile */
+            /* Scene padding for mobile - leave room for nav (50px) and controls (60px) */
             .scene {
-                padding: 20px;
+                padding: 55px 15px 65px 15px;
                 box-sizing: border-box;
+                overflow: hidden;
+                overflow-y: auto;
             }
 
-            /* Main title scene */
+            /* ========== SCENE 1: Intro ========== */
             .title-massive {
-                font-size: clamp(32px, 12vw, 140px);
+                font-size: clamp(36px, 11vw, 80px); /* 375px * 0.11 = 41px */
             }
 
             .subtitle {
-                font-size: clamp(12px, 4vw, 36px);
-                letter-spacing: 0.15em;
+                font-size: clamp(11px, 3.5vw, 24px); /* 375px * 0.035 = 13px */
+                letter-spacing: 0.1em;
             }
 
-            /* Scene titles */
+            /* ========== SCENE 2: Tagline ========== */
             .scene-title {
-                font-size: clamp(24px, 7vw, 72px);
-                margin-bottom: 30px;
+                font-size: clamp(20px, 5.5vw, 48px); /* 375px * 0.055 = 20px */
+                margin-bottom: 15px;
+                padding: 0 5px;
             }
 
-            /* Feature grid - stack on mobile */
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                padding: 15px;
+            .scene[data-scene="2"] > div:last-child {
+                font-size: clamp(14px, 4vw, 24px) !important;
+                max-width: 100% !important;
+                padding: 0 10px;
+                line-height: 1.5;
+            }
+
+            /* ========== SCENE 3: Generators (21 items in 2 rows) ========== */
+            .generator-row {
+                gap: 8px;
                 max-width: 100%;
+                margin-top: 10px !important;
             }
 
-            .feature-card {
-                padding: 15px;
-                border-radius: 16px;
+            .generator-item {
+                flex: 0 0 auto;
             }
 
-            .feature-card .emoji {
-                font-size: clamp(32px, 10vw, 64px);
+            .generator-icon {
+                width: 50px;  /* 7 items need ~50px each = 350px + gaps */
+                height: 50px;
+                font-size: 24px;
+                border-radius: 12px;
+                border-width: 2px;
+                margin-bottom: 5px;
             }
 
-            .feature-card .name {
-                font-size: clamp(14px, 4vw, 24px);
+            .generator-name {
+                font-size: 8px;
+                max-width: 50px;
+                line-height: 1.2;
             }
 
-            /* Generator showcase */
-            .generator-showcase {
+            /* ========== SCENE 4: Prestige System ========== */
+            .prestige-display {
                 flex-direction: column;
                 gap: 20px;
-                padding: 10px;
             }
 
-            .generator-display {
-                width: 90%;
-                max-width: 300px;
+            .prestige-circle {
+                width: 120px;
+                height: 120px;
             }
 
-            .gen-emoji {
-                font-size: clamp(48px, 15vw, 80px);
-            }
-
-            .gen-name {
-                font-size: clamp(18px, 5vw, 28px);
-            }
-
-            .gen-stat {
-                font-size: clamp(14px, 4vw, 20px);
-            }
-
-            /* Stats display */
-            .stats-orbital {
-                transform: scale(0.5);
-            }
-
-            .stat-planet .value {
-                font-size: clamp(24px, 8vw, 56px);
-            }
-
-            .stat-planet .label {
-                font-size: clamp(12px, 3vw, 20px);
-            }
-
-            /* Prestige path */
-            .prestige-path {
-                flex-wrap: wrap;
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .prestige-node {
-                width: 80px;
-                height: 80px;
+            .prestige-inner {
+                width: 95px;
+                height: 95px;
             }
 
             .prestige-icon {
                 font-size: 36px;
             }
 
-            .prestige-label {
-                font-size: 10px;
+            .prestige-text {
+                font-size: 12px;
             }
 
-            /* Time display */
-            .time-display {
-                flex-direction: column;
-                gap: 20px;
+            .prestige-benefits {
+                gap: 8px;
+                width: 100%;
             }
 
-            .time-block {
-                padding: 15px;
-            }
-
-            .time-value {
-                font-size: clamp(36px, 12vw, 72px);
-            }
-
-            .time-label {
-                font-size: clamp(16px, 4vw, 28px);
-            }
-
-            /* Progress items */
-            .progress-item {
-                padding: 10px 15px;
-            }
-
-            .progress-label {
-                font-size: clamp(12px, 3.5vw, 18px);
-            }
-
-            .progress-value {
-                font-size: clamp(14px, 4vw, 20px);
-            }
-
-            /* Offline scene */
-            .offline-demo {
-                transform: scale(0.6);
-            }
-
-            .offline-earnings {
-                font-size: clamp(24px, 8vw, 56px);
-            }
-
-            .offline-time {
-                font-size: clamp(14px, 4vw, 28px);
-            }
-
-            /* Market scene */
-            .market-display {
-                transform: scale(0.6);
-            }
-
-            /* CTA scene */
-            .cta-title {
-                font-size: clamp(36px, 10vw, 100px);
-            }
-
-            .cta-subtitle {
-                font-size: clamp(18px, 5vw, 48px);
-            }
-
-            .cta-tagline {
-                font-size: clamp(14px, 4vw, 36px);
-            }
-
-            .cta-button {
-                padding: 15px 30px;
-                font-size: clamp(16px, 5vw, 36px);
-            }
-
-            /* Navigation */
-            .trailer-nav {
-                padding: 10px 15px;
-            }
-
-            .nav-back, .nav-logo, .nav-download {
-                font-size: clamp(10px, 3vw, 16px);
-            }
-
-            .nav-logo-icon {
-                font-size: clamp(16px, 5vw, 24px);
-            }
-
-            /* Controls */
-            .scene-controls {
-                bottom: 10px;
+            .benefit-item {
+                font-size: 12px !important;
                 gap: 10px;
             }
 
-            .scene-indicator {
-                width: 8px;
-                height: 8px;
+            .benefit-item .emoji {
+                font-size: 20px !important;
+            }
+
+            /* ========== SCENE 5: Ascension Perks (4 cards → 2x2) ========== */
+            .ascension-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px;
+                padding: 0 10px;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .branch-card {
+                padding: 15px 10px;
+                border-radius: 16px;
+                border-width: 2px;
+            }
+
+            .branch-card .icon {
+                font-size: 28px !important;
+                margin-bottom: 8px;
+            }
+
+            .branch-card .title {
+                font-size: 12px !important;
+                margin-bottom: 6px;
+            }
+
+            .branch-card .perks {
+                font-size: 9px !important;
+                line-height: 1.5;
+            }
+
+            /* ========== SCENE 6: Artifacts (5 items) ========== */
+            .artifact-display {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .artifact-gem {
+                width: 55px; /* 5 items * 55px + gaps ~= 340px */
+                height: 55px;
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .artifact-rarity {
+                font-size: 9px;
+            }
+
+            .scene[data-scene="6"] > div:last-child {
+                font-size: 12px !important;
+                margin-top: 20px !important;
+            }
+
+            /* ========== SCENE 7: Challenges (6 cards → 2x3) ========== */
+            .scene[data-scene="7"] > div:last-child {
+                gap: 10px !important;
+                max-width: 100% !important;
+                padding: 0 10px;
+            }
+
+            .scene[data-scene="7"] .feature-card {
+                width: calc(50% - 10px) !important;
+                padding: 12px 8px;
+            }
+
+            .scene[data-scene="7"] .feature-card .emoji {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .scene[data-scene="7"] .feature-card .name {
+                font-size: 10px;
+            }
+
+            /* ========== SCENE 8: Market ========== */
+            .market-display {
+                flex-direction: column;
+                gap: 20px;
+                transform: none !important;
+            }
+
+            .market-chart {
+                width: calc(100vw - 40px);
+                max-width: 340px;
+                height: 150px;
+            }
+
+            .market-stats {
+                gap: 12px;
+            }
+
+            .market-stat {
+                gap: 12px;
+            }
+
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                border-radius: 10px;
+            }
+
+            .stat-info .label {
+                font-size: 10px;
+            }
+
+            .stat-info .value {
+                font-size: 18px;
+            }
+
+            /* ========== SCENE 9: Leaderboards ========== */
+            .leaderboard-display {
+                flex-direction: column;
+                gap: 25px;
+                align-items: center;
+            }
+
+            .podium {
+                transform: scale(0.6);
+            }
+
+            .leaderboard-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .category-badge {
+                padding: 10px 12px;
+                gap: 8px;
+                border-radius: 10px;
+            }
+
+            .category-badge .emoji {
+                font-size: 18px;
+            }
+
+            .category-badge .text {
+                font-size: 10px;
+            }
+
+            /* ========== SCENE 10: Friend Rooms (3 cards) ========== */
+            .room-cards {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            .room-card {
+                width: 100%;
+                padding: 15px;
+                border-radius: 16px;
+            }
+
+            .room-header .icon {
+                font-size: 24px;
+            }
+
+            .room-header .title {
+                font-size: 14px;
+            }
+
+            .member-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .room-code {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .room-card > div[style*="font-size: 64px"] {
+                font-size: 32px !important;
+            }
+
+            .room-card > div[style*="font-size: 48px"] {
+                font-size: 28px !important;
+            }
+
+            /* ========== SCENE 11: Daily Rewards (14 cells → 7x2) ========== */
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+                gap: 5px;
+                max-width: 100%;
+                width: 100%;
+                padding: 0 5px;
+            }
+
+            .day-cell {
+                width: auto;
+                min-width: 40px;
+                height: 55px;
+                border-radius: 8px;
+            }
+
+            .day-cell .day-num {
+                font-size: 8px;
+                margin-bottom: 2px;
+            }
+
+            .day-cell .reward {
+                font-size: 18px;
+            }
+
+            .scene[data-scene="11"] > div:last-child {
+                font-size: 11px !important;
+                margin-top: 15px !important;
+            }
+
+            /* ========== SCENE 12: Lucky Wheel ========== */
+            .scene[data-scene="12"] > div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            .wheel-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .wheel-center {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                border-width: 3px;
+            }
+
+            .wheel-pointer {
+                font-size: 30px;
+                top: -15px;
+            }
+
+            .wheel {
+                border-width: 4px;
+            }
+
+            .scene[data-scene="12"] > div > div:last-child {
+                font-size: 14px !important;
+                text-align: center !important;
+            }
+
+            .scene[data-scene="12"] > div > div:last-child > div {
+                font-size: 14px !important;
+                line-height: 1.8 !important;
+            }
+
+            /* ========== SCENE 13: Respect (5 items) ========== */
+            .scene[data-scene="13"] > div:last-child {
+                gap: 10px !important;
+                max-width: 100% !important;
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .respect-item {
+                padding: 10px 12px;
+                gap: 12px;
+                border-radius: 10px;
+            }
+
+            .respect-icon {
+                font-size: 22px;
+                min-width: 30px;
+            }
+
+            .respect-title {
+                font-size: 12px;
+            }
+
+            .respect-desc {
+                font-size: 10px;
+            }
+
+            /* ========== SCENE 14: Offline Earnings ========== */
+            .offline-display {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .moon {
+                width: 140px;
+                height: 140px;
+            }
+
+            .moon::before {
+                font-size: 50px;
+            }
+
+            .zzz {
+                font-size: 24px !important;
+            }
+
+            .zzz:nth-child(1) { top: -10px; right: -10px; }
+            .zzz:nth-child(2) { top: -30px; right: 10px; font-size: 18px !important; }
+            .zzz:nth-child(3) { top: -45px; right: 30px; font-size: 14px !important; }
+
+            .offline-text {
+                text-align: center;
+            }
+
+            .offline-text h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .offline-text p {
+                font-size: 14px;
+            }
+
+            .offline-amount {
+                font-size: 28px;
+                margin-top: 15px;
+            }
+
+            /* ========== SCENE 15: CTA ========== */
+            .scene[data-scene="15"] .title-massive {
+                font-size: clamp(32px, 10vw, 60px) !important;
+            }
+
+            .scene[data-scene="15"] > div[style*="font-size: 42px"] {
+                font-size: 16px !important;
+                margin-top: 15px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .scene[data-scene="15"] > div[style*="display: flex"][style*="gap: 40px"] {
+                flex-wrap: wrap !important;
+                gap: 10px 15px !important;
+                font-size: 11px !important;
+                justify-content: center;
+                padding: 0 10px;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 16px;
+                margin-top: 20px;
+                border-radius: 40px;
+            }
+
+            .play-store-badge {
+                width: 180px;
+                margin-top: 15px;
+            }
+
+            /* ========== Navigation ========== */
+            .trailer-nav {
+                padding: 8px 12px;
+                gap: 5px;
+            }
+
+            .nav-back {
+                font-size: 9px;
+                gap: 5px;
+            }
+
+            .nav-back svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .nav-logo {
+                font-size: 11px;
+                gap: 6px;
+            }
+
+            .nav-logo-icon {
+                font-size: 18px;
+            }
+
+            .nav-download {
+                font-size: 9px;
+                padding: 8px 12px;
+            }
+
+            /* ========== Controls ========== */
+            .controls-hint {
+                font-size: 10px;
+                left: 15px;
+                bottom: 8px;
+            }
+
+            .controls-hint kbd {
+                padding: 3px 6px;
+                font-size: 9px;
+                margin: 0 2px;
             }
 
             .scene-counter {
                 font-size: 12px;
+                right: 15px;
+                bottom: 8px;
             }
 
-            .keyboard-hint {
-                display: none;
+            .progress-bar {
+                height: 4px;
             }
 
-            /* Respect items */
-            .respect-list {
-                gap: 15px;
-                padding: 0 15px;
-            }
-
-            .respect-item {
-                padding: 10px 15px;
-            }
-
-            .respect-icon {
-                font-size: 28px;
-                min-width: 40px;
-            }
-
-            .respect-title {
-                font-size: 16px;
-            }
-
-            .respect-desc {
-                font-size: 12px;
-            }
-
-            /* Challenge grid */
-            .challenge-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                padding: 10px;
-            }
-
-            .challenge-card {
-                padding: 15px;
-            }
-
-            /* Achievement display */
-            .achievement-showcase {
-                transform: scale(0.7);
-            }
-
-            /* Manager grid */
-            .manager-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .manager-card {
-                padding: 10px;
-            }
-
-            /* Generic scaling for complex animated elements */
-            .upgrade-tree,
-            .transcend-visual,
-            .expansion-map,
-            .artifact-display {
-                transform: scale(0.5);
+            /* ========== Background glows - scale down ========== */
+            .bg-glow {
+                transform: scale(0.4);
             }
         }
 
-        /* Extra small screens */
-        @media screen and (max-width: 480px) {
-            .feature-grid {
-                grid-template-columns: 1fr;
+        /* Extra small screens (iPhone SE, older devices) */
+        @media screen and (max-width: 380px) {
+            .scene {
+                padding: 50px 10px 60px 10px;
             }
 
-            .challenge-grid {
-                grid-template-columns: 1fr;
+            .generator-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
             }
 
-            .manager-grid {
-                grid-template-columns: 1fr;
+            .generator-name {
+                font-size: 7px;
+                max-width: 42px;
             }
 
-            .prestige-node {
-                width: 60px;
-                height: 60px;
+            .artifact-gem {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
             }
 
-            .prestige-icon {
-                font-size: 28px;
+            .calendar-grid {
+                gap: 3px;
+            }
+
+            .day-cell {
+                min-width: 35px;
+                height: 50px;
+            }
+
+            .day-cell .reward {
+                font-size: 16px;
+            }
+
+            .branch-card .icon {
+                font-size: 24px !important;
+            }
+
+            .branch-card .title {
+                font-size: 10px !important;
+            }
+
+            .branch-card .perks {
+                font-size: 8px !important;
             }
         }
     </style>
