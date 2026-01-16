@@ -66,28 +66,13 @@
             }
         }
 
-        /* Mobile: fill screen completely (cover mode - crops to fill) */
+        /* Mobile: always scale to fill width, content stays centered */
         @media screen and (max-width: 768px) {
             .trailer-wrapper {
                 overflow: hidden;
             }
             .trailer-container {
-                /* Scale to cover the viewport completely */
-                /* Use the larger scale factor to ensure full coverage */
-                transform: scale(max(calc(100vw / 1920), calc(100vh / 1080)));
-            }
-        }
-
-        /* Portrait mobile: prioritize width coverage */
-        @media screen and (max-width: 768px) and (orientation: portrait) {
-            .trailer-container {
-                transform: scale(calc(100vh / 1080));
-            }
-        }
-
-        /* Landscape mobile: prioritize height coverage */
-        @media screen and (max-width: 768px) and (orientation: landscape) {
-            .trailer-container {
+                /* Scale based on width to show all horizontal content */
                 transform: scale(calc(100vw / 1920));
             }
         }
