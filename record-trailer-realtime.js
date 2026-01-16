@@ -14,7 +14,7 @@ const { execSync } = require('child_process');
 const CONFIG = {
     width: 1920,
     height: 1080,
-    duration: 20000,  // 20 seconds (18s trailer + 2s buffer)
+    duration: 32000,  // 32 seconds (30s trailer + 2s buffer)
     musicPath: path.resolve(__dirname, '../assets/sounds/wav para habbi.wav'),
 };
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, height=1080">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tap & Build - Cinematic Trailer</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -24,12 +24,24 @@
             --glow: rgba(255,159,28,0.5);
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
             background: var(--bg-void);
             font-family: 'Inter', sans-serif;
             overflow: hidden;
-            width: 1920px;
-            height: 1080px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .trailer-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--bg-void);
         }
 
         .trailer-container {
@@ -38,6 +50,46 @@
             position: relative;
             overflow: hidden;
             background: var(--bg-void);
+            transform-origin: center center;
+        }
+
+        /* Desktop: fit to viewport while maintaining aspect ratio */
+        @media screen and (min-width: 769px) and (max-aspect-ratio: 16/9) {
+            .trailer-container {
+                transform: scale(calc(100vw / 1920));
+            }
+        }
+
+        @media screen and (min-width: 769px) and (min-aspect-ratio: 16/9) {
+            .trailer-container {
+                transform: scale(calc(100vh / 1080));
+            }
+        }
+
+        /* Mobile: fill screen completely (cover mode - crops to fill) */
+        @media screen and (max-width: 768px) {
+            .trailer-wrapper {
+                overflow: hidden;
+            }
+            .trailer-container {
+                /* Scale to cover the viewport completely */
+                /* Use the larger scale factor to ensure full coverage */
+                transform: scale(max(calc(100vw / 1920), calc(100vh / 1080)));
+            }
+        }
+
+        /* Portrait mobile: prioritize width coverage */
+        @media screen and (max-width: 768px) and (orientation: portrait) {
+            .trailer-container {
+                transform: scale(calc(100vh / 1080));
+            }
+        }
+
+        /* Landscape mobile: prioritize height coverage */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .trailer-container {
+                transform: scale(calc(100vw / 1920));
+            }
         }
 
         /* Scene base styles */
@@ -1090,6 +1142,7 @@
     </style>
 </head>
 <body>
+    <div class="trailer-wrapper">
     <div class="trailer-container">
         <!-- Particles background -->
         <!-- Navigation bar -->
@@ -1628,23 +1681,23 @@
         // Click to advance
         document.querySelector('.trailer-container').addEventListener('click', nextScene);
 
-        // Scene timings (in milliseconds) - Total ~18 seconds - FAST & ENGAGING
+        // Scene timings (in milliseconds) - Total ~30 seconds - PLAY STORE STANDARD
         const sceneTimings = {
-            1: 1200,   // Intro - TAP & BUILD
-            2: 1000,   // Tagline
-            3: 1500,   // Generators
-            4: 1200,   // Prestige
-            5: 1200,   // Ascension
-            6: 1200,   // Artifacts
-            7: 1000,   // Challenges
-            8: 1000,   // Market
-            9: 1000,   // Leaderboards
-            10: 1200,  // Friend Rooms
-            11: 1000,  // Daily Rewards
-            12: 1200,  // Lucky Wheel
-            13: 1800,  // Respects You (important - let it land)
-            14: 1000,  // Offline
-            15: 2000   // CTA (final)
+            1: 2000,   // Intro - TAP & BUILD
+            2: 1500,   // Tagline
+            3: 2500,   // Generators (showcase cards)
+            4: 2000,   // Prestige
+            5: 2000,   // Ascension
+            6: 2000,   // Artifacts
+            7: 1800,   // Challenges
+            8: 1800,   // Market
+            9: 1800,   // Leaderboards
+            10: 2000,  // Friend Rooms
+            11: 1800,  // Daily Rewards
+            12: 2000,  // Lucky Wheel
+            13: 2800,  // Respects You (important - let it land)
+            14: 1500,  // Offline
+            15: 2500   // CTA (final)
         };
 
         // Auto-play functionality
@@ -1701,5 +1754,6 @@
         // Auto-play option (uncomment for automatic playback)
         // setInterval(nextScene, 4000);
     </script>
+    </div>
 </body>
 </html>
