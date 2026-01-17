@@ -51,3 +51,23 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
+
+# JavaScript - cache 1 year (immutable)
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS files - cache 1 year (immutable)
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# SVG icons - cache 1 month
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# MP4 videos - cache 1 month
+/*.mp4
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# JPEG images - cache 1 month
+/*.jpeg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400s
