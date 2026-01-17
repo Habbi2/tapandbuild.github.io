@@ -2,5 +2,8 @@
 # /invite/ABC123 -> /invite/index.html (SPA-style routing)
 /invite/*  /invite/index.html  200
 
+# Allow .well-known folder to be served (for Android App Links, etc.)
+/.well-known/*  /.well-known/:splat  200
+
 # Fallback for any other 404s
 /*  /404.html  404
