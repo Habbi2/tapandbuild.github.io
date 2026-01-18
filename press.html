@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Kit - Tap & Build: Idle Factory Tycoon</title>
+    <meta name="description" content="Press kit for Tap & Build: Idle Factory Tycoon. Download logos, screenshots, and game information for media coverage.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://tapandbuild.com/press">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tapandbuild.com/press">
+    <meta property="og:title" content="Press Kit - Tap & Build">
+    <meta property="og:description" content="Press kit with logos, screenshots, and game information for media coverage.">
+    <meta property="og:image" content="https://tapandbuild.com/og-facebook.jpg">
+    
+    <meta name="theme-color" content="#FF9F1C">
+    
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-void: #050510;
+            --bg-deep: #0a0a1a;
+            --bg-surface: #12122a;
+            --accent: #FF9F1C;
+            --accent-light: #FFD700;
+            --text-white: #ffffff;
+            --text-gray: rgba(255,255,255,0.75);
+            --text-muted: rgba(255,255,255,0.6);
+            --glass: rgba(255,255,255,0.03);
+            --glass-border: rgba(255,255,255,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-void);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--glass-border);
+        }
+
+        /* Fact Sheet */
+        .fact-sheet {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .fact {
+            background: var(--bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .fact-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .fact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Description */
+        .description {
+            background: var(--bg-surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .description h3 {
+            color: var(--accent-light);
+            margin-bottom: 10px;
+        }
+
+        .description p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .feature {
+            background: var(--bg-surface);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+        }
+
+        .feature-text {
+            color: var(--text-gray);
+        }
+
+        /* Screenshots */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .screenshot {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            aspect-ratio: 9/16;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.05);
+        }
+
+        .screenshot-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .screenshot:hover .screenshot-overlay {
+            opacity: 1;
+        }
+
+        .screenshot-overlay a {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        /* Logos */
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .logo-item {
+            background: var(--bg-surface);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .logo-item img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .logo-item a {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .logo-item a:hover {
+            background: var(--accent);
+            color: var(--bg-void);
+        }
+
+        /* Video */
+        .video-container {
+            background: var(--bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--bg-deep);
+            margin-bottom: 15px;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .video-placeholder span {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Links */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            background: var(--bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .link-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .link-icon {
+            font-size: 2rem;
+        }
+
+        .link-info h4 {
+            color: var(--text-white);
+            margin-bottom: 3px;
+        }
+
+        .link-info span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: linear-gradient(135deg, var(--bg-surface), var(--bg-deep));
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--accent);
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: var(--accent-light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 30px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .contact-email:hover {
+            background: var(--accent);
+            color: var(--bg-void);
+        }
+
+        /* Download All Button */
+        .download-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--bg-void);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .download-all:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .fact-sheet {
+                grid-template-columns: 1fr 1fr;
+            }
+            .screenshots-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Homepage</a>
+        
+        <header class="header">
+            <h1>📦 Press Kit</h1>
+            <p>Everything you need to cover Tap & Build: Idle Factory Tycoon</p>
+        </header>
+
+        <!-- Fact Sheet -->
+        <section class="section">
+            <h2>📋 Fact Sheet</h2>
+            <div class="fact-sheet">
+                <div class="fact">
+                    <div class="fact-label">Game Title</div>
+                    <div class="fact-value">Tap & Build: Idle Factory Tycoon</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Developer</div>
+                    <div class="fact-value">Habbi Games</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Release Date</div>
+                    <div class="fact-value">January 2026 (Early Access)</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Platforms</div>
+                    <div class="fact-value">Android (Google Play, Amazon)</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Price</div>
+                    <div class="fact-value">Free to Play</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Genre</div>
+                    <div class="fact-value">Idle / Clicker / Tycoon</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Languages</div>
+                    <div class="fact-value">11 (EN, ES, DE, FR, PT, IT, RU, JA, KO, ZH, SV)</div>
+                </div>
+                <div class="fact">
+                    <div class="fact-label">Current Version</div>
+                    <div class="fact-value">1.2.2</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        <section class="section">
+            <h2>📝 Description</h2>
+            <div class="description">
+                <h3>Short Description</h3>
+                <p>Build your factory empire! Tap to earn coins, buy generators, prestige for multipliers, and compete on global leaderboards. Features offline earnings, daily challenges, and a unique grid placement system.</p>
+                
+                <h3>Long Description</h3>
+                <p>Tap & Build is an addictive idle clicker game where you build and manage your own factory empire. Start by tapping to earn coins, then invest in 22 unique generators that produce income automatically.</p>
+                
+                <p>Master the strategic grid system where placement matters - fill rows for bonus production. Hire 18 specialized managers to automate and boost your factories. When you've built up enough wealth, prestige to earn permanent multipliers and unlock powerful ascension perks.</p>
+                
+                <p>For the ultimate challenge, transcend to the celestial realm where you'll earn Celestial Points and unlock an entirely new progression tree. Compete with friends in private rooms or climb the global leaderboards across 6 different categories.</p>
+                
+                <p>Your factories keep producing even when you're offline - come back hours later and collect massive earnings!</p>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section">
+            <h2>✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">🏭</span>
+                    <span class="feature-text">22 unique generators across 6 tiers</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⭐</span>
+                    <span class="feature-text">Prestige system with compound multipliers</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✨</span>
+                    <span class="feature-text">Transcendence & Celestial Perks</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-text">Live market with 3 investment indexes</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">👔</span>
+                    <span class="feature-text">18 managers for automation</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-text">Daily & weekly challenges</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🏆</span>
+                    <span class="feature-text">Global leaderboards (6 categories)</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">👥</span>
+                    <span class="feature-text">Friend Rooms for private competition</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔥</span>
+                    <span class="feature-text">Combo system up to 15x multiplier</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">😴</span>
+                    <span class="feature-text">Offline earnings while away</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎰</span>
+                    <span class="feature-text">Lucky wheel & daily rewards</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">☁️</span>
+                    <span class="feature-text">Cloud save across devices</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots -->
+        <section class="section">
+            <h2>📸 Screenshots</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Click to download high-resolution PNG (1080x1920)</p>
+            <div class="screenshots-grid">
+                <div class="screenshot">
+                    <img src="1_main_factory.webp" alt="Main factory view" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="1_main_factory.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="2_generators_tab.webp" alt="Generators tab" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="2_generators_tab.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="3_upgrades_panel.webp" alt="Upgrades panel" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="3_upgrades_panel.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="4_challenges.webp" alt="Daily challenges" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="4_challenges.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="5_prestige.webp" alt="Prestige system" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="5_prestige.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="6_market.webp" alt="Investment market" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="6_market.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="7_ascension_perks.webp" alt="Ascension perks" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="7_ascension_perks.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+                <div class="screenshot">
+                    <img src="8_leaderboard.webp" alt="Global leaderboard" loading="lazy">
+                    <div class="screenshot-overlay">
+                        <a href="8_leaderboard.png" download>⬇️ Download PNG</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logos & Icons -->
+        <section class="section">
+            <h2>🎨 Logos & Icons</h2>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <img src="favicon-512.png" alt="App Icon 512px">
+                    <div>App Icon</div>
+                    <a href="favicon-512.png" download>512x512 PNG</a>
+                </div>
+                <div class="logo-item">
+                    <img src="favicon-192.png" alt="App Icon 192px">
+                    <div>App Icon</div>
+                    <a href="favicon-192.png" download>192x192 PNG</a>
+                </div>
+                <div class="logo-item">
+                    <img src="favicon-96.png" alt="App Icon 96px">
+                    <div>App Icon</div>
+                    <a href="favicon-96.png" download>96x96 PNG</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video -->
+        <section class="section">
+            <h2>🎬 Trailer</h2>
+            <div class="video-container">
+                <div class="video-embed">
+                    <div class="video-placeholder">
+                        <span>🎬</span>
+                        <p>Trailer available on Google Play Store</p>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted);">
+                    View trailer on <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" style="color: var(--accent);">Google Play</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="section">
+            <h2>🔗 Links</h2>
+            <div class="links-grid">
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="link-card" target="_blank" rel="noopener">
+                    <span class="link-icon">▶️</span>
+                    <div class="link-info">
+                        <h4>Google Play Store</h4>
+                        <span>Download for Android</span>
+                    </div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0DSY1XHF5" class="link-card" target="_blank" rel="noopener">
+                    <span class="link-icon">📦</span>
+                    <div class="link-info">
+                        <h4>Amazon Appstore</h4>
+                        <span>Download for Fire devices</span>
+                    </div>
+                </a>
+                <a href="https://tapandbuild.com" class="link-card" target="_blank" rel="noopener">
+                    <span class="link-icon">🌐</span>
+                    <div class="link-info">
+                        <h4>Official Website</h4>
+                        <span>tapandbuild.com</span>
+                    </div>
+                </a>
+                <a href="https://tapandbuild.com/privacy.html" class="link-card" target="_blank" rel="noopener">
+                    <span class="link-icon">🔒</span>
+                    <div class="link-info">
+                        <h4>Privacy Policy</h4>
+                        <span>Legal information</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <h2>📧 Press Contact</h2>
+            <div class="contact-box">
+                <h3>Get in Touch</h3>
+                <p>For press inquiries, review copies, interview requests, or any other media-related questions:</p>
+                <a href="mailto:press@tapandbuild.com" class="contact-email">press@tapandbuild.com</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Habbi Games. All rights reserved.</p>
+        <p style="margin-top: 10px;">
+            <a href="/">Home</a> · 
+            <a href="/privacy.html">Privacy</a> · 
+            <a href="/terms.html">Terms</a>
+        </p>
+    </footer>
+</body>
+</html>
