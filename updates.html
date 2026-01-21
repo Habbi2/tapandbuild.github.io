@@ -183,6 +183,17 @@
             margin-left: 10px;
         }
 
+        .build-code {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'Orbitron', monospace;
+            margin-left: 10px;
+        }
+
         .date {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -367,19 +378,40 @@
                 <div>
                     <span class="version">v1.3.2</span>
                     <span class="version-badge">Latest</span>
+                    <span class="build-code">Build 49</span>
                 </div>
                 <span class="date">January 21, 2026</span>
             </div>
-            <h2 class="update-title">Performance & Stability Update</h2>
+            <h2 class="update-title">Sound Effects Update</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label new">🚀 New</div>
+                <ul class="changes-list">
+                    <li>Sound effects across all UI interactions</li>
+                    <li>Audio feedback for purchases, upgrades, and rewards</li>
+                </ul>
+            </div>
             
             <div class="changes-section">
                 <div class="changes-label improved">✨ Improved</div>
                 <ul class="changes-list">
-                    <li>Optimized offline earnings calculation for faster load times</li>
+                    <li>Optimized offline earnings calculation</li>
                     <li>Reduced memory usage on older devices</li>
                     <li>Smoother animations in the generator tab</li>
                 </ul>
             </div>
+        </article>
+
+        <!-- Previous Updates -->
+        <article class="update-card">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.3.1</span>
+                    <span class="build-code">Build 48</span>
+                </div>
+                <span class="date">January 18, 2026</span>
+            </div>
+            <h2 class="update-title">Bug Fixes & Polish</h2>
             
             <div class="changes-section">
                 <div class="changes-label fixed">🔧 Fixed</div>
@@ -391,32 +423,29 @@
             </div>
         </article>
 
-        <!-- Previous Updates -->
         <article class="update-card">
             <div class="update-header">
                 <div>
-                    <span class="version">v1.2.0</span>
+                    <span class="version">v1.3.0</span>
+                    <span class="build-code">Build 46</span>
                 </div>
-                <span class="date">January 7, 2026</span>
+                <span class="date">January 14, 2026</span>
             </div>
-            <h2 class="update-title">Market & Investments Update</h2>
+            <h2 class="update-title">Investment Precision & Version Check</h2>
             
             <div class="changes-section">
                 <div class="changes-label new">🚀 New</div>
                 <ul class="changes-list">
-                    <li>Live Market system with 3 investment indexes</li>
-                    <li>Dividend earnings from your investments</li>
-                    <li>Market statistics and portfolio tracking</li>
-                    <li>New achievement category for investors</li>
+                    <li>Version check system to notify users of updates</li>
+                    <li>Improved investment decimal precision</li>
                 </ul>
             </div>
             
             <div class="changes-section">
-                <div class="changes-label balance">⚖️ Balance</div>
+                <div class="changes-label fixed">🔧 Fixed</div>
                 <ul class="changes-list">
-                    <li>Adjusted late-game generator costs</li>
-                    <li>Increased prestige multiplier scaling</li>
-                    <li>Rebalanced daily challenge rewards</li>
+                    <li>Fixed investment rounding errors</li>
+                    <li>Fixed score sync issues with large numbers</li>
                 </ul>
             </div>
         </article>
@@ -424,28 +453,54 @@
         <article class="update-card">
             <div class="update-header">
                 <div>
-                    <span class="version">v1.1.0</span>
+                    <span class="version">v1.2.2</span>
+                    <span class="build-code">Builds 26-45</span>
                 </div>
-                <span class="date">December 20, 2025</span>
+                <span class="date">December 2025 - January 2026</span>
             </div>
-            <h2 class="update-title">Ascension & Challenges</h2>
+            <h2 class="update-title">Major Feature Updates</h2>
             
             <div class="changes-section">
                 <div class="changes-label new">🚀 New</div>
                 <ul class="changes-list">
-                    <li>Ascension system with powerful perks</li>
-                    <li>Daily and weekly challenges</li>
-                    <li>Lucky wheel with bonus rewards</li>
+                    <li>Live Market system with investment indexes</li>
+                    <li>Player Investment Market with activity multiplier</li>
+                    <li>Dividend earnings from investments</li>
                     <li>Cloud save support via Supabase</li>
+                    <li>Analytics and crash reporting</li>
+                    <li>Referral and sharing system</li>
+                    <li>Localization support for 12 languages</li>
+                    <li>Reactive theme system</li>
                 </ul>
             </div>
             
             <div class="changes-section">
                 <div class="changes-label improved">✨ Improved</div>
                 <ul class="changes-list">
-                    <li>New UI design with dark theme</li>
-                    <li>Better touch feedback on buttons</li>
-                    <li>Localization support for 12 languages</li>
+                    <li>Multiple stability and compatibility fixes</li>
+                    <li>Cleaned up code and removed artifacts</li>
+                    <li>Improved layout and UI polish</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="update-card">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.2.0</span>
+                    <span class="build-code">Build 25</span>
+                </div>
+                <span class="date">December 15, 2025</span>
+            </div>
+            <h2 class="update-title">Screenshots & IAP</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label new">🚀 New</div>
+                <ul class="changes-list">
+                    <li>In-App Purchase: Remove Ads with 2x boost</li>
+                    <li>Instant rewards for premium users</li>
+                    <li>Real screenshots added to website and Play Store</li>
+                    <li>GitHub Actions build workflow</li>
                 </ul>
             </div>
         </article>
@@ -454,6 +509,7 @@
             <div class="update-header">
                 <div>
                     <span class="version">v1.0.0</span>
+                    <span class="build-code">Build 1</span>
                 </div>
                 <span class="date">December 1, 2025</span>
             </div>
