@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap & Build: 방치형 클리커 - Android용 무료 클리커 게임</title>
+    <meta name="description" content="Tap & Build에서 공장 제국을 건설하세요! 14개의 생성기, 프레스티지 시스템, 일일 도전, 글로벌 리더보드가 있는 무료 방치형 클리커 게임.">
+    <meta name="keywords" content="방치형 게임, 클리커 게임, 공장 타이쿤, 안드로이드 게임, 무료 게임, 인크리멘탈 게임, 탭 게임">
+    <meta name="author" content="Habbi Games">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tapandbuild.com/ko/">
+    
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en" href="https://tapandbuild.com/">
+    <link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/">
+    <link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/">
+    <link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/">
+    <link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/">
+    <link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/">
+    <link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/">
+    <link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/">
+    <link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tapandbuild.com/ko/">
+    <meta property="og:title" content="Tap & Build: 방치형 클리커 - 제국을 건설하세요!">
+    <meta property="og:description" content="공장 제국을 건설하세요! 탭하고, 자동화하고, 14개의 생성기로 확장하세요. 이 중독성 있는 방치형 클리커 게임에서 오프라인으로 코인을 획득하세요. 100% 무료!">
+    <meta property="og:image" content="https://tapandbuild.com/og-facebook.jpg">
+    <meta property="og:image:secure_url" content="https://tapandbuild.com/og-facebook.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Tap & Build - Idle Factory Tycoon gameplay">
+    <meta property="og:site_name" content="Tap & Build">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="it_IT">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="sv_SE">
+    <meta property="og:locale:alternate" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@HabbiGames">
+    <meta name="twitter:url" content="https://tapandbuild.com/ko/">
+    <meta name="twitter:title" content="Tap & Build: 공장 제국을 건설하세요!">
+    <meta name="twitter:description" content="최고의 방치형 클리커 경험! 오프라인으로 수익을 올리면서 공장을 건설, 자동화, 확장하세요. 14개 생성기 • 프레스티지 시스템 • 무료">
+    <meta name="twitter:image" content="https://tapandbuild.com/og-twitter.jpg">
+    <meta name="twitter:image:alt" content="Tap & Build gameplay screenshot">
+    
+    <meta name="theme-color" content="#FF9F1C">
+    <meta name="msapplication-TileColor" content="#FF9F1C">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://play.google.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="../6_market.webp" type="image/webp" fetchpriority="high">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tap & Build: Idle Factory Tycoon",
+        "operatingSystem": "Android",
+        "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Idle Game",
+        "inLanguage": "ko",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Tap & Build에서 공장 제국을 건설하세요! 14개의 생성기, 프레스티지 시스템, 일일 도전, 글로벌 리더보드가 있는 무료 방치형 클리커 게임.",
+        "screenshot": [
+            "https://tapandbuild.com/6_market.png",
+            "https://tapandbuild.com/1_main_factory.png",
+            "https://tapandbuild.com/2_generators_tab.png",
+            "https://tapandbuild.com/5_prestige.png",
+            "https://tapandbuild.com/8_leaderboard.png"
+        ],
+        "featureList": [
+            "14가지 고유한 생성기",
+            "프레스티지 시스템",
+            "18명의 매니저",
+            "글로벌 리더보드",
+            "일일 도전",
+            "오프라인 플레이"
+        ],
+        "author": { "@type": "Organization", "name": "Habbi Games" },
+        "url": "https://tapandbuild.com/ko/",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.tapandbuild.game&hl=ko",
+        "softwareVersion": "1.3.2"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Tap & Build란?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tap & Build는 Android용 무료 방치형 공장 타이쿤 게임입니다. 탭하여 코인을 획득하고, 14개의 고유한 생성기를 구매하고, 프레스티지로 배율을 얻고, 글로벌 리더보드에서 경쟁하세요. 라이브 마켓, 매니저, 승천 특전, 일일 도전, 오프라인 수익을 포함합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tap & Build는 무료인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네! Tap & Build는 완전히 무료로 다운로드하고 플레이할 수 있습니다. 광고를 제거하고 보너스 기능을 얻기 위한 선택적 인앱 구매가 가능하지만, 모든 게임 콘텐츠는 무료로 접근할 수 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Tap & Build는 오프라인에서 작동하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네! 플레이하지 않는 동안에도 공장은 계속 생산합니다. 몇 시간 또는 며칠 후에 돌아와서 모든 오프라인 수익을 수집하세요."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "프레스티지는 어떻게 하나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "충분한 화폐를 획득하면 프레스티지하여 진행 상황을 초기화하고 프레스티지 포인트를 얻을 수 있습니다. 이는 영구 배율을 제공하고 강력한 승천 특전을 잠금 해제합니다."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="bg-canvas" aria-hidden="true">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏭</div>
+            <span class="nav-logo-text">TAP & BUILD</span>
+        </a>
+        <div class="nav-links">
+            <a href="#features">기능</a>
+            <a href="#faq">FAQ</a>
+            <a href="updates.html">업데이트</a>
+            <a href="trailer.html">트레일러</a>
+            <a href="https://discord.gg/YxUGEz8GTZ">Discord</a>
+            <div class="lang-selector" id="langSelector">
+                🌐 KO
+                <div class="lang-dropdown">
+<a href="../index.html">🇬🇧 English</a>
+                    <a href="../es/index.html">🇪🇸 Español</a>
+                    <a href="../pt/index.html">🇧🇷 Português</a>
+                    <a href="../de/index.html">🇩🇪 Deutsch</a>
+                    <a href="../fr/index.html">🇫🇷 Français</a>
+                    <a href="../it/index.html">🇮🇹 Italiano</a>
+                    <a href="../ja/index.html">🇯🇵 日本語</a>
+                    <a href="../ko/index.html">🇰🇷 한국어</a>
+                    <a href="../ru/index.html">🇷🇺 Русский</a>
+                    <a href="../sv/index.html">🇸🇪 Svenska</a>
+                    <a href="../zh/index.html">🇨🇳 中文</a>
+                </div>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game&hl=ko" class="nav-cta">무료 다운로드</a>
+        </div>
+        <div class="nav-mobile-right">
+            <div class="lang-selector" id="langSelectorMobile">
+                🌐 KO
+                <div class="lang-dropdown">
+<a href="../index.html">🇬🇧 English</a>
+                    <a href="../es/index.html">🇪🇸 Español</a>
+                    <a href="../pt/index.html">🇧🇷 Português</a>
+                    <a href="../de/index.html">🇩🇪 Deutsch</a>
+                    <a href="../fr/index.html">🇫🇷 Français</a>
+                    <a href="../it/index.html">🇮🇹 Italiano</a>
+                    <a href="../ja/index.html">🇯🇵 日本語</a>
+                    <a href="../ko/index.html">🇰🇷 한국어</a>
+                    <a href="../ru/index.html">🇷🇺 Русский</a>
+                    <a href="../sv/index.html">🇸🇪 Svenska</a>
+                    <a href="../zh/index.html">🇨🇳 中文</a>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>🚀</span>
+                    <span>GOOGLE PLAY에서 얼리 액세스</span>
+                </div>
+                <h1 class="hero-title">공장 제국을 건설하세요!</h1>
+                <p class="hero-subtitle">최고의 방치형 클리커 타이쿤 게임! 간단한 컨베이어 벨트에서 시작하여 차원을 넘나드는 우주 공장 제국으로 성장하세요! 탭하여 수익을 올리고, 매니저로 자동화하고, 리더보드를 지배하세요!</p>
+                <div class="hero-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game&hl=ko" class="btn-hero btn-primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        무료 다운로드
+                    </a>
+                    <a href="https://discord.gg/YxUGEz8GTZ" class="btn-hero btn-outline">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09c-.01-.02-.04-.03-.07-.03c-1.5.26-2.93.71-4.27 1.33c-.01 0-.02.01-.03.02c-2.72 4.07-3.47 8.03-3.1 11.95c0 .02.01.04.03.05c1.8 1.32 3.53 2.12 5.24 2.65c.03.01.06 0 .07-.02c.4-.55.76-1.13 1.07-1.74c.02-.04 0-.08-.04-.09c-.57-.22-1.11-.48-1.64-.78c-.04-.02-.04-.08-.01-.11c.11-.08.22-.17.33-.25c.02-.02.05-.02.07-.01c3.44 1.57 7.15 1.57 10.55 0c.02-.01.05-.01.07.01c.11.09.22.17.33.26c.04.03.04.09-.01.11c-.52.31-1.07.56-1.64.78c-.04.01-.05.06-.04.09c.32.61.68 1.19 1.07 1.74c.03.01.06.02.09.01c1.72-.53 3.45-1.33 5.25-2.65c.02-.01.03-.03.03-.05c.44-4.53-.73-8.46-3.1-11.95c-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12c0 1.17-.83 2.12-1.89 2.12z"/></svg>
+                        DISCORD 참가
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">생성기</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">업그레이드</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">숫자</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-showcase">
+                <div class="phone-device">
+                    <div class="phone-screen">
+                        <img src="../6_market.webp" alt="라이브 마켓 - Tap & Build 거래 인터페이스" class="active" loading="eager">
+                        <img src="../1_main_factory.webp" alt="메인 공장 - 공장 관리 게임플레이" loading="lazy">
+                        <img src="../2_generators_tab.webp" alt="발전기 탭 - 14개의 고유한 발전기" loading="lazy">
+                        <img src="../5_prestige.webp" alt="프레스티지 시스템 - 영구 배율을 위한 리셋" loading="lazy">
+                        <img src="../8_leaderboard.webp" alt="글로벌 리더보드 - 전 세계와 경쟁" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-tag">✦ 기능</div>
+            <h2 class="section-title">지배를 위해 설계됨</h2>
+            <p class="section-subtitle">막을 수 없는 공장 제국을 건설하는 데 필요한 모든 것</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3 class="feature-title">14가지 고유한 생성기</h3>
+                <p class="feature-desc">컨베이어 벨트부터 양자 공장과 차원의 균열까지. 잠자는 동안 코인을 생산하는 기계를 잠금 해제하세요!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">탭 & 수익</h3>
+                <p class="feature-desc">콤보로 엄청난 배율을 만드세요. 오토 탭 매니저가 당신이 없는 동안 일합니다!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3 class="feature-title">프레스티지 시스템</h3>
+                <p class="feature-desc">진행 상황을 초기화하여 강력한 프레스티지 포인트를 획득하세요. 프레스티지할 때마다 영구 배율로 더 강해집니다!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3 class="feature-title">승천 특전</h3>
+                <p class="feature-desc">4개 분야에서 20개 이상의 업그레이드: 생산, 탭, 오프라인, 행운. 전략을 커스터마이즈하세요!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👔</div>
+                <h3 class="feature-title">18명의 매니저</h3>
+                <p class="feature-desc">생산을 자동화하고, 수익을 높이고, 특별한 능력을 잠금 해제하는 전문가를 고용하세요.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">글로벌 리더보드</h3>
+                <p class="feature-desc">전 세계 플레이어와 경쟁하세요! 비공개 경쟁을 위한 친구 방을 만드세요.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3 class="feature-title">일일 도전</h3>
+                <p class="feature-desc">보상이 증가하는 28일 캘린더. 추가 코인을 위한 일일 및 주간 도전.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📴</div>
+                <h3 class="feature-title">오프라인 플레이</h3>
+                <p class="feature-desc">공장은 멈추지 않습니다! 돌아와서 몇 시간의 오프라인 수익을 수집하세요. 캐주얼 플레이어에게 완벽합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alpha Signup Section -->
+    <section class="cta-section reveal" id="alpha">
+        <div class="cta-box">
+            <div class="alpha-badge">🚀 알파 액세스</div>
+            <h2 class="cta-title">알파에 참여하세요!</h2>
+            <p class="cta-subtitle">Tap & Build의 새로운 기능을 먼저 테스트하고 미래를 함께 만들어가세요.</p>
+            
+            <div id="alpha-form-container">
+                <form action="https://formspree.io/f/xwvvlykd" method="POST" class="alpha-form" id="alpha-form">
+                    <div class="form-row">
+                        <input type="email" name="email" class="form-input" id="email-input" placeholder="your.email@gmail.com" required>
+                        <button type="submit" class="form-submit" id="submit-btn">알파 참여</button>
+                    </div>
+                    <p class="form-error" id="form-error">유효한 Gmail 주소를 입력하세요 (@gmail.com)</p>
+                    <p class="form-helper">📱 Google Play 스토어 계정에 연결된 Gmail 주소를 입력하세요. 알파 액세스를 부여하는 데 사용됩니다.</p>
+                </form>
+            </div>
+            
+            <div class="form-success" id="form-success">
+                <div class="form-success-icon">🎉</div>
+                <h3 class="form-success-title">리스트에 등록되었습니다!</h3>
+                <p class="form-success-text">다음 알파 빌드가 준비되면 초대장을 보내드립니다. 받은 편지함을 확인해 주세요!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <div class="section-tag">❓ FAQ</div>
+            <h2 class="section-title">자주 묻는 질문</h2>
+        </div>
+        <div class="faq-grid">
+            <details class="faq-item">
+                <summary>Tap & Build란?</summary>
+                <p>Tap & Build는 Android용 무료 방치형 공장 타이쿤 게임입니다. 탭하여 코인을 획득하고, 14개의 고유한 생성기를 구매하고, 프레스티지로 배율을 얻고, 글로벌 리더보드에서 경쟁하세요. 라이브 마켓, 매니저, 승천 특전, 일일 도전, 오프라인 수익을 포함합니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Tap & Build는 무료인가요?</summary>
+                <p>네! Tap & Build는 완전히 무료로 다운로드하고 플레이할 수 있습니다. 광고를 제거하고 보너스 기능을 얻기 위한 선택적 인앱 구매가 가능하지만, 모든 게임 콘텐츠는 무료로 접근할 수 있습니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Tap & Build는 오프라인에서 작동하나요?</summary>
+                <p>네! 플레이하지 않는 동안에도 공장은 계속 생산합니다. 몇 시간 또는 며칠 후에 돌아와서 모든 오프라인 수익을 수집하세요.</p>
+            </details>
+            <details class="faq-item">
+                <summary>프레스티지는 어떻게 하나요?</summary>
+                <p>충분한 화폐를 획득하면 프레스티지하여 진행 상황을 초기화하고 프레스티지 포인트를 얻을 수 있습니다. 이는 영구 배율을 제공하고 강력한 승천 특전을 잠금 해제합니다.</p>
+            </details>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <p class="footer-brand-title">🏭 Tap & Build</p>
+                <p>최고의 방치형 공장 타이쿤 게임. 건설, 자동화, 프레스티지, 지배.</p>
+            </div>
+            <div class="footer-column">
+                <p class="footer-heading">게임</p>
+                <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game&hl=ko">Google Play</a>
+                <a href="#features">기능</a>
+                <a href="https://discord.gg/YxUGEz8GTZ">Discord</a>
+            </div>
+            <div class="footer-column">
+                <p class="footer-heading">법적 정보</p>
+                <a href="privacy.html">개인정보 처리방침</a>
+                <a href="terms.html">서비스 약관</a>
+            </div>
+            <div class="footer-column">
+                <p class="footer-heading">지원</p>
+                <a href="mailto:support@tapandbuild.com">연락처</a>
+                <a href="#faq">FAQ</a>
+                <a href="press.html">프레스 키트</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Habbi Games. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        // Close menu when clicking nav links (but not lang dropdown)
+        navLinks.querySelectorAll('a:not(.lang-dropdown a)').forEach(link => {
+            link.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('active'); });
+        });
+        window.addEventListener('scroll', () => { document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+        const screens = document.querySelectorAll('.phone-screen img');
+        let currentScreen = 0;
+        setInterval(() => { screens[currentScreen].classList.remove('active'); currentScreen = (currentScreen + 1) % screens.length; screens[currentScreen].classList.add('active'); }, 3000);
+        
+        // Language selector click handler (both desktop and mobile)
+        document.querySelectorAll('.lang-selector').forEach(langSelector => {
+            langSelector.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other lang selectors
+                document.querySelectorAll('.lang-selector').forEach(other => {
+                    if (other !== langSelector) other.classList.remove('active');
+                });
+                langSelector.classList.toggle('active');
+            });
+        });
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.lang-selector').forEach(ls => ls.classList.remove('active'));
+        });
+        
+        // Alpha form handling
+        (function() {
+            const form = document.getElementById('alpha-form');
+            const emailInput = document.getElementById('email-input');
+            const submitBtn = document.getElementById('submit-btn');
+            const formError = document.getElementById('form-error');
+            const formContainer = document.getElementById('alpha-form-container');
+            const formSuccess = document.getElementById('form-success');
+            
+            if (!form) return;
+            
+            emailInput.addEventListener('input', function() {
+                emailInput.classList.remove('error');
+                formError.classList.remove('visible');
+            });
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = emailInput.value.trim().toLowerCase();
+                
+                if (!email.endsWith('@gmail.com')) {
+                    emailInput.classList.add('error');
+                    formError.classList.add('visible');
+                    return;
+                }
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = '...';
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        formContainer.style.display = 'none';
+                        formSuccess.classList.add('visible');
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '알파 참여';
+                    formError.textContent = 'Error. Please try again.';
+                    formError.classList.add('visible');
+                }
+            });
+        })();
+        
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>

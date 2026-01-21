@@ -1,28 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+const fs = require('fs');
+const path = require('path');
+
+const WEBSITE_DIR = path.join(__dirname, '..');
+const translations = JSON.parse(fs.readFileSync(path.join(__dirname, 'updates-translations.json'), 'utf8'));
+
+const LANGUAGES = ['en', 'es', 'pt', 'de', 'fr', 'it', 'ja', 'ko', 'ru', 'sv', 'zh'];
+
+// Date locale mapping
+const dateLocales = {
+    en: 'en-US',
+    es: 'es-ES',
+    pt: 'pt-BR',
+    de: 'de-DE',
+    fr: 'fr-FR',
+    it: 'it-IT',
+    ja: 'ja-JP',
+    ko: 'ko-KR',
+    ru: 'ru-RU',
+    sv: 'sv-SE',
+    zh: 'zh-CN'
+};
+
+function generateHTML(lang) {
+    const t = translations[lang];
+    const isEnglish = lang === 'en';
+    const assetPrefix = isEnglish ? '' : '../';
+    const canonicalPath = isEnglish ? '/updates.html' : `/${lang}/updates.html`;
+    const buildsUrl = isEnglish ? '/builds.json' : '../builds.json';
+    const dateLocale = dateLocales[lang] || 'en-US';
+    
+    return `<!DOCTYPE html>
+<html lang="${t.htmlLang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updates & Changelog - Tap & Build: Idle Factory Tycoon</title>
-    <meta name="description" content="Latest updates, patch notes, and changelog for Tap & Build idle clicker game. See what's new in each version!">
+    <title>${t.title}</title>
+    <meta name="description" content="${t.metaDescription}">
     <meta name="robots" content="index, follow">
     
-    <link rel="canonical" href="https://tapandbuild.com/updates.html">
+    <link rel="canonical" href="https://tapandbuild.com${canonicalPath}">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tapandbuild.com/updates.html">
-    <meta property="og:title" content="📋 Updates & Changelog - Tap & Build">
-    <meta property="og:description" content="Latest updates, patch notes, and changelog for Tap & Build idle clicker game. See what's new in each version!">
+    <meta property="og:url" content="https://tapandbuild.com${canonicalPath}">
+    <meta property="og:title" content="${t.pageTitle} - Tap & Build">
+    <meta property="og:description" content="${t.metaDescription}">
     <meta property="og:image" content="https://tapandbuild.com/og-facebook.jpg">
     <meta property="og:site_name" content="Tap & Build">
     
     <meta name="theme-color" content="#FF9F1C">
     
-    <link rel="icon" href="favicon.ico" sizes="48x48">
-    <link rel="icon" href="favicon-96.png" type="image/png" sizes="96x96">
-    <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="${assetPrefix}favicon.ico" sizes="48x48">
+    <link rel="icon" href="${assetPrefix}favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="${assetPrefix}favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="${assetPrefix}apple-touch-icon.png" sizes="180x180">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,8 +64,8 @@
         "@context": "https://schema.org",
         "@type": "Blog",
         "name": "Tap & Build Updates",
-        "description": "Latest updates, patch notes, and changelog for Tap & Build idle clicker game. See what's new in each version!",
-        "url": "https://tapandbuild.com/updates.html",
+        "description": "${t.metaDescription}",
+        "url": "https://tapandbuild.com${canonicalPath}",
         "publisher": {
             "@type": "Organization",
             "name": "Habbi Games",
@@ -43,7 +74,7 @@
     }
     </script>
     
-    <link rel="stylesheet" href="updates-styles.css">
+    <link rel="stylesheet" href="${assetPrefix}updates-styles.css">
 </head>
 <body>
     <header>
@@ -51,34 +82,34 @@
             <div class="logo-icon">🏭</div>
             <span class="logo-text">TAP & BUILD</span>
         </a>
-        <h1>📋 Updates & Changelog</h1>
-        <p class="subtitle">Stay up to date with the latest features, improvements, and bug fixes</p>
+        <h1>${t.pageTitle}</h1>
+        <p class="subtitle">${t.subtitle}</p>
     </header>
 
     <div class="container">
-        <a href="index.html" class="back-link">← Back to Home</a>
+        <a href="index.html" class="back-link">${t.backToHome}</a>
 
         <div id="releases-container">
             <div class="loading">
                 <div class="loading-spinner"></div>
-                <p>Loading releases from GitHub...</p>
+                <p>${t.loading}</p>
             </div>
         </div>
 
         <div class="cta-section">
-            <h2>Ready to Build Your Empire?</h2>
-            <p>Download Tap & Build for free and start your factory tycoon journey!</p>
+            <h2>${t.ctaTitle}</h2>
+            <p>${t.ctaText}</p>
             <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button" target="_blank" rel="noopener">
-                <span>▶</span> Download on Google Play
+                <span>▶</span> ${t.ctaButton}
             </a>
         </div>
 
         <footer>
-            <p>© 2026 Tap & Build by Habbi Games</p>
+            <p>${t.footerCopyright}</p>
             <p style="margin-top: 10px;">
-                <a href="privacy.html">Privacy Policy</a> · 
-                <a href="terms.html">Terms of Service</a> · 
-                <a href="press.html">Press Kit</a>
+                <a href="privacy.html">${t.footerPrivacy}</a> · 
+                <a href="terms.html">${t.footerTerms}</a> · 
+                <a href="press.html">${t.footerPressKit}</a>
             </p>
         </footer>
     </div>
@@ -86,23 +117,23 @@
     <script>
         // Translations object for JavaScript
         const T = {
-            latestUpdates: "Latest Updates",
-            buildHistory: "Build History",
-            earlierBuilds: "earlier builds",
-            totalBuilds: "Total Builds",
-            latestBuild: "Latest Build",
-            currentVersion: "Current Version",
-            latest: "Latest",
-            release: "Release",
-            build: "Build",
-            changes: "changes",
-            noChanges: "No changes documented.",
-            noBuilds: "No builds found.",
-            loadError: "Failed to load build history"
+            latestUpdates: "${t.latestUpdates}",
+            buildHistory: "${t.buildHistory}",
+            earlierBuilds: "${t.earlierBuilds}",
+            totalBuilds: "${t.totalBuilds}",
+            latestBuild: "${t.latestBuild}",
+            currentVersion: "${t.currentVersion}",
+            latest: "${t.latest}",
+            release: "${t.release}",
+            build: "${t.build}",
+            changes: "${t.changes}",
+            noChanges: "${t.noChanges}",
+            noBuilds: "${t.noBuilds}",
+            loadError: "${t.loadError}"
         };
 
-        const BUILDS_URL = '/builds.json';
-        const DATE_LOCALE = 'en-US';
+        const BUILDS_URL = '${buildsUrl}';
+        const DATE_LOCALE = '${dateLocale}';
 
         function formatDate(dateString) {
             const date = new Date(dateString);
@@ -171,23 +202,23 @@
             const title = getVersionTitle(build.build);
             const isMajor = isMajorVersion(build.version);
             
-            return `
-                <article class="update-card ${isLatest ? 'latest' : ''} ${isMajor ? 'major-release' : 'minor-build'}" data-build="${build.build}">
+            return \`
+                <article class="update-card \${isLatest ? 'latest' : ''} \${isMajor ? 'major-release' : 'minor-build'}" data-build="\${build.build}">
                     <div class="update-header">
                         <div class="version-info">
-                            <span class="version">v${build.version}</span>
-                            <span class="build-code">${T.build} ${build.build}</span>
-                            ${isLatest ? '<span class="version-badge">' + T.latest + '</span>' : ''}
-                            ${isMajor ? '<span class="version-badge major">' + T.release + '</span>' : ''}
+                            <span class="version">v\${build.version}</span>
+                            <span class="build-code">\${T.build} \${build.build}</span>
+                            \${isLatest ? '<span class="version-badge">' + T.latest + '</span>' : ''}
+                            \${isMajor ? '<span class="version-badge major">' + T.release + '</span>' : ''}
                         </div>
-                        <span class="date">${date}</span>
+                        <span class="date">\${date}</span>
                     </div>
-                    <h2 class="update-title">${title}</h2>
+                    <h2 class="update-title">\${title}</h2>
                     <div class="update-body">
-                        ${changes}
+                        \${changes}
                     </div>
                 </article>
-            `;
+            \`;
         }
 
         function renderCompactBuild(build) {
@@ -197,26 +228,26 @@
             const changeCount = changes.length;
             const allChangesHtml = changes.map(c => '<li>' + c + '</li>').join('');
             
-            return `
-                <div class="timeline-item" data-build="${build.build}" onclick="this.classList.toggle('expanded')">
+            return \`
+                <div class="timeline-item" data-build="\${build.build}" onclick="this.classList.toggle('expanded')">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="timeline-build">${T.build} ${build.build}</span>
-                            <span class="timeline-version">v${build.version}</span>
-                            ${changeCount > 1 ? '<span class="change-count">' + changeCount + ' ' + T.changes + '</span>' : ''}
-                            <span class="timeline-date">${shortDate}</span>
+                            <span class="timeline-build">\${T.build} \${build.build}</span>
+                            <span class="timeline-version">v\${build.version}</span>
+                            \${changeCount > 1 ? '<span class="change-count">' + changeCount + ' ' + T.changes + '</span>' : ''}
+                            <span class="timeline-date">\${shortDate}</span>
                         </div>
                         <div class="timeline-preview">
                             <span class="expand-icon">▶</span>
-                            <span>${mainChange}</span>
+                            <span>\${mainChange}</span>
                         </div>
                         <div class="timeline-changes">
-                            <ul>${allChangesHtml}</ul>
+                            <ul>\${allChangesHtml}</ul>
                         </div>
                     </div>
                 </div>
-            `;
+            \`;
         }
 
         async function loadBuilds() {
@@ -246,48 +277,66 @@
                 html += latestBuilds.map((build, index) => renderBuild(build, index === 0)).join('');
                 
                 if (olderBuilds.length > 0) {
-                    html += `
+                    html += \`
                         <div class="section-title timeline-title">
-                            ${T.buildHistory} 
-                            <span class="build-count">${olderBuilds.length} ${T.earlierBuilds}</span>
+                            \${T.buildHistory} 
+                            <span class="build-count">\${olderBuilds.length} \${T.earlierBuilds}</span>
                         </div>
                         <div class="timeline">
-                            ${olderBuilds.map(build => renderCompactBuild(build)).join('')}
+                            \${olderBuilds.map(build => renderCompactBuild(build)).join('')}
                         </div>
-                    `;
+                    \`;
                 }
                 
-                html += `
+                html += \`
                     <div class="build-stats">
                         <div class="stat">
-                            <span class="stat-value">${builds.length}</span>
-                            <span class="stat-label">${T.totalBuilds}</span>
+                            <span class="stat-value">\${builds.length}</span>
+                            <span class="stat-label">\${T.totalBuilds}</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-value">${builds[0].build}</span>
-                            <span class="stat-label">${T.latestBuild}</span>
+                            <span class="stat-value">\${builds[0].build}</span>
+                            <span class="stat-label">\${T.latestBuild}</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-value">v${builds[0].version}</span>
-                            <span class="stat-label">${T.currentVersion}</span>
+                            <span class="stat-value">v\${builds[0].version}</span>
+                            <span class="stat-label">\${T.currentVersion}</span>
                         </div>
                     </div>
-                `;
+                \`;
                 
                 container.innerHTML = html;
                 
             } catch (error) {
                 console.error('Error fetching builds:', error);
-                container.innerHTML = `
+                container.innerHTML = \`
                     <div class="error-message">
-                        <p>⚠️ ${T.loadError}</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">${error.message}</p>
+                        <p>⚠️ \${T.loadError}</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">\${error.message}</p>
                     </div>
-                `;
+                \`;
             }
         }
 
         document.addEventListener('DOMContentLoaded', loadBuilds);
     </script>
 </body>
-</html>
+</html>`;
+}
+
+console.log('📋 Building updates pages...\n');
+
+LANGUAGES.forEach(lang => {
+    const html = generateHTML(lang);
+    const outputDir = lang === 'en' ? WEBSITE_DIR : path.join(WEBSITE_DIR, lang);
+    const outputFile = path.join(outputDir, 'updates.html');
+    
+    if (lang !== 'en' && !fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+    }
+    
+    fs.writeFileSync(outputFile, html, 'utf8');
+    console.log(`✅ Built ${lang === 'en' ? '' : lang + '/'}updates.html`);
+});
+
+console.log('\n🎉 Updates pages complete!');

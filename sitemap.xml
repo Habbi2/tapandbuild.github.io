@@ -1,33 +1,1192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tapandbuild.com/</loc>
-    <lastmod>2026-01-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://tapandbuild.com/privacy.html</loc>
-    <lastmod>2026-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://tapandbuild.com/terms.html</loc>
-    <lastmod>2026-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://tapandbuild.com/press.html</loc>
-    <lastmod>2026-01-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://tapandbuild.com/updates.html</loc>
-    <lastmod>2026-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://tapandbuild.com/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/updates.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/updates.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/updates.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/press.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/press.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/press.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/press.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/press.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/press.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/press.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/press.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/press.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/press.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/press.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/trailer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/trailer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/trailer.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/privacy.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/privacy.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/es/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/pt/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/de/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/fr/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/it/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ja/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ko/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/ru/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/sv/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
+    <url>
+        <loc>https://tapandbuild.com/zh/terms.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://tapandbuild.com/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tapandbuild.com/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://tapandbuild.com/pt/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://tapandbuild.com/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://tapandbuild.com/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="it" href="https://tapandbuild.com/it/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://tapandbuild.com/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://tapandbuild.com/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://tapandbuild.com/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="sv" href="https://tapandbuild.com/sv/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://tapandbuild.com/zh/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tapandbuild.com/terms.html"/>
+    </url>
 </urlset>
