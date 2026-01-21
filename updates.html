@@ -206,68 +206,53 @@
             color: var(--text-white);
         }
 
-        .changes-section {
-            margin-bottom: 20px;
+        .update-body {
+            color: var(--text-gray);
+            line-height: 1.8;
         }
 
-        .changes-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .changes-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
-            padding: 4px 12px;
-            border-radius: 6px;
-        }
-
-        .changes-label.new {
-            background: rgba(0, 245, 100, 0.15);
-            color: #00f564;
-        }
-
-        .changes-label.improved {
-            background: rgba(0, 245, 255, 0.15);
-            color: var(--neon-cyan);
-        }
-
-        .changes-label.fixed {
-            background: rgba(255, 159, 28, 0.15);
-            color: var(--accent);
-        }
-
-        .changes-label.balance {
-            background: rgba(191, 0, 255, 0.15);
-            color: var(--neon-purple);
-        }
-
-        .changes-list {
+        .update-body ul {
             list-style: none;
             padding-left: 0;
         }
 
-        .changes-list li {
-            color: var(--text-gray);
+        .update-body li {
             padding: 8px 0 8px 24px;
             position: relative;
             border-bottom: 1px solid rgba(255,255,255,0.03);
         }
 
-        .changes-list li:last-child {
+        .update-body li:last-child {
             border-bottom: none;
         }
 
-        .changes-list li::before {
+        .update-body li::before {
             content: '→';
             position: absolute;
             left: 0;
             color: var(--accent);
+        }
+
+        .update-body h2, .update-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 20px 0 10px;
+            color: var(--neon-cyan);
+        }
+
+        .update-body h2:first-child, .update-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .update-body p {
+            margin-bottom: 15px;
+        }
+
+        .update-body code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
 
         .back-link {
@@ -282,6 +267,7 @@
             border: 1px solid rgba(255,159,28,0.3);
             border-radius: 30px;
             transition: all 0.3s;
+            margin-bottom: 30px;
         }
 
         .back-link:hover {
@@ -346,6 +332,56 @@
             box-shadow: 0 15px 40px rgba(255,159,28,0.4);
         }
 
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            border-radius: 16px;
+            color: #ff4757;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        .github-link:hover {
+            color: var(--accent);
+        }
+
+        .github-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
         @media (max-width: 600px) {
             .update-header {
                 flex-direction: column;
@@ -372,162 +408,13 @@
     <div class="container">
         <a href="/" class="back-link">← Back to Home</a>
 
-        <!-- Latest Update -->
-        <article class="update-card latest">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.3.2</span>
-                    <span class="version-badge">Latest</span>
-                    <span class="build-code">Build 49</span>
-                </div>
-                <span class="date">January 21, 2026</span>
+        <!-- Releases will be loaded here -->
+        <div id="releases-container">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading releases from GitHub...</p>
             </div>
-            <h2 class="update-title">Sound Effects Update</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label new">🚀 New</div>
-                <ul class="changes-list">
-                    <li>Sound effects across all UI interactions</li>
-                    <li>Audio feedback for purchases, upgrades, and rewards</li>
-                </ul>
-            </div>
-            
-            <div class="changes-section">
-                <div class="changes-label improved">✨ Improved</div>
-                <ul class="changes-list">
-                    <li>Optimized offline earnings calculation</li>
-                    <li>Reduced memory usage on older devices</li>
-                    <li>Smoother animations in the generator tab</li>
-                </ul>
-            </div>
-        </article>
-
-        <!-- Previous Updates -->
-        <article class="update-card">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.3.1</span>
-                    <span class="build-code">Build 48</span>
-                </div>
-                <span class="date">January 18, 2026</span>
-            </div>
-            <h2 class="update-title">Bug Fixes & Polish</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label fixed">🔧 Fixed</div>
-                <ul class="changes-list">
-                    <li>Fixed rare crash when collecting offline earnings</li>
-                    <li>Corrected prestige point calculation display</li>
-                    <li>Fixed challenge timer not syncing correctly</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="update-card">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.3.0</span>
-                    <span class="build-code">Build 46</span>
-                </div>
-                <span class="date">January 14, 2026</span>
-            </div>
-            <h2 class="update-title">Investment Precision & Version Check</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label new">🚀 New</div>
-                <ul class="changes-list">
-                    <li>Version check system to notify users of updates</li>
-                    <li>Improved investment decimal precision</li>
-                </ul>
-            </div>
-            
-            <div class="changes-section">
-                <div class="changes-label fixed">🔧 Fixed</div>
-                <ul class="changes-list">
-                    <li>Fixed investment rounding errors</li>
-                    <li>Fixed score sync issues with large numbers</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="update-card">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.2.2</span>
-                    <span class="build-code">Builds 26-45</span>
-                </div>
-                <span class="date">December 2025 - January 2026</span>
-            </div>
-            <h2 class="update-title">Major Feature Updates</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label new">🚀 New</div>
-                <ul class="changes-list">
-                    <li>Live Market system with investment indexes</li>
-                    <li>Player Investment Market with activity multiplier</li>
-                    <li>Dividend earnings from investments</li>
-                    <li>Cloud save support via Supabase</li>
-                    <li>Analytics and crash reporting</li>
-                    <li>Referral and sharing system</li>
-                    <li>Localization support for 12 languages</li>
-                    <li>Reactive theme system</li>
-                </ul>
-            </div>
-            
-            <div class="changes-section">
-                <div class="changes-label improved">✨ Improved</div>
-                <ul class="changes-list">
-                    <li>Multiple stability and compatibility fixes</li>
-                    <li>Cleaned up code and removed artifacts</li>
-                    <li>Improved layout and UI polish</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="update-card">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.2.0</span>
-                    <span class="build-code">Build 25</span>
-                </div>
-                <span class="date">December 15, 2025</span>
-            </div>
-            <h2 class="update-title">Screenshots & IAP</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label new">🚀 New</div>
-                <ul class="changes-list">
-                    <li>In-App Purchase: Remove Ads with 2x boost</li>
-                    <li>Instant rewards for premium users</li>
-                    <li>Real screenshots added to website and Play Store</li>
-                    <li>GitHub Actions build workflow</li>
-                </ul>
-            </div>
-        </article>
-
-        <article class="update-card">
-            <div class="update-header">
-                <div>
-                    <span class="version">v1.0.0</span>
-                    <span class="build-code">Build 1</span>
-                </div>
-                <span class="date">December 1, 2025</span>
-            </div>
-            <h2 class="update-title">Initial Release 🎉</h2>
-            
-            <div class="changes-section">
-                <div class="changes-label new">🚀 Launch Features</div>
-                <ul class="changes-list">
-                    <li>14 unique generators with upgrades</li>
-                    <li>Prestige system with permanent multipliers</li>
-                    <li>Manager automation system</li>
-                    <li>Tetris-style upgrade grid</li>
-                    <li>Global leaderboards</li>
-                    <li>Offline earnings</li>
-                    <li>Sound effects and haptic feedback</li>
-                </ul>
-            </div>
-        </article>
+        </div>
 
         <!-- CTA Section -->
         <div class="cta-section">
@@ -547,5 +434,215 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // GitHub repository info
+        const GITHUB_REPO = 'Habbi2/tap-and-build';
+        const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases`;
+
+        // Fallback releases if GitHub API fails or has no releases yet
+        const FALLBACK_RELEASES = [
+            {
+                tag_name: 'v1.3.2',
+                name: 'Sound Effects Update',
+                published_at: '2026-01-21T00:00:00Z',
+                body: `### 🚀 New
+- Sound effects across all UI interactions
+- Audio feedback for purchases, upgrades, and rewards
+
+### ✨ Improved
+- Optimized offline earnings calculation
+- Reduced memory usage on older devices
+- Smoother animations in the generator tab`
+            },
+            {
+                tag_name: 'v1.3.1',
+                name: 'Bug Fixes & Polish',
+                published_at: '2026-01-18T00:00:00Z',
+                body: `### 🔧 Fixed
+- Fixed rare crash when collecting offline earnings
+- Corrected prestige point calculation display
+- Fixed challenge timer not syncing correctly`
+            },
+            {
+                tag_name: 'v1.3.0',
+                name: 'Investment Precision & Version Check',
+                published_at: '2026-01-14T00:00:00Z',
+                body: `### 🚀 New
+- Version check system to notify users of updates
+- Improved investment decimal precision
+
+### 🔧 Fixed
+- Fixed investment rounding errors
+- Fixed score sync issues with large numbers`
+            },
+            {
+                tag_name: 'v1.2.2',
+                name: 'Major Feature Updates',
+                published_at: '2025-12-20T00:00:00Z',
+                body: `### 🚀 New
+- Live Market system with investment indexes
+- Player Investment Market with activity multiplier
+- Dividend earnings from investments
+- Cloud save support via Supabase
+- Analytics and crash reporting
+- Referral and sharing system
+- Localization support for 12 languages
+- Reactive theme system
+
+### ✨ Improved
+- Multiple stability and compatibility fixes
+- Cleaned up code and removed artifacts
+- Improved layout and UI polish`
+            },
+            {
+                tag_name: 'v1.2.0',
+                name: 'Screenshots & IAP',
+                published_at: '2025-12-15T00:00:00Z',
+                body: `### 🚀 New
+- In-App Purchase: Remove Ads with 2x boost
+- Instant rewards for premium users
+- Real screenshots added to website and Play Store
+- GitHub Actions build workflow`
+            },
+            {
+                tag_name: 'v1.0.0',
+                name: 'Initial Release 🎉',
+                published_at: '2025-12-01T00:00:00Z',
+                body: `### 🚀 Launch Features
+- 14 unique generators with upgrades
+- Prestige system with permanent multipliers
+- Manager automation system
+- Tetris-style upgrade grid
+- Global leaderboards
+- Offline earnings
+- Sound effects and haptic feedback`
+            }
+        ];
+
+        // Simple markdown-like parser for release notes
+        function parseReleaseBody(body) {
+            if (!body) return '<p>No release notes available.</p>';
+            
+            let html = body
+                // Headers
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                // Bold
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                // Code
+                .replace(/`(.+?)`/g, '<code>$1</code>')
+                // Lists
+                .replace(/^- (.+)$/gm, '<li>$1</li>')
+                // Paragraphs (lines that aren't already HTML)
+                .replace(/^(?!<[hl]|<li)(.+)$/gm, '<p>$1</p>')
+                // Wrap consecutive <li> in <ul>
+                .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+                // Clean up empty paragraphs
+                .replace(/<p><\/p>/g, '')
+                .replace(/<p>\s*<\/p>/g, '');
+            
+            return html;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Render a single release card
+        function renderRelease(release, isLatest = false) {
+            const version = release.tag_name;
+            const title = release.name || version;
+            const date = formatDate(release.published_at);
+            const body = parseReleaseBody(release.body);
+            
+            return `
+                <article class="update-card ${isLatest ? 'latest' : ''}">
+                    <div class="update-header">
+                        <div>
+                            <span class="version">${version}</span>
+                            ${isLatest ? '<span class="version-badge">Latest</span>' : ''}
+                        </div>
+                        <span class="date">${date}</span>
+                    </div>
+                    <h2 class="update-title">${title}</h2>
+                    <div class="update-body">
+                        ${body}
+                    </div>
+                    <a href="https://github.com/${GITHUB_REPO}/releases/tag/${version}" 
+                       class="github-link" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </article>
+            `;
+        }
+
+        // Render error message
+        function renderError(message) {
+            return `
+                <div class="error-message">
+                    <p>⚠️ ${message}</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Showing cached release notes instead.</p>
+                </div>
+            `;
+        }
+
+        // Main function to load and render releases
+        async function loadReleases() {
+            const container = document.getElementById('releases-container');
+            
+            try {
+                const response = await fetch(API_URL, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API returned ${response.status}`);
+                }
+                
+                let releases = await response.json();
+                
+                // If no releases on GitHub yet, use fallback
+                if (!releases || releases.length === 0) {
+                    console.log('No GitHub releases found, using fallback data');
+                    releases = FALLBACK_RELEASES;
+                }
+                
+                // Sort by date (newest first)
+                releases.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+                
+                // Render all releases
+                const html = releases.map((release, index) => 
+                    renderRelease(release, index === 0)
+                ).join('');
+                
+                container.innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error fetching releases:', error);
+                
+                // Use fallback data on error
+                const html = FALLBACK_RELEASES.map((release, index) => 
+                    renderRelease(release, index === 0)
+                ).join('');
+                
+                container.innerHTML = html;
+            }
+        }
+
+        // Load releases when page loads
+        document.addEventListener('DOMContentLoaded', loadReleases);
+    </script>
 </body>
 </html>
