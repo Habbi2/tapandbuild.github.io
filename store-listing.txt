@@ -2,7 +2,7 @@
                     GOOGLE PLAY STORE LISTING - TAP & BUILD
 ================================================================================
                          Last Updated: January 2026
-                         Version: 1.2.2 (Build 29)
+                         Version: 1.3.2 (Build 32)
 ================================================================================
 
 📱 APP TITLE (30 characters max)

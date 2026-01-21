@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates & Changelog - Tap & Build: Idle Factory Tycoon</title>
+    <meta name="description" content="Latest updates, patch notes, and changelog for Tap & Build idle clicker game. See what's new in each version!">
+    <meta name="keywords" content="tap and build updates, tap and build changelog, tap and build patch notes, idle game updates">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tapandbuild.com/updates.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tapandbuild.com/updates.html">
+    <meta property="og:title" content="Updates & Changelog - Tap & Build">
+    <meta property="og:description" content="Latest updates, patch notes, and changelog for Tap & Build idle clicker game.">
+    <meta property="og:image" content="https://tapandbuild.com/og-facebook.jpg">
+    <meta property="og:site_name" content="Tap & Build">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Updates & Changelog - Tap & Build">
+    <meta name="twitter:description" content="Latest updates, patch notes, and changelog for Tap & Build idle clicker game.">
+    
+    <meta name="theme-color" content="#FF9F1C">
+    
+    <!-- Favicon - Google Search optimized -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD for Blog/Updates page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Tap & Build Updates",
+        "description": "Official changelog and updates for Tap & Build idle factory tycoon game",
+        "url": "https://tapandbuild.com/updates.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Habbi Games",
+            "logo": "https://tapandbuild.com/favicon-512.png"
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --bg-void: #050510;
+            --bg-deep: #0a0a1a;
+            --bg-surface: #12122a;
+            --accent: #FF9F1C;
+            --accent-light: #FFD700;
+            --accent-dark: #FF6B35;
+            --neon-cyan: #00f5ff;
+            --neon-purple: #bf00ff;
+            --text-white: #ffffff;
+            --text-gray: rgba(255,255,255,0.75);
+            --text-muted: rgba(255,255,255,0.6);
+            --glass: rgba(255,255,255,0.03);
+            --glass-border: rgba(255,255,255,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-void);
+            color: var(--text-white);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(255,159,28,0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .update-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .update-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,159,28,0.3);
+        }
+
+        .update-card.latest {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(255,159,28,0.15);
+        }
+
+        .update-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .version {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .update-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+
+        .changes-section {
+            margin-bottom: 20px;
+        }
+
+        .changes-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .changes-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .changes-label.new {
+            background: rgba(0, 245, 100, 0.15);
+            color: #00f564;
+        }
+
+        .changes-label.improved {
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--neon-cyan);
+        }
+
+        .changes-label.fixed {
+            background: rgba(255, 159, 28, 0.15);
+            color: var(--accent);
+        }
+
+        .changes-label.balance {
+            background: rgba(191, 0, 255, 0.15);
+            color: var(--neon-purple);
+        }
+
+        .changes-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .changes-list li {
+            color: var(--text-gray);
+            padding: 8px 0 8px 24px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .changes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .changes-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            background: rgba(255,159,28,0.1);
+            border: 1px solid rgba(255,159,28,0.3);
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255,159,28,0.2);
+            transform: translateX(-5px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,159,28,0.1), rgba(255,107,53,0.05));
+            border: 1px solid rgba(255,159,28,0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255,159,28,0.3);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,159,28,0.4);
+        }
+
+        @media (max-width: 600px) {
+            .update-header {
+                flex-direction: column;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            header {
+                padding: 40px 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo-link">
+            <div class="logo-icon">🏭</div>
+            <span class="logo-text">TAP & BUILD</span>
+        </a>
+        <h1>📋 Updates & Changelog</h1>
+        <p class="subtitle">Stay up to date with the latest features, improvements, and bug fixes</p>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <!-- Latest Update -->
+        <article class="update-card latest">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.3.2</span>
+                    <span class="version-badge">Latest</span>
+                </div>
+                <span class="date">January 21, 2026</span>
+            </div>
+            <h2 class="update-title">Performance & Stability Update</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label improved">✨ Improved</div>
+                <ul class="changes-list">
+                    <li>Optimized offline earnings calculation for faster load times</li>
+                    <li>Reduced memory usage on older devices</li>
+                    <li>Smoother animations in the generator tab</li>
+                </ul>
+            </div>
+            
+            <div class="changes-section">
+                <div class="changes-label fixed">🔧 Fixed</div>
+                <ul class="changes-list">
+                    <li>Fixed rare crash when collecting offline earnings</li>
+                    <li>Corrected prestige point calculation display</li>
+                    <li>Fixed challenge timer not syncing correctly</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Previous Updates -->
+        <article class="update-card">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.2.0</span>
+                </div>
+                <span class="date">January 7, 2026</span>
+            </div>
+            <h2 class="update-title">Market & Investments Update</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label new">🚀 New</div>
+                <ul class="changes-list">
+                    <li>Live Market system with 3 investment indexes</li>
+                    <li>Dividend earnings from your investments</li>
+                    <li>Market statistics and portfolio tracking</li>
+                    <li>New achievement category for investors</li>
+                </ul>
+            </div>
+            
+            <div class="changes-section">
+                <div class="changes-label balance">⚖️ Balance</div>
+                <ul class="changes-list">
+                    <li>Adjusted late-game generator costs</li>
+                    <li>Increased prestige multiplier scaling</li>
+                    <li>Rebalanced daily challenge rewards</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="update-card">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.1.0</span>
+                </div>
+                <span class="date">December 20, 2025</span>
+            </div>
+            <h2 class="update-title">Ascension & Challenges</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label new">🚀 New</div>
+                <ul class="changes-list">
+                    <li>Ascension system with powerful perks</li>
+                    <li>Daily and weekly challenges</li>
+                    <li>Lucky wheel with bonus rewards</li>
+                    <li>Cloud save support via Supabase</li>
+                </ul>
+            </div>
+            
+            <div class="changes-section">
+                <div class="changes-label improved">✨ Improved</div>
+                <ul class="changes-list">
+                    <li>New UI design with dark theme</li>
+                    <li>Better touch feedback on buttons</li>
+                    <li>Localization support for 12 languages</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="update-card">
+            <div class="update-header">
+                <div>
+                    <span class="version">v1.0.0</span>
+                </div>
+                <span class="date">December 1, 2025</span>
+            </div>
+            <h2 class="update-title">Initial Release 🎉</h2>
+            
+            <div class="changes-section">
+                <div class="changes-label new">🚀 Launch Features</div>
+                <ul class="changes-list">
+                    <li>14 unique generators with upgrades</li>
+                    <li>Prestige system with permanent multipliers</li>
+                    <li>Manager automation system</li>
+                    <li>Tetris-style upgrade grid</li>
+                    <li>Global leaderboards</li>
+                    <li>Offline earnings</li>
+                    <li>Sound effects and haptic feedback</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Build Your Empire?</h2>
+            <p>Download Tap & Build for free and start your factory tycoon journey!</p>
+            <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game" class="cta-button" target="_blank" rel="noopener">
+                <span>▶</span> Download on Google Play
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2026 <a href="/">Tap & Build</a> by Habbi Games</p>
+            <p style="margin-top: 10px;">
+                <a href="/privacy.html">Privacy Policy</a> · 
+                <a href="/terms.html">Terms of Service</a> · 
+                <a href="/press.html">Press Kit</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
