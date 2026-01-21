@@ -393,6 +393,176 @@
                 padding: 40px 15px 30px;
             }
         }
+
+        /* Section titles */
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--text-white);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .build-count {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Version info styling */
+        .version-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .version-badge.major {
+            background: linear-gradient(135deg, var(--neon-cyan), #0088cc);
+        }
+
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--glass-border) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 15px 20px;
+            margin-bottom: 8px;
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: rgba(255,159,28,0.3);
+            transform: translateX(5px);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -38px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-void);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-build {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .timeline-version {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        .timeline-change {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .more-changes {
+            color: var(--neon-cyan);
+            font-size: 0.8rem;
+        }
+
+        /* Build stats */
+        .build-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px;
+            margin: 40px 0;
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .build-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .timeline {
+                padding-left: 25px;
+            }
+            .timeline-marker {
+                left: -33px;
+                width: 10px;
+                height: 10px;
+            }
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .timeline-date {
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -436,114 +606,8 @@
     </div>
 
     <script>
-        // GitHub repository info
-        const GITHUB_REPO = 'Habbi2/tap-and-build';
-        const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases`;
-
-        // Fallback releases if GitHub API fails or has no releases yet
-        const FALLBACK_RELEASES = [
-            {
-                tag_name: 'v1.3.2',
-                name: 'Sound Effects Update',
-                published_at: '2026-01-21T00:00:00Z',
-                body: `### 🚀 New
-- Sound effects across all UI interactions
-- Audio feedback for purchases, upgrades, and rewards
-
-### ✨ Improved
-- Optimized offline earnings calculation
-- Reduced memory usage on older devices
-- Smoother animations in the generator tab`
-            },
-            {
-                tag_name: 'v1.3.1',
-                name: 'Bug Fixes & Polish',
-                published_at: '2026-01-18T00:00:00Z',
-                body: `### 🔧 Fixed
-- Fixed rare crash when collecting offline earnings
-- Corrected prestige point calculation display
-- Fixed challenge timer not syncing correctly`
-            },
-            {
-                tag_name: 'v1.3.0',
-                name: 'Investment Precision & Version Check',
-                published_at: '2026-01-14T00:00:00Z',
-                body: `### 🚀 New
-- Version check system to notify users of updates
-- Improved investment decimal precision
-
-### 🔧 Fixed
-- Fixed investment rounding errors
-- Fixed score sync issues with large numbers`
-            },
-            {
-                tag_name: 'v1.2.2',
-                name: 'Major Feature Updates',
-                published_at: '2025-12-20T00:00:00Z',
-                body: `### 🚀 New
-- Live Market system with investment indexes
-- Player Investment Market with activity multiplier
-- Dividend earnings from investments
-- Cloud save support via Supabase
-- Analytics and crash reporting
-- Referral and sharing system
-- Localization support for 12 languages
-- Reactive theme system
-
-### ✨ Improved
-- Multiple stability and compatibility fixes
-- Cleaned up code and removed artifacts
-- Improved layout and UI polish`
-            },
-            {
-                tag_name: 'v1.2.0',
-                name: 'Screenshots & IAP',
-                published_at: '2025-12-15T00:00:00Z',
-                body: `### 🚀 New
-- In-App Purchase: Remove Ads with 2x boost
-- Instant rewards for premium users
-- Real screenshots added to website and Play Store
-- GitHub Actions build workflow`
-            },
-            {
-                tag_name: 'v1.0.0',
-                name: 'Initial Release 🎉',
-                published_at: '2025-12-01T00:00:00Z',
-                body: `### 🚀 Launch Features
-- 14 unique generators with upgrades
-- Prestige system with permanent multipliers
-- Manager automation system
-- Tetris-style upgrade grid
-- Global leaderboards
-- Offline earnings
-- Sound effects and haptic feedback`
-            }
-        ];
-
-        // Simple markdown-like parser for release notes
-        function parseReleaseBody(body) {
-            if (!body) return '<p>No release notes available.</p>';
-            
-            let html = body
-                // Headers
-                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-                // Bold
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                // Code
-                .replace(/`(.+?)`/g, '<code>$1</code>')
-                // Lists
-                .replace(/^- (.+)$/gm, '<li>$1</li>')
-                // Paragraphs (lines that aren't already HTML)
-                .replace(/^(?!<[hl]|<li)(.+)$/gm, '<p>$1</p>')
-                // Wrap consecutive <li> in <ul>
-                .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-                // Clean up empty paragraphs
-                .replace(/<p><\/p>/g, '')
-                .replace(/<p>\s*<\/p>/g, '');
-            
-            return html;
-        }
+        // Load builds from local builds.json file
+        const BUILDS_URL = '/builds.json';
 
         // Format date
         function formatDate(dateString) {
@@ -555,94 +619,194 @@
             });
         }
 
-        // Render a single release card
-        function renderRelease(release, isLatest = false) {
-            const version = release.tag_name;
-            const title = release.name || version;
-            const date = formatDate(release.published_at);
-            const body = parseReleaseBody(release.body);
+        // Format short date for compact view
+        function formatShortDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        // Render changes list
+        function renderChanges(changes) {
+            if (!changes) return '<p>No changes documented.</p>';
+            
+            // Handle both string and array
+            const changesList = Array.isArray(changes) ? changes : [changes];
+            
+            if (changesList.length === 0) return '<p>No changes documented.</p>';
+            
+            return '<ul>' + changesList.map(change => `<li>${change}</li>`).join('') + '</ul>';
+        }
+
+        // Check if this is a major version (tagged release)
+        function isMajorVersion(version) {
+            // These are the tagged versions
+            const taggedVersions = ['1.0.0', '1.2.0', '1.2.1', '1.2.2', '1.3.0', '1.3.1', '1.3.2'];
+            return taggedVersions.includes(version);
+        }
+
+        // Get version title based on build
+        function getVersionTitle(build) {
+            const titles = {
+                49: 'Sound Effects Update',
+                48: 'Bug Fixes & Polish',
+                47: 'Investment Precision & Version Check',
+                45: 'Stability Improvements',
+                44: 'Performance Optimizations',
+                43: 'UI Polish',
+                42: 'Market Improvements',
+                41: 'Cloud Save Enhancements',
+                40: 'Analytics Integration',
+                39: 'Localization Updates',
+                38: 'Theme System Refinements',
+                37: 'Sharing Improvements',
+                36: 'Investment Features',
+                35: 'Market System',
+                34: 'Dividend Model',
+                33: 'Market & UI Changes',
+                32: 'Translation Fixes',
+                31: 'Minor Fixes',
+                30: 'Code Update',
+                29: 'Referrals & Sharing',
+                28: 'Multilanguage Support',
+                27: 'Theme System',
+                26: 'Friend Rooms System',
+                24: 'Build Optimizations',
+                9: 'Actions Workflow',
+                8: 'IAP & Remove Ads'
+            };
+            return titles[build] || `Build ${build} Update`;
+        }
+
+        // Render a single build card
+        function renderBuild(build, isLatest = false, isExpanded = false) {
+            const date = formatDate(build.date);
+            const shortDate = formatShortDate(build.date);
+            const changes = renderChanges(build.changes);
+            const title = getVersionTitle(build.build);
+            const isMajor = isMajorVersion(build.version);
             
             return `
-                <article class="update-card ${isLatest ? 'latest' : ''}">
+                <article class="update-card ${isLatest ? 'latest' : ''} ${isMajor ? 'major-release' : 'minor-build'}" data-build="${build.build}">
                     <div class="update-header">
-                        <div>
-                            <span class="version">${version}</span>
+                        <div class="version-info">
+                            <span class="version">v${build.version}</span>
+                            <span class="build-code">Build ${build.build}</span>
                             ${isLatest ? '<span class="version-badge">Latest</span>' : ''}
+                            ${isMajor ? '<span class="version-badge major">Release</span>' : ''}
                         </div>
                         <span class="date">${date}</span>
                     </div>
                     <h2 class="update-title">${title}</h2>
                     <div class="update-body">
-                        ${body}
+                        ${changes}
                     </div>
-                    <a href="https://github.com/${GITHUB_REPO}/releases/tag/${version}" 
-                       class="github-link" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        View on GitHub
-                    </a>
                 </article>
             `;
         }
 
-        // Render error message
-        function renderError(message) {
+        // Render compact build row for timeline view
+        function renderCompactBuild(build) {
+            const shortDate = formatShortDate(build.date);
+            const changes = Array.isArray(build.changes) ? build.changes : [build.changes];
+            const mainChange = changes[0] || 'Update';
+            const moreCount = changes.length - 1;
+            
             return `
-                <div class="error-message">
-                    <p>⚠️ ${message}</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Showing cached release notes instead.</p>
+                <div class="timeline-item" data-build="${build.build}">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-build">Build ${build.build}</span>
+                            <span class="timeline-version">v${build.version}</span>
+                            <span class="timeline-date">${shortDate}</span>
+                        </div>
+                        <div class="timeline-change">${mainChange}${moreCount > 0 ? ` <span class="more-changes">+${moreCount} more</span>` : ''}</div>
+                    </div>
                 </div>
             `;
         }
 
-        // Main function to load and render releases
-        async function loadReleases() {
+        // Main function to load and render builds
+        async function loadBuilds() {
             const container = document.getElementById('releases-container');
             
             try {
-                const response = await fetch(API_URL, {
-                    headers: {
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
+                const response = await fetch(BUILDS_URL);
                 
                 if (!response.ok) {
-                    throw new Error(`GitHub API returned ${response.status}`);
+                    throw new Error(`Failed to load builds.json: ${response.status}`);
                 }
                 
-                let releases = await response.json();
+                const data = await response.json();
+                const builds = data.builds || [];
                 
-                // If no releases on GitHub yet, use fallback
-                if (!releases || releases.length === 0) {
-                    console.log('No GitHub releases found, using fallback data');
-                    releases = FALLBACK_RELEASES;
+                if (builds.length === 0) {
+                    container.innerHTML = '<p class="error-message">No builds found.</p>';
+                    return;
                 }
                 
-                // Sort by date (newest first)
-                releases.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+                // Sort by build number (newest first)
+                builds.sort((a, b) => b.build - a.build);
                 
-                // Render all releases
-                const html = releases.map((release, index) => 
-                    renderRelease(release, index === 0)
+                // Separate latest builds and history
+                const latestBuilds = builds.slice(0, 5);
+                const olderBuilds = builds.slice(5);
+                
+                // Render latest builds as full cards
+                let html = '<div class="section-title">Latest Updates</div>';
+                html += latestBuilds.map((build, index) => 
+                    renderBuild(build, index === 0)
                 ).join('');
+                
+                // Render older builds as timeline
+                if (olderBuilds.length > 0) {
+                    html += `
+                        <div class="section-title timeline-title">
+                            Build History 
+                            <span class="build-count">${olderBuilds.length} earlier builds</span>
+                        </div>
+                        <div class="timeline">
+                            ${olderBuilds.map(build => renderCompactBuild(build)).join('')}
+                        </div>
+                    `;
+                }
+                
+                // Add stats
+                html += `
+                    <div class="build-stats">
+                        <div class="stat">
+                            <span class="stat-value">${builds.length}</span>
+                            <span class="stat-label">Total Builds</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">${builds[0].build}</span>
+                            <span class="stat-label">Latest Build</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">v${builds[0].version}</span>
+                            <span class="stat-label">Current Version</span>
+                        </div>
+                    </div>
+                `;
                 
                 container.innerHTML = html;
                 
             } catch (error) {
-                console.error('Error fetching releases:', error);
-                
-                // Use fallback data on error
-                const html = FALLBACK_RELEASES.map((release, index) => 
-                    renderRelease(release, index === 0)
-                ).join('');
-                
-                container.innerHTML = html;
+                console.error('Error fetching builds:', error);
+                container.innerHTML = `
+                    <div class="error-message">
+                        <p>⚠️ Failed to load build history</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">${error.message}</p>
+                    </div>
+                `;
             }
         }
 
-        // Load releases when page loads
-        document.addEventListener('DOMContentLoaded', loadReleases);
+        // Load builds when page loads
+        document.addEventListener('DOMContentLoaded', loadBuilds);
     </script>
 </body>
 </html>
