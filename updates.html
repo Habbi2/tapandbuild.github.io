@@ -453,6 +453,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .timeline-item:hover {
@@ -460,11 +461,14 @@
             transform: translateX(5px);
         }
 
+        .timeline-item.expanded {
+            border-color: var(--accent);
+        }
+
         .timeline-marker {
             position: absolute;
             left: -38px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 20px;
             width: 12px;
             height: 12px;
             background: var(--accent);
@@ -501,15 +505,68 @@
             margin-left: auto;
         }
 
-        .timeline-change {
+        .timeline-preview {
             color: var(--text-gray);
             font-size: 0.9rem;
             line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .more-changes {
+        .expand-icon {
+            color: var(--neon-cyan);
+            font-size: 0.85rem;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        .timeline-changes {
+            display: none;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .timeline-item.expanded .timeline-changes {
+            display: block;
+        }
+
+        .timeline-changes ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timeline-changes li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .timeline-changes li:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-changes li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .change-count {
             color: var(--neon-cyan);
             font-size: 0.8rem;
+            background: rgba(0, 245, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
         }
 
         /* Build stats */
@@ -712,18 +769,28 @@
             const shortDate = formatShortDate(build.date);
             const changes = Array.isArray(build.changes) ? build.changes : [build.changes];
             const mainChange = changes[0] || 'Update';
-            const moreCount = changes.length - 1;
+            const changeCount = changes.length;
+            
+            // Build all changes list
+            const allChangesHtml = changes.map(c => `<li>${c}</li>`).join('');
             
             return `
-                <div class="timeline-item" data-build="${build.build}">
+                <div class="timeline-item" data-build="${build.build}" onclick="this.classList.toggle('expanded')">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <span class="timeline-build">Build ${build.build}</span>
                             <span class="timeline-version">v${build.version}</span>
+                            ${changeCount > 1 ? `<span class="change-count">${changeCount} changes</span>` : ''}
                             <span class="timeline-date">${shortDate}</span>
                         </div>
-                        <div class="timeline-change">${mainChange}${moreCount > 0 ? ` <span class="more-changes">+${moreCount} more</span>` : ''}</div>
+                        <div class="timeline-preview">
+                            <span class="expand-icon">▶</span>
+                            <span>${mainChange}</span>
+                        </div>
+                        <div class="timeline-changes">
+                            <ul>${allChangesHtml}</ul>
+                        </div>
                     </div>
                 </div>
             `;
