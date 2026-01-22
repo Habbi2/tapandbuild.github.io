@@ -1,23 +1,28 @@
 ﻿{
     "builds":  [
                    {
+                       "version":  "1.2.0",
+                       "build":  8,
+                       "hash":  "1e9bf6a545717c4d3b67e12a22f4555b7cdd4af9",
                        "date":  "2026-01-06 18:10:04 -0300",
                        "changes":  "Add IAP Remove Ads with 2x boost and instant rewards",
-                       "build":  8,
-                       "version":  "1.2.0",
-                       "hash":  "1e9bf6a545717c4d3b67e12a22f4555b7cdd4af9"
+                       "title":  "IAP \u0026 Remove Ads"
                    },
                    {
+                       "version":  "1.2.0",
+                       "build":  9,
+                       "hash":  "8252cb59719eb0e36ad00fbe0b930f0bea183fb4",
                        "date":  "2026-01-07 05:14:14 -0300",
                        "changes":  [
                                        "Add GitHub Actions build workflow",
                                        "Fix taps challenge tracking + expanded stats panel"
                                    ],
-                       "build":  9,
-                       "version":  "1.2.0",
-                       "hash":  "8252cb59719eb0e36ad00fbe0b930f0bea183fb4"
+                       "title":  "Actions Workflow"
                    },
                    {
+                       "version":  "1.2.1",
+                       "build":  24,
+                       "hash":  "ad895d48db9bccdf1f4a3b0458c5c990ae75851f",
                        "date":  "2026-01-13 03:33:50 -0300",
                        "changes":  [
                                        "Bump version to 1.2.2 (versionCode 26)",
@@ -26,11 +31,12 @@
                                        "Add auto-submit to Play Store",
                                        "Optimize build workflow for speed"
                                    ],
-                       "build":  24,
-                       "version":  "1.2.1",
-                       "hash":  "ad895d48db9bccdf1f4a3b0458c5c990ae75851f"
+                       "title":  "Build Optimizations"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  26,
+                       "hash":  "349d7b002fce4d5df79bf972e5f2f99149ab07b5",
                        "date":  "2026-01-13 04:37:23 -0300",
                        "changes":  [
                                        "Bump version code to 27",
@@ -39,32 +45,35 @@
                                        "Fix Codemagic trigger events",
                                        "Add Codemagic CI configuration"
                                    ],
-                       "build":  26,
-                       "version":  "1.2.2",
-                       "hash":  "349d7b002fce4d5df79bf972e5f2f99149ab07b5"
+                       "title":  "Friend Rooms System"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  27,
+                       "hash":  "39670c4873431fca1469a0b2f95fa7f4741696b5",
                        "date":  "2026-01-13 09:19:26 -0300",
                        "changes":  [
                                        "changed version 28",
                                        "added themes",
                                        "minor css fix"
                                    ],
-                       "build":  27,
-                       "version":  "1.2.2",
-                       "hash":  "39670c4873431fca1469a0b2f95fa7f4741696b5"
+                       "title":  "Theme System"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  28,
+                       "hash":  "0c9855e98aa98de5548a1a304d95c523b423ba1e",
                        "date":  "2026-01-13 10:12:40 -0300",
                        "changes":  [
                                        "multilanguage module",
                                        "Implement reactive theme system + bump to v29"
                                    ],
-                       "build":  28,
-                       "version":  "1.2.2",
-                       "hash":  "0c9855e98aa98de5548a1a304d95c523b423ba1e"
+                       "title":  "Multilanguage Support"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  29,
+                       "hash":  "6d5561c5722bd8053ff5423c645f3a1a22a106de",
                        "date":  "2026-01-14 00:22:54 -0300",
                        "changes":  [
                                        "referals and sharing improvements",
@@ -72,28 +81,31 @@
                                        "changed version code",
                                        "language modules added"
                                    ],
-                       "build":  29,
-                       "version":  "1.2.2",
-                       "hash":  "6d5561c5722bd8053ff5423c645f3a1a22a106de"
+                       "title":  "Referrals \u0026 Sharing"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  30,
+                       "hash":  "8d315d1fee73e651499a8e33c52160a34b878fcc",
                        "date":  "2026-01-14 05:43:16 -0300",
                        "changes":  "changed version to 31",
-                       "build":  30,
-                       "version":  "1.2.2",
-                       "hash":  "8d315d1fee73e651499a8e33c52160a34b878fcc"
+                       "title":  "Code Update"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  31,
+                       "hash":  "c85108209ae3f60307cbbd83e7044a1ec1a55beb",
                        "date":  "2026-01-14 05:49:03 -0300",
                        "changes":  [
                                        "minor fixes",
                                        "minor translation  fixes"
                                    ],
-                       "build":  31,
-                       "version":  "1.2.2",
-                       "hash":  "c85108209ae3f60307cbbd83e7044a1ec1a55beb"
+                       "title":  "Minor Fixes"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  32,
+                       "hash":  "65c68d7824ea20b3858b0a697c88713e10f5d5d2",
                        "date":  "2026-01-14 06:29:10 -0300",
                        "changes":  [
                                        "changed code  to 33",
@@ -101,53 +113,58 @@
                                        "minor changes",
                                        "Add multi-store support (Amazon, Samsung)"
                                    ],
-                       "build":  32,
-                       "version":  "1.2.2",
-                       "hash":  "65c68d7824ea20b3858b0a697c88713e10f5d5d2"
+                       "title":  "Translation Fixes"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  33,
+                       "hash":  "843ccb487763b11df628e8293a7eb4f0ef518067",
                        "date":  "2026-01-15 06:25:37 -0300",
                        "changes":  [
                                        "multiple safe fixes",
                                        "Add trailer page to website",
                                        "minor css fix"
                                    ],
-                       "build":  33,
-                       "version":  "1.2.2",
-                       "hash":  "843ccb487763b11df628e8293a7eb4f0ef518067"
+                       "title":  "Market \u0026 UI Changes"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  34,
+                       "hash":  "ce0552253400486ddbc1c7999e879426fa27fe2c",
                        "date":  "2026-01-16 14:04:19 -0300",
                        "changes":  [
                                        "changed version to 35",
                                        "crashes fixs",
                                        "improvements  to chaching   site"
                                    ],
-                       "build":  34,
-                       "version":  "1.2.2",
-                       "hash":  "ce0552253400486ddbc1c7999e879426fa27fe2c"
+                       "title":  "Dividend Model"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  35,
+                       "hash":  "b07095f7354182e949de454f841002ead45fd7ee",
                        "date":  "2026-01-16 16:20:31 -0300",
                        "changes":  [
                                        "version to 36",
                                        "added swedesh package"
                                    ],
-                       "build":  35,
-                       "version":  "1.2.2",
-                       "hash":  "b07095f7354182e949de454f841002ead45fd7ee"
+                       "title":  "Market System"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  36,
+                       "hash":  "76038a04e55f2404396472db5a12e136e34ab6c6",
                        "date":  "2026-01-17 00:02:37 -0300",
                        "changes":  [
                                        "added analytics,  crash reports and  cloud sync",
                                        "removes artifacts, changed layout, cleaned up code"
                                    ],
-                       "build":  36,
-                       "version":  "1.2.2",
-                       "hash":  "76038a04e55f2404396472db5a12e136e34ab6c6"
+                       "title":  "Investment Features"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  37,
+                       "hash":  "3a2537306f4977f5852602aac35af6d387532002",
                        "date":  "2026-01-17 04:06:40 -0300",
                        "changes":  [
                                        "changed json  directory",
@@ -155,31 +172,34 @@
                                        "version to  38",
                                        "changed tutorial and added cloud synx  ui"
                                    ],
-                       "build":  37,
-                       "version":  "1.2.2",
-                       "hash":  "3a2537306f4977f5852602aac35af6d387532002"
+                       "title":  "Sharing Improvements"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  38,
+                       "hash":  "e0ecbae983697495aa5c47e656f8c2517600025e",
                        "date":  "2026-01-17 04:51:04 -0300",
                        "changes":  [
                                        "fix  compatibility  issues",
                                        "correction  of negative numbers"
                                    ],
-                       "build":  38,
-                       "version":  "1.2.2",
-                       "hash":  "e0ecbae983697495aa5c47e656f8c2517600025e"
+                       "title":  "Theme System Refinements"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  39,
+                       "hash":  "19a62554595ab3e01081d85edc81dad18f924e63",
                        "date":  "2026-01-17 06:40:26 -0300",
                        "changes":  [
                                        "version to 40",
                                        "feat: Game balance rebalancing + Friend Rooms visibility improvement"
                                    ],
-                       "build":  39,
-                       "version":  "1.2.2",
-                       "hash":  "19a62554595ab3e01081d85edc81dad18f924e63"
+                       "title":  "Localization Updates"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  40,
+                       "hash":  "4f7e356719b87030214c02d8cdd237ee73720aae",
                        "date":  "2026-01-18 01:05:35 -0300",
                        "changes":  [
                                        "version to 41",
@@ -193,52 +213,58 @@
                                        "chore: Update Remove Ads price from \\.99 to \\.99",
                                        "chore: Remove Codemagic CI config (using GitHub Actions instead)"
                                    ],
-                       "build":  40,
-                       "version":  "1.2.2",
-                       "hash":  "4f7e356719b87030214c02d8cdd237ee73720aae"
+                       "title":  "Analytics Integration"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  41,
+                       "hash":  "4614368019b664c320396c0c8b599cb46688c4b0",
                        "date":  "2026-01-18 09:53:02 -0300",
                        "changes":  [
                                        "version to  42",
                                        "Fix translations: referral share messages, world/market tabs for all 11 languages"
                                    ],
-                       "build":  41,
-                       "version":  "1.2.2",
-                       "hash":  "4614368019b664c320396c0c8b599cb46688c4b0"
+                       "title":  "Cloud Save Enhancements"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  42,
+                       "hash":  "e28cf1e39dc59cdfbd9892ad9b725803e6347bc5",
                        "date":  "2026-01-19 03:05:28 -0300",
                        "changes":  "feat: Player Investment Market with activity multiplier",
-                       "build":  42,
-                       "version":  "1.2.2",
-                       "hash":  "e28cf1e39dc59cdfbd9892ad9b725803e6347bc5"
+                       "title":  "Market Improvements"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  43,
+                       "hash":  "33fd673e940526f305d3d6889ec86ec00ebde892",
                        "date":  "2026-01-19 12:33:24 -0300",
                        "changes":  "Fix investment system: update translations to growth model, fix integer score sync",
-                       "build":  43,
-                       "version":  "1.2.2",
-                       "hash":  "33fd673e940526f305d3d6889ec86ec00ebde892"
+                       "title":  "UI Polish"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  44,
+                       "hash":  "703f4a5bc4212cc8ce47a91afe63267ce9d3daf6",
                        "date":  "2026-01-19 15:29:50 -0300",
                        "changes":  [
                                        "version  to  45",
                                        "feat: Add Market Health Widget with wall-breaking concept"
                                    ],
-                       "build":  44,
-                       "version":  "1.2.2",
-                       "hash":  "703f4a5bc4212cc8ce47a91afe63267ce9d3daf6"
+                       "title":  "Performance Optimizations"
                    },
                    {
+                       "version":  "1.2.2",
+                       "build":  45,
+                       "hash":  "644ffc6b3d6bdf23de5970a6823297d8495b8cea",
                        "date":  "2026-01-19 17:45:52 -0300",
                        "changes":  "v1.3.0: Fix investment precision + version check system",
-                       "build":  45,
-                       "version":  "1.2.2",
-                       "hash":  "644ffc6b3d6bdf23de5970a6823297d8495b8cea"
+                       "title":  "Stability Improvements"
                    },
                    {
+                       "version":  "1.3.0",
+                       "build":  47,
+                       "hash":  "ae39ce468f65d8469fea4fa17af454ab750ba27d",
                        "date":  "2026-01-20 14:37:35 -0300",
                        "changes":  [
                                        "Bump version to 1.3.1 (versionCode 48)",
@@ -248,18 +274,20 @@
                                        "Fix additional Android crashes from Play Console",
                                        "Fix SoLoader DSO crashes in CI build workflow"
                                    ],
-                       "build":  47,
-                       "version":  "1.3.0",
-                       "hash":  "ae39ce468f65d8469fea4fa17af454ab750ba27d"
+                       "title":  "Investment Precision \u0026 Version Check"
                    },
                    {
+                       "version":  "1.3.1",
+                       "build":  48,
+                       "hash":  "7f59af4f2537bbec379211acf539279cc7f648a9",
                        "date":  "2026-01-20 16:51:40 -0300",
                        "changes":  "v1.3.2: Add sound effects across all UI interactions",
-                       "build":  48,
-                       "version":  "1.3.1",
-                       "hash":  "7f59af4f2537bbec379211acf539279cc7f648a9"
+                       "title":  "Bug Fixes \u0026 Polish"
                    },
                    {
+                       "version":  "1.3.2",
+                       "build":  49,
+                       "hash":  "4b5538cd5c66bf29bb02af5e5b115cc08f21b93c",
                        "date":  "2026-01-20 22:28:53 -0300",
                        "changes":  [
                                        "feat: Tap Boost investment feature with whale-friendly funding bonus",
@@ -271,19 +299,18 @@
                                        "Add translations for navbar labels (Stats, Global, Perks, Achieve, Settings)",
                                        "Add toast notification system with achievement unlocks"
                                    ],
-                       "build":  49,
-                       "version":  "1.3.2",
-                       "hash":  "4b5538cd5c66bf29bb02af5e5b115cc08f21b93c"
+                       "title":  "Sound Effects Update"
                    },
                    {
+                       "version":  "1.3.3",
+                       "build":  50,
+                       "hash":  "96ca4cbe1d81b3c452b2da346938d758d4d22daf",
                        "date":  "2026-01-22 07:05:08 -0300",
                        "changes":  [
                                        "feat: Tap Boost investment feature with whale-friendly funding bonus"
                                    ],
-                       "build":  50,
-                       "version":  "1.3.3",
-                       "hash":  "96ca4cbe1d81b3c452b2da346938d758d4d22daf"
+                       "title":  "Tap Boost \u0026 Wall Protection"
                    }
                ],
-    "generated":  "2026-01-22T08:15:22Z"
+    "generated":  "2026-01-22T08:29:45Z"
 }

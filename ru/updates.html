@@ -145,43 +145,12 @@
             return majorVersions.has(version);
         }
 
-        function getVersionTitle(build) {
-            const titles = {
-                50: 'Tap Boost & Wall Protection',
-                49: 'Sound Effects Update',
-                48: 'Bug Fixes & Polish',
-                47: 'Investment Precision & Version Check',
-                45: 'Stability Improvements',
-                44: 'Performance Optimizations',
-                43: 'UI Polish',
-                42: 'Market Improvements',
-                41: 'Cloud Save Enhancements',
-                40: 'Analytics Integration',
-                39: 'Localization Updates',
-                38: 'Theme System Refinements',
-                37: 'Sharing Improvements',
-                36: 'Investment Features',
-                35: 'Market System',
-                34: 'Dividend Model',
-                33: 'Market & UI Changes',
-                32: 'Translation Fixes',
-                31: 'Minor Fixes',
-                30: 'Code Update',
-                29: 'Referrals & Sharing',
-                28: 'Multilanguage Support',
-                27: 'Theme System',
-                26: 'Friend Rooms System',
-                24: 'Build Optimizations',
-                9: 'Actions Workflow',
-                8: 'IAP & Remove Ads'
-            };
-            return titles[build] || T.build + ' ' + build + ' Update';
-        }
+        // Title now comes from builds.json data
 
         function renderBuild(build, isLatest = false, isExpanded = false) {
             const date = formatDate(build.date);
             const changes = renderChanges(build.changes);
-            const title = getVersionTitle(build.build);
+            const title = build.title || (T.build + ' ' + build.build + ' Update');
             const isMajor = isMajorVersion(build.version);
             
             return `
