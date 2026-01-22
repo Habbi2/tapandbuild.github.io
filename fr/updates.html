@@ -128,13 +128,26 @@
             return '<ul>' + changesList.map(change => '<li>' + change + '</li>').join('') + '</ul>';
         }
 
-        function isMajorVersion(version) {
-            const taggedVersions = ['1.0.0', '1.2.0', '1.2.1', '1.2.2', '1.3.0', '1.3.1', '1.3.2'];
-            return taggedVersions.includes(version);
+        // Derive major versions from builds data (versions that change, not just build numbers)
+        let majorVersions = new Set();
+        function isMajorVersion(version, builds) {
+            // A version is "major" if it's a new version number (not just a build bump)
+            // We'll mark the first occurrence of each version as major
+            if (!majorVersions.size && builds) {
+                const seen = new Set();
+                builds.forEach(b => {
+                    if (!seen.has(b.version)) {
+                        majorVersions.add(b.version);
+                        seen.add(b.version);
+                    }
+                });
+            }
+            return majorVersions.has(version);
         }
 
         function getVersionTitle(build) {
             const titles = {
+                50: 'Tap Boost & Wall Protection',
                 49: 'Sound Effects Update',
                 48: 'Bug Fixes & Polish',
                 47: 'Investment Precision & Version Check',
@@ -238,6 +251,9 @@
                 }
                 
                 builds.sort((a, b) => b.build - a.build);
+                
+                // Initialize major versions from the builds data
+                isMajorVersion(null, builds);
                 
                 const latestBuilds = builds.slice(0, 5);
                 const olderBuilds = builds.slice(5);
