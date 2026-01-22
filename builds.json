@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-22T15:45:48+00:00",
+  "generated": "2026-01-22T18:22:02+00:00",
   "builds": [
     {
       "build": 8,
@@ -200,9 +200,9 @@
     {
       "build": 52,
       "version": "1.3.4",
-      "hash": "bca04e73c5868f48956f6d85e1851044da1769da",
-      "date": "2026-01-22T15:45:29+00:00",
-      "changes": "version to 52"
+      "hash": "791bdfe7c4027bb7c25a135059bb05961b2c88af",
+      "date": "2026-01-22T18:21:46+00:00",
+      "changes": "feat: add EAS Update channel header for OTA updates"
     }
   ]
 }
