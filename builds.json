@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-22T13:20:38+00:00",
+  "generated": "2026-01-22T15:39:33+00:00",
   "builds": [
     {
       "build": 8,
@@ -193,9 +193,9 @@
     {
       "build": 51,
       "version": "1.3.3",
-      "hash": "d331477c5e7bf82ef59ff0326fe5502d256a2831",
-      "date": "2026-01-22T13:20:19+00:00",
-      "changes": "version to 51"
+      "hash": "722b2a1b9ca532ecd0bbbaa9fa56ace73a265b64",
+      "date": "2026-01-22T15:39:12+00:00",
+      "changes": "Add seasonal leaderboards v2, category translations, and SoundManager improvements"
     }
   ]
 }
