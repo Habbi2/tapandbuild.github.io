@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-22T18:22:02+00:00",
+  "generated": "2026-01-24T12:25:45+00:00",
   "builds": [
     {
       "build": 8,
@@ -203,6 +203,13 @@
       "hash": "791bdfe7c4027bb7c25a135059bb05961b2c88af",
       "date": "2026-01-22T18:21:46+00:00",
       "changes": "feat: add EAS Update channel header for OTA updates"
+    },
+    {
+      "build": 58,
+      "version": "1.4.1",
+      "hash": "2237e2d2b2273b1303df635e8aeeaaca547e5481",
+      "date": "2026-01-24T12:25:24+00:00",
+      "changes": "v1.4.1: Device ID persistence, seasonal fixes, lucky wheel improvements"
     }
   ]
 }
