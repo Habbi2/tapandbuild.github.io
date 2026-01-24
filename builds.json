@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-24T12:25:45+00:00",
+  "generated": "2026-01-24T12:52:55+00:00",
   "builds": [
     {
       "build": 8,
@@ -210,6 +210,13 @@
       "hash": "2237e2d2b2273b1303df635e8aeeaaca547e5481",
       "date": "2026-01-24T12:25:24+00:00",
       "changes": "v1.4.1: Device ID persistence, seasonal fixes, lucky wheel improvements"
+    },
+    {
+      "build": 59,
+      "version": "1.4.2",
+      "hash": "4f0bdaa9230c71e1a18faecc5a53fcaae63221d7",
+      "date": "2026-01-24T12:52:37+00:00",
+      "changes": "Bump version to 1.4.2 (versionCode 59)"
     }
   ]
 }
