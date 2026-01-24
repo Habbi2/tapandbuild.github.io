@@ -226,7 +226,10 @@
                     <span>🚀</span>
                     <span>GOOGLE PLAY에서 얼리 액세스</span>
                 </div>
-                <h1 class="hero-title">공장 제국을 건설하세요!</h1>
+                <h1 class="hero-title">
+                    <span class="line">TAP &</span>
+                    <span class="line">BUILD</span>
+                </h1>
                 <p class="hero-subtitle">최고의 방치형 클리커 타이쿤 게임! 간단한 컨베이어 벨트에서 시작하여 차원을 넘나드는 우주 공장 제국으로 성장하세요! 탭하여 수익을 올리고, 매니저로 자동화하고, 리더보드를 지배하세요!</p>
                 <div class="hero-buttons">
                     <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game&hl=ko" class="btn-hero btn-primary">
@@ -325,7 +328,7 @@
             <p class="cta-subtitle">Tap & Build의 새로운 기능을 먼저 테스트하고 미래를 함께 만들어가세요.</p>
             
             <div id="alpha-form-container">
-                <form action="https://formspree.io/f/xwvvlykd" method="POST" class="alpha-form" id="alpha-form">
+                <form class="alpha-form" id="alpha-form">
                     <div class="form-row">
                         <input type="email" name="email" class="form-input" id="email-input" placeholder="your.email@gmail.com" required>
                         <button type="submit" class="form-submit" id="submit-btn">알파 참여</button>
@@ -426,8 +429,11 @@
             document.querySelectorAll('.lang-selector').forEach(ls => ls.classList.remove('active'));
         });
         
-        // Alpha form handling
+        // Alpha form handling - Supabase Edge Function (key stored securely)
         (function() {
+            const SUPABASE_URL = 'https://hifwsxpoctrxojqymblt.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhpZndzeHBvY3RyeG9qcXltYmx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODYwMTQsImV4cCI6MjA4MzA2MjAxNH0.DNp2VQMca1JeW1hgCtDGTSufZ3Sl0CyK9i82-5sH-Cg';
+            
             const form = document.getElementById('alpha-form');
             const emailInput = document.getElementById('email-input');
             const submitBtn = document.getElementById('submit-btn');
@@ -446,7 +452,7 @@
                 e.preventDefault();
                 const email = emailInput.value.trim().toLowerCase();
                 
-                if (!email.endsWith('@gmail.com')) {
+                if (!email.endsWith('@gmail.com') && !email.endsWith('@googlemail.com')) {
                     emailInput.classList.add('error');
                     formError.classList.add('visible');
                     return;
@@ -456,17 +462,25 @@
                 submitBtn.textContent = '...';
                 
                 try {
-                    const response = await fetch(form.action, {
+                    const response = await fetch(`${SUPABASE_URL}/functions/v1/alpha-signup`, {
                         method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            language: 'ko'
+                        })
                     });
                     
-                    if (response.ok) {
+                    const result = await response.json();
+                    
+                    if (response.ok && result.success) {
                         formContainer.style.display = 'none';
                         formSuccess.classList.add('visible');
                     } else {
-                        throw new Error('Form submission failed');
+                        throw new Error(result.error || 'Failed');
                     }
                 } catch (error) {
                     submitBtn.disabled = false;

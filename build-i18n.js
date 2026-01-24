@@ -261,7 +261,10 @@ ${generateLangDropdown(lang)}
                     <span>🚀</span>
                     <span>${t.heroBadge}</span>
                 </div>
-                <h1 class="hero-title">${t.heroTitle}</h1>
+                <h1 class="hero-title">
+                    <span class="line">TAP &</span>
+                    <span class="line">BUILD</span>
+                </h1>
                 <p class="hero-subtitle">${t.heroSubtitle}</p>
                 <div class="hero-buttons">
                     <a href="${playStoreUrl}" class="btn-hero btn-primary">
@@ -360,7 +363,7 @@ ${generateLangDropdown(lang)}
             <p class="cta-subtitle">${t.alphaSubtitle}</p>
             
             <div id="alpha-form-container">
-                <form action="https://formspree.io/f/xwvvlykd" method="POST" class="alpha-form" id="alpha-form">
+                <form class="alpha-form" id="alpha-form">
                     <div class="form-row">
                         <input type="email" name="email" class="form-input" id="email-input" placeholder="${t.alphaPlaceholder}" required>
                         <button type="submit" class="form-submit" id="submit-btn">${t.alphaButton}</button>
@@ -461,8 +464,11 @@ ${generateLangDropdown(lang)}
             document.querySelectorAll('.lang-selector').forEach(ls => ls.classList.remove('active'));
         });
         
-        // Alpha form handling
+        // Alpha form handling - Supabase Edge Function (key stored securely)
         (function() {
+            const SUPABASE_URL = 'https://hifwsxpoctrxojqymblt.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhpZndzeHBvY3RyeG9qcXltYmx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODYwMTQsImV4cCI6MjA4MzA2MjAxNH0.DNp2VQMca1JeW1hgCtDGTSufZ3Sl0CyK9i82-5sH-Cg';
+            
             const form = document.getElementById('alpha-form');
             const emailInput = document.getElementById('email-input');
             const submitBtn = document.getElementById('submit-btn');
@@ -481,7 +487,7 @@ ${generateLangDropdown(lang)}
                 e.preventDefault();
                 const email = emailInput.value.trim().toLowerCase();
                 
-                if (!email.endsWith('@gmail.com')) {
+                if (!email.endsWith('@gmail.com') && !email.endsWith('@googlemail.com')) {
                     emailInput.classList.add('error');
                     formError.classList.add('visible');
                     return;
@@ -491,17 +497,25 @@ ${generateLangDropdown(lang)}
                 submitBtn.textContent = '...';
                 
                 try {
-                    const response = await fetch(form.action, {
+                    const response = await fetch(\`\${SUPABASE_URL}/functions/v1/alpha-signup\`, {
                         method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': \`Bearer \${SUPABASE_ANON_KEY}\`
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            language: '${lang}'
+                        })
                     });
                     
-                    if (response.ok) {
+                    const result = await response.json();
+                    
+                    if (response.ok && result.success) {
                         formContainer.style.display = 'none';
                         formSuccess.classList.add('visible');
                     } else {
-                        throw new Error('Form submission failed');
+                        throw new Error(result.error || 'Failed');
                     }
                 } catch (error) {
                     submitBtn.disabled = false;

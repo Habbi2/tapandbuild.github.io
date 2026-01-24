@@ -371,7 +371,7 @@
             <p class="cta-subtitle">Be among the first to test new features and shape the future of Tap & Build.</p>
             
             <div id="alpha-form-container">
-                <form action="https://formspree.io/f/xwvvlykd" method="POST" class="alpha-form" id="alpha-form">
+                <form class="alpha-form" id="alpha-form">
                     <div class="form-row">
                         <input type="email" name="email" class="form-input" id="email-input" placeholder="your.email@gmail.com" required>
                         <button type="submit" class="form-submit" id="submit-btn">Join Alpha</button>
@@ -391,6 +391,10 @@
     
     <script>
     (function() {
+        // Supabase Edge Function (Resend key stored securely on server)
+        const SUPABASE_URL = 'https://hifwsxpoctrxojqymblt.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhpZndzeHBvY3RyeG9qcXltYmx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODYwMTQsImV4cCI6MjA4MzA2MjAxNH0.DNp2VQMca1JeW1hgCtDGTSufZ3Sl0CyK9i82-5sH-Cg';
+        
         const form = document.getElementById('alpha-form');
         const emailInput = document.getElementById('email-input');
         const submitBtn = document.getElementById('submit-btn');
@@ -408,7 +412,7 @@
             formError.classList.remove('visible');
         });
         
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const email = emailInput.value.trim();
@@ -422,28 +426,34 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Joining...';
             
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
+            try {
+                const response = await fetch(`${SUPABASE_URL}/functions/v1/alpha-signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        language: document.documentElement.lang || 'en'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
                     formContainer.style.display = 'none';
                     formSuccess.classList.add('visible');
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error(result.error || 'Failed');
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error:', error);
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Join Alpha';
                 formError.textContent = 'Something went wrong. Please try again.';
                 formError.classList.add('visible');
-            });
+            }
         });
     })();
     </script>
