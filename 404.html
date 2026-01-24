@@ -7,6 +7,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" href="https://tapandbuild.com/favicon.ico" sizes="48x48">
     <link rel="icon" href="https://tapandbuild.com/favicon-96.png" type="image/png" sizes="96x96">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
         // Handle /invite/CODE routes - redirect to invite page with code
         (function() {
@@ -15,100 +16,183 @@
                 const code = path.split('/invite/')[1].replace(/\/$/, '');
                 if (code) {
                     window.location.replace('/invite/?code=' + encodeURIComponent(code));
+                    return;
                 }
             }
         })();
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-main: #0f1923;
+            --bg-surface: #1a2633;
+            --primary: #FF9F1C;
+            --text: #ffffff;
+            --text-muted: rgba(255,255,255,0.6);
+            --iso-skew: -2deg;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #050510 0%, #0a0a1a 100%);
-            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-main);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .container {
-            max-width: 500px;
+        
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,159,28,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,159,28,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
         }
+        
+        .container { max-width: 500px; position: relative; z-index: 1; }
+        
+        .factory-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
         .error-code {
-            font-size: 8rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 10rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FF9F1C, #FF6B35);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
             line-height: 1;
             margin-bottom: 20px;
+            text-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+            transform: skewX(var(--iso-skew));
         }
+        
         h1 {
+            font-family: 'Orbitron', monospace;
             font-size: 1.8rem;
             margin-bottom: 15px;
-            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
+        
         p {
-            color: rgba(255,255,255,0.7);
+            color: var(--text-muted);
             margin-bottom: 30px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
+        
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #FF9F1C, #FF6B35);
-            color: white;
+            gap: 12px;
+            background: var(--primary);
+            color: #000;
             text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 50px;
+            padding: 18px 36px;
+            font-family: 'Orbitron', monospace;
             font-weight: 700;
             font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 40px rgba(255,159,28,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 3px dashed rgba(0,0,0,0.2);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+            transform: skewX(var(--iso-skew));
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(255,159,28,0.4);
+            transform: skewX(var(--iso-skew)) translateY(-3px);
+            box-shadow: 6px 8px 0 rgba(0,0,0,0.3);
         }
+        
+        .btn span { transform: skewX(calc(var(--iso-skew) * -1)); }
+        
         .links {
-            margin-top: 40px;
+            margin-top: 50px;
             display: flex;
             gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
         }
+        
         .links a {
-            color: rgba(255,255,255,0.5);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-bottom: 2px dashed transparent;
+            transition: color 0.2s, border-color 0.2s;
         }
+        
         .links a:hover {
-            color: #FF9F1C;
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+        
+        .gear {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: spin 20s linear infinite;
         }
+        .gear-1 { top: 10%; left: 10%; }
+        .gear-2 { top: 20%; right: 15%; animation-direction: reverse; }
+        .gear-3 { bottom: 15%; left: 20%; }
+        .gear-4 { bottom: 10%; right: 10%; animation-direction: reverse; }
+        
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .card {
+            background: var(--bg-surface);
+            border: 3px dashed rgba(255,159,28,0.3);
+            padding: 60px 40px;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+            transform: skewX(var(--iso-skew));
+        }
+        
+        .card-content { transform: skewX(calc(var(--iso-skew) * -1)); }
     </style>
 </head>
 <body>
+    <div class="gear gear-1">⚙️</div>
+    <div class="gear gear-2">⚙️</div>
+    <div class="gear gear-3">⚙️</div>
+    <div class="gear gear-4">⚙️</div>
+    
     <div class="container">
-        <div class="icon">🏭</div>
-        <div class="error-code">404</div>
-        <h1>Page Not Found</h1>
-        <p>Oops! This factory floor doesn't exist. The page you're looking for may have been moved or deleted.</p>
-        <a href="/" class="btn">
-            <span>←</span>
-            Back to Home
-        </a>
+        <div class="card">
+            <div class="card-content">
+                <div class="factory-icon">🏭</div>
+                <div class="error-code">404</div>
+                <h1>Factory Not Found</h1>
+                <p>This production line doesn't exist! The page may have been dismantled or relocated to a different facility.</p>
+                <a href="/" class="btn">
+                    <span>← Back to HQ</span>
+                </a>
+            </div>
+        </div>
         <div class="links">
             <a href="/#features">Features</a>
-            <a href="/#gallery">Gallery</a>
             <a href="/#faq">FAQ</a>
+            <a href="/updates.html">Updates</a>
             <a href="https://play.google.com/store/apps/details?id=com.tapandbuild.game">Google Play</a>
         </div>
     </div>
