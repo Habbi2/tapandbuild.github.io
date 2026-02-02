@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-02T18:28:28+00:00",
+  "generated": "2026-02-02T18:41:31+00:00",
   "builds": [
     {
       "build": 8,
@@ -234,10 +234,10 @@
     },
     {
       "build": 74,
-      "version": "1.5.6",
-      "hash": "15fad14f10437f9895e2e2d4982289e433ca7720",
-      "date": "2026-02-02T18:27:43+00:00",
-      "changes": "fix: remove 'as' from blocklist to allow names like toast, add FOREGROUND_SERVICE permission block"
+      "version": "1.5.7",
+      "hash": "bcb2b907fd20cfe480f28628696bfd0bb2d893fe",
+      "date": "2026-02-02T18:40:36+00:00",
+      "changes": "fix: add 4-hour cooldown to prevent infinite free rewards during temp premium"
     }
   ]
 }
