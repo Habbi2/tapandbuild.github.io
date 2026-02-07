@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-02T18:41:31+00:00",
+  "generated": "2026-02-07T22:55:30+00:00",
   "builds": [
     {
       "build": 8,
@@ -234,10 +234,10 @@
     },
     {
       "build": 74,
-      "version": "1.5.7",
-      "hash": "bcb2b907fd20cfe480f28628696bfd0bb2d893fe",
-      "date": "2026-02-02T18:40:36+00:00",
-      "changes": "fix: add 4-hour cooldown to prevent infinite free rewards during temp premium"
+      "version": "1.5.9",
+      "hash": "390817baeaf9e67efffdee01e386f24f97414ce4",
+      "date": "2026-02-07T22:55:14+00:00",
+      "changes": "minor fixs"
     }
   ]
 }
