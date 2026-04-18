@@ -217,6 +217,27 @@
       "hash": "4f0bdaa9230c71e1a18faecc5a53fcaae63221d7",
       "date": "2026-01-24T12:52:37+00:00",
       "changes": "Bump version to 1.4.2 (versionCode 59)"
+    },
+    {
+      "build": 60,
+      "version": "1.5.1",
+      "hash": "339226f4ed6953c9f82c04104a6ba0d090c48ebd",
+      "date": "2026-01-29T17:07:02+00:00",
+      "changes": "major fixes"
+    },
+    {
+      "build": 73,
+      "version": "1.5.4",
+      "hash": "22468df06c268a2f9a61b824db4669592f2a19ff",
+      "date": "2026-01-31T05:51:51+00:00",
+      "changes": "Fix IAP: correct product ID and add billing library"
+    },
+    {
+      "build": 74,
+      "version": "1.5.9",
+      "hash": "390817baeaf9e67efffdee01e386f24f97414ce4",
+      "date": "2026-02-07T22:55:14+00:00",
+      "changes": "minor fixs"
     }
   ]
 }
