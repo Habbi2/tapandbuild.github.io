@@ -256,7 +256,7 @@ ${generateVideoObjectSchema(lang, t)}`;
     html = html.replace('>No Energy System</div>', `>${t.respect4Title}</div>`);
     html = html.replace('>Play as much as you want, whenever you want.</div>', `>${t.respect4Desc}</div>`);
     html = html.replace('>One Fair Price</div>', `>${t.respect5Title}</div>`);
-    html = html.replace('>$4.99 removes ads forever + bonuses. No subscriptions.</div>', `>${t.respect5Desc}</div>`);
+    html = html.replace('>$2.99 removes ads forever + bonuses. No subscriptions.</div>', `>${t.respect5Desc}</div>`);
     
     // Scene 14 - Offline (uses h2, p, and div)
     html = html.replace('>Earn While You Sleep</h2>', `>${t.offlineTitle}</h2>`);

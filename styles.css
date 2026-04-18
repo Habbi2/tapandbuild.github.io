@@ -534,6 +534,16 @@ nav.scrolled {
     box-shadow: 6px 6px 0 rgba(0, 217, 255, 0.3);
 }
 
+.btn-demo {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    box-shadow: 4px 4px 0 #047857, 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-demo:hover {
+    box-shadow: 6px 6px 0 #047857, 0 0 30px rgba(16, 185, 129, 0.5);
+}
+
 /* Conveyor Belt Stats */
 .hero-stats {
     display: flex;

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Tap & Build: Idle Factory Tycoon</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #03030a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: #0f0f2f;
+      opacity: 0.5;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .bezel {
+      position: relative;
+      border-radius: 54px;
+      background: #0d0d1f;
+      padding: 6px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 120px rgba(15, 15, 47, 0.3);
+    }
+    iframe {
+      border: none;
+      border-radius: 48px;
+      background: #050510;
+      display: block;
+    }
+    .home-indicator {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+    }
+    .side-btn-left,
+    .side-btn-right {
+      position: absolute;
+      width: 3px;
+      background: #1a1a3a;
+      border-radius: 2px;
+    }
+    .side-btn-left { left: -3px; }
+    .side-btn-right { right: -3px; }
+    .btn-vol-up { top: 100px; height: 30px; }
+    .btn-vol-down { top: 140px; height: 30px; }
+    .btn-power { top: 120px; height: 50px; }
+
+    @media (max-width: 640px) {
+      body { background: #1a1a2e; }
+      .glow, .bezel, .home-indicator, .side-btn-left, .side-btn-right { display: none; }
+      iframe { width: 100vw; height: 100vh; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="bezel">
+    <div class="side-btn-left btn-vol-up"></div>
+    <div class="side-btn-left btn-vol-down"></div>
+    <div class="side-btn-right btn-power"></div>
+    <iframe id="app-frame" src="./app.html" width="400" height="865"></iframe>
+    <div class="home-indicator"></div>
+  </div>
+</body>
+</html>

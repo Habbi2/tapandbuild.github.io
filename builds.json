@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-24T12:52:55+00:00",
+  "generated": "2026-04-18T21:51:41.512Z",
   "builds": [
     {
       "build": 8,
@@ -178,10 +178,10 @@
     },
     {
       "build": 49,
-      "version": "1.3.2",
+      "version": "1.11.0",
       "hash": "4b5538cd5c66bf29bb02af5e5b115cc08f21b93c",
       "date": "2026-01-21T01:28:53+00:00",
-      "changes": "v1.3.2: Add sound effects across all UI interactions"
+      "changes": "v1.11.0: Add sound effects across all UI interactions"
     },
     {
       "build": 50,
@@ -212,8 +212,8 @@
       "changes": "v1.4.1: Device ID persistence, seasonal fixes, lucky wheel improvements"
     },
     {
-      "build": 59,
-      "version": "1.4.2",
+      "build": 60,
+      "version": "1.11.0",
       "hash": "4f0bdaa9230c71e1a18faecc5a53fcaae63221d7",
       "date": "2026-01-24T12:52:37+00:00",
       "changes": "Bump version to 1.4.2 (versionCode 59)"
