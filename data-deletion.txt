@@ -1,0 +1,21 @@
+TAP & BUILD - DATA DELETION REQUEST
+=====================================
+
+HOW TO REQUEST DATA DELETION:
+1. Send an email to: support@tapandbuild.com
+2. Subject line: "Data Deletion Request"
+3. Include your Player Name from the game
+4. We will confirm within 48 hours and delete within 30 days
+
+DATA DELETED:
+- Player name and leaderboard scores
+- Cloud save data (game progress)
+- Device ID and analytics data
+- Crash logs
+
+DATA RETAINED (legal requirements):
+- Purchase history (7 years for tax/accounting)
+- Anonymized crash logs (90 days)
+
+For EU users: This complies with GDPR Article 17.
+Last updated: April 2026
