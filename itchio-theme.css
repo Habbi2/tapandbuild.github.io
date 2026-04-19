@@ -1,0 +1,200 @@
+/* ============================================
+   Tap & Build - itch.io Dark Theme
+   Paste this into: Edit game → Theme → Custom CSS
+   ============================================ */
+
+/* ---- Page Background ---- */
+body {
+  background: #0a0a1a !important;
+  color: #e0e0e0 !important;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+}
+
+/* ---- Main Content Column ---- */
+.inner_column {
+  background: transparent !important;
+  max-width: 720px !important;
+}
+
+/* ---- Game Embed Frame ---- */
+.game_frame {
+  background: #0d0d1f !important;
+  border: 2px solid #2a2a4a !important;
+  border-radius: 16px !important;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.08), 0 0 80px rgba(15, 15, 47, 0.4) !important;
+  overflow: hidden !important;
+  margin-bottom: 24px !important;
+}
+
+.game_frame iframe {
+  border-radius: 14px !important;
+}
+
+/* ---- Game Title ---- */
+.game_title {
+  color: #FFD700 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px !important;
+  text-shadow: 0 2px 12px rgba(255, 215, 0, 0.2) !important;
+}
+
+.game_title a {
+  color: #FFD700 !important;
+}
+
+/* ---- Support / Buy Button ---- */
+.buy_row .button,
+.buy_row a.button,
+.support-button {
+  background: linear-gradient(135deg, #FFD700 0%, #f5c542 100%) !important;
+  color: #0a0a1a !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  padding: 14px 32px !important;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.buy_row .button:hover,
+.buy_row a.button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(255, 215, 0, 0.35) !important;
+}
+
+/* ---- Description Area ---- */
+.game_description {
+  background: #12122a !important;
+  border: 1px solid #1e1e3f !important;
+  border-radius: 16px !important;
+  padding: 28px !important;
+  margin-top: 20px !important;
+}
+
+.formatted_description {
+  color: #c8c8e0 !important;
+  line-height: 1.7 !important;
+  font-size: 15px !important;
+}
+
+.formatted_description h1,
+.formatted_description h2,
+.formatted_description h3 {
+  color: #FFD700 !important;
+  font-weight: 700 !important;
+  margin-top: 24px !important;
+  margin-bottom: 12px !important;
+}
+
+.formatted_description h2 {
+  font-size: 22px !important;
+  border-bottom: 2px solid #2a2a4a !important;
+  padding-bottom: 8px !important;
+}
+
+.formatted_description strong {
+  color: #ffffff !important;
+}
+
+.formatted_description a {
+  color: #7ec8e3 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(126, 200, 227, 0.3) !important;
+  transition: all 0.2s !important;
+}
+
+.formatted_description a:hover {
+  color: #FFD700 !important;
+  border-bottom-color: #FFD700 !important;
+}
+
+.formatted_description ul {
+  padding-left: 20px !important;
+}
+
+.formatted_description li {
+  margin-bottom: 8px !important;
+}
+
+.formatted_description img {
+  border-radius: 12px !important;
+  border: 1px solid #2a2a4a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  max-width: 100% !important;
+}
+
+/* ---- "Also available on" Section ---- */
+.game_metadata .app_store_links,
+.game_metadata .links {
+  background: #12122a !important;
+  border: 1px solid #1e1e3f !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+}
+
+.game_metadata .app_store_links a,
+.game_metadata .links a {
+  opacity: 0.9 !important;
+  transition: opacity 0.2s !important;
+}
+
+.game_metadata .app_store_links a:hover,
+.game_metadata .links a:hover {
+  opacity: 1 !important;
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: transparent !important;
+  border-top: 1px solid #1e1e3f !important;
+  color: #666680 !important;
+  margin-top: 40px !important;
+  padding-top: 20px !important;
+}
+
+.footer a {
+  color: #8888a0 !important;
+}
+
+/* ---- Comments Section ---- */
+#comments {
+  background: #12122a !important;
+  border: 1px solid #1e1e3f !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  margin-top: 24px !important;
+}
+
+#comments h2 {
+  color: #FFD700 !important;
+}
+
+/* ---- Scrollbar Styling (Webkit) ---- */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a1a !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a4a !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a5a !important;
+}
+
+/* ---- Mobile Adjustments ---- */
+@media (max-width: 640px) {
+  .inner_column {
+    padding: 0 12px !important;
+  }
+
+  .game_description {
+    padding: 18px !important;
+  }
+}
